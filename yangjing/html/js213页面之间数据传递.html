@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面之间数据传递</title>
+    <script>
+        window.onload = function(){
+            /*
+                页面之间数据传递
+
+             */
+            
+            var goods = {
+                name:'阿联酋美女',
+                age:18,
+                price:'20W',
+                imgurl:'img/g1.jpg'
+            }
+
+            // 把对象拼接成字符串：name=阿联酋美女&age=18
+            var params = '';
+            for(var attr in goods){
+                params += attr + '=' + goods[attr] + '&'
+            }
+
+            // 删除多余的&
+            params = params.slice(0,-1);
+
+            console.log(params)
+
+
+
+            var meinv= document.getElementById('meinv');
+
+            meinv.onclick = function(){
+                meinv.href = "07details.html?" + params
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>页面之间数据传递</h1>
+    <a href="07details.html" id="meinv"><img src="../images/1.jpg"></a>
+</body>
+</html>

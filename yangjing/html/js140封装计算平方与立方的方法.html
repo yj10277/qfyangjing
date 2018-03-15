@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        
+    </head>
+    <body>
+        <h3>封装计算平方与立方的方法</h3>
+        <input type="text" /><button>计算平方立方</button>
+        <div></div>
+        <script type="text/javascript">
+            var div = document.querySelector('div');
+            var in1 = document.querySelector('input');
+            var btn = document.querySelector('button');
+            btn.onclick = ()=>{
+                var _in = in1.value*1;
+                div.innerHTML = plf(_in);
+            }
+                function plf(a){
+                    var pf = a*a;
+                    var lf = a*a*a;
+                    return '平方:' + pf + ' ' + '立方:' + lf;
+                }
+                    
+                 
+                
+        </script>
+    </body>
+</html>

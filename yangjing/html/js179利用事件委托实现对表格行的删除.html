@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                table{border-collapse: collapse;}
+                td{border:1px solid black;padding: 5px;}
+
+        </style>
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',function(){
+
+                    var table = document.querySelector('table');
+                    
+                    var btn = table.getElementsByTagName('button');
+
+                    
+                    table.onclick = function(e){
+                        e = e || window.event;
+                        var target = e.target || e.srcElement;console.log(target);
+                        
+                                if(target.className == 'fz'){
+                                    
+                                        var tr = target.parentNode.parentNode.cloneNode(true);
+                                        
+                                        target.parentNode.parentNode.parentNode.appendChild(tr);
+                                        tr.children[0].innerHTML = target.parentNode.parentNode.parentNode.children.length;
+                                }
+                                if(target.className == 'sc'){
+                                        var tr = target.parentNode.parentNode;
+                                        tr.parentNode.removeChild(tr);
+                                }
+                                        
+
+                                    
+                                    
+
+                        
+                    }
+
+
+
+
+
+
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <table>
+            <h3>利用事件委托实现对表格行的删除</h3>
+            <tr>
+                <td>1</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td><button class="fz">复制</button><button class="sc">&times</button></td>
+                
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td><button class="fz">复制</button><button class="sc">&times</button></td>
+                
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td><button class="fz">复制</button><button class="sc">&times</button></td>
+                
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td><button class="fz">复制</button><button class="sc">&times</button></td>
+                
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td>单元格</td>
+                <td><button class="fz">复制</button><button class="sc">&times</button></td>
+                
+            </tr>
+        </table>
+    </body>
+</html>

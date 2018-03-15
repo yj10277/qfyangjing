@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day06作业_封装norepeat去重函数</title>
+    <script>
+        
+         var res = [10,10,10,10,11,42,100,20,42,42];
+         
+         function norepeat(arr){
+                for(var j=0;j<arr.length;j++){
+                    for(var i=j+1;i<arr.length;i++){
+                            if(arr[j]===arr[i]){
+                                arr.splice(i,1);
+                                i--;
+                            }
+                            console.log(arr);
+                    }
+                }
+                return arr;
+         }
+
+         var jg = norepeat(res);
+         document.write(jg);
+
+
+
+
+    </script>
+</head>
+<body>
+    <h3>封装norepeat去重函数(针对数组)</h3>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../js/yj.ajax.js"></script>
+    </head>
+    <body>
+        <h3>ajax插件的引用</h3>
+        <div>
+            <ul>
+                
+            </ul>
+        </div>
+        <script type="text/javascript">
+                var ul = document.querySelector('ul');
+                ajax({
+                    type:'get',
+                    url:'http://wthrcdn.etouch.cn/weather_mini?city=北京',
+                    async:true,
+                    data:{pageNo:1,qty:10},
+                    success:function(a){
+                        //根据数据生成html结构
+                       var res = a.data.forecast
+                       ul.innerHTML = res.map(function(a){
+                                    return `<li>
+                                                <h1>${a.date}</h1>
+                                                <h2>最${a.low} --- 最${a.high}</h2>
+                                                <h3>${a.fengxiang}  ${a.fengli.slice(10,-3)}</h3>
+                                                
+                                                
+                                                <h6>${a.type}</h6>
+
+                                            </li>`
+                                }).join('');
+
+                    }
+                });
+
+
+
+        </script>
+    </body>
+</html>

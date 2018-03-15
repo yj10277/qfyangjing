@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                .s2:hover{color:red;}
+                .s1{color:blue;}
+                .dhz{width: 400px;border:1px dashed #ccc;position: absolute;}
+                .ys{display: none;}
+                h4{width: 400px;height: 20px;border-bottom:1px solid #ccc;}
+                b{color:blue;}
+                .s2{float:right;}
+                .s4{margin-left:16px;}
+                .d1{margin-left:50px;color:red;font-size: 10px;}
+                .d2{margin-left:50px;color:red;font-size: 10px;}
+        </style>
+    </head>
+    <body>
+        <h3>&nbsp&nbsp你好，欢迎来到国家信息安全系统，请先<span class="s1">登录</span></h3>
+        <div class="dhz ys">
+            <h4>&nbsp&nbsp注册登录<span class="s2">&times</span></h4>
+            <div class="xhz">
+                <div><span>用户名:</span><input type="text" class="in1"/></div>
+                <div class="d1"></div>
+                <div><span class="s4">  密码:</span><input type="password" class="in2"/></div>
+                <div class="d2"></div>
+                <div><input type="checkbox" class="in3"/><span>同意<b>保密协议</b></span></div>
+                <button disabled>登录</button>
+            </div>
+        </div>
+                <script type="text/javascript">
+                        var dhz = document.querySelector('.dhz');
+                        var in3 = document.querySelector('.in3');
+                        var in1 = document.querySelector('.in1');
+                        var in2 = document.querySelector('.in2');
+                        var btn = document.querySelector('button');
+                        var d1 = document.querySelector('.d1');
+                        var d2 = document.querySelector('.d2');
+                        var s1 = document.querySelector('.s1');
+                        var s2 = document.querySelector('.s2');
+                        s1.onclick = function(){
+                            dhz.classList.toggle('ys');
+                            dhz.style.left = (window.innerWidth - dhz.offsetWidth)/2 + 'px';
+                            dhz.style.top = (window.innerHeight - dhz.offsetHeight)/2 + 'px';
+                        }
+                        // var k = 0;
+                        // s1.onclick = xy;
+                        // function xy(){
+                        //     dhz.style.display = k==0 ? 'none':'block';
+                        //     k = !k;
+                        //     dhz.style.left = (window.innerWidth - dhz.offsetWidth)/2 + 'px';
+                        //     dhz.style.top = (window.innerHeight - dhz.offsetHeight)/2 + 'px';
+                        // }
+                        s2.onclick = function(){
+                            // dhz.style.display = 'none';
+                            dhz.setAttribute('class','dhz ys')
+                        }
+                        // dhz.style.left = (window.innerWidth - dhz.offsetWidth)/2 + 'px';
+                        // dhz.style.top = (window.innerHeight - dhz.offsetHeight)/2 + 'px';
+                        window.onresize = function(){
+                                
+                                dhz.style.left = (window.innerWidth - dhz.offsetWidth)/2 + 'px';
+                                dhz.style.top = (window.innerHeight - dhz.offsetHeight)/2 + 'px';
+                        }
+                        in1.oninput = function(){
+
+                            var _in1 = in1.value;
+                            d1.innerHTML = '';
+                            if(!/^[a-zA-Z][a-zA-Z\d]{5,11}$/.test(_in1)){
+                                d1.innerHTML = '用户名不合法';console.log(_in1);
+                                return false;
+                            }
+
+                        }
+                        in2.oninput = function(){
+
+                            var _in2 = in2.value;
+                            d2.innerHTML = '';
+                            if(!/^[\d\D]{6,18}$/.test(_in2)){
+                                d2.innerHTML = '密码不合法';
+                                return false;
+                            }
+                        }
+                        in3.onclick = function(){
+                        
+                            if(in3.checked){
+                                    btn.disabled = false;
+                            }else{
+                                    btn.disabled = true;
+                            }
+                        }
+                        
+                        document.onkeydown = function(e){
+                            console.log(666);
+                                if(e.keyCode == 27){
+                                        dhz.style.display = 'none';
+                                }
+                        }
+
+
+                       
+
+                </script>
+    </body>
+</html>

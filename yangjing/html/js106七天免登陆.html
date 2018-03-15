@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03七天免登陆</title>
+    <style>
+        .welcome{display: none;}
+    </style>
+    <script>
+        window.onload = function(){
+            var username = document.getElementById('username');
+            var password = document.getElementById('password');
+            var btnLogin = document.getElementById('btnLogin');
+            var currentName = document.getElementById('currentName');
+            var mdl = document.getElementById('mdl');
+            var welcome = document.getElementsByClassName('welcome')[0];
+            var form = document.getElementsByClassName('form')[0];
+
+            // 登录
+            btnLogin.onclick = function(){
+                var _username = username.value;
+                var _password = password.value;
+
+                // 显示欢迎页面
+                // 隐藏表单
+                welcome.style.display = 'block';
+                form.style.display = 'none';
+                currentName.innerText = _username;
+
+                // 如果勾选免登陆，保存用户名和密码
+                if(mdl.checked){
+                    var now = new Date();
+                    now.setDate(now.getDate()+5);
+                    document.cookie = 'username=' + _username + ';expires=' + now.toUTCString();
+                    document.cookie = 'password=' + _password + ';expires=' + now.toUTCString();
+
+                }
+             
+            }
+            //页面加载读取cookie
+            var cookies = document.cookie;
+            if(cookies.length){
+                cookies = cookies.split('; ');//['username=xxx','password=xxxx']
+                cookies.forEach(function(item){
+                    var arr = item.split('=');//['username','xxx']
+                    if(arr[0]=username){
+                        currentName.innerText = arr[1];
+                        welcome.style.display = 'block';
+                        form.style.display = 'none'; 
+                    }
+                })
+
+
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>七天免登陆</h1>
+    <div class="form">
+        <label for="username">用户名</label>
+        <input type="text" id="username" name="username">
+        <label for="password">密码</label>
+        <input type="password" id="password" name="password">
+        <input type="checkbox" id="mdl">七天免登陆
+        <button id="btnLogin">登录</button>
+    </div>
+    <div class="welcome">
+        <p>hello,<span id="currentName"></span>，欢迎来约</p>
+        <img src="../images/2.jpg">
+
+    </div>
+    <a href="js105拖动菜单.html">点击跳转</a>
+</body>
+</html>

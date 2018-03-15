@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>16进制随机背景色</h3>
+        <script type="text/javascript">
+            function getColor(){
+                var k = '#';
+                for(var i=0;i<6;i++){
+                    var str = '0123456789abcdef';
+                    var sj = parseInt(Math.random()*16);
+                    k += str[sj];
+                }
+                return k;
+            }
+                document.body.style.background = getColor();
+                console.log();
+
+        </script>
+    </body>
+</html>

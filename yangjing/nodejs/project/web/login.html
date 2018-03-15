@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../web/libs/common.js"></script>
+    </head>
+    <body>
+        <input type="text" id="username" />
+        <input type="password" id="password" />
+        <input type="button" value="登录" id="btn" />
+
+
+        <script type="text/javascript">
+          $(function(){
+            $('#btn').click(function(){
+                $.post(common.baseUrl+'login',{username:$('#username').val(),pwd:$('#password').val()},function(res){
+                    console.log(res);
+                    if(res.status){
+                        location.href ="index.html";
+                    }else{
+                        alert('登录信息错误');
+                    }
+                })
+            })
+          })
+
+        </script>
+    </body>
+</html>

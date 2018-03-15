@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+    table{border:1px solid black;border-collapse:collapse;width: 100%;}
+    td{border:1px solid black;}
+
+
+</style>
+<script>
+    window.onload = function(){
+            var bg = document.getElementById('bg');
+            var tds = bg.getElementsByTagName('td');
+            
+            // 普通方法
+            // // for(var i=0;i<tds.length;i++){
+            // //      tds[i].onclick = function(){
+            // //         var input = document.createElement('input');
+            // //             input.type = 'text';
+            // //             input.value = this.innerText;
+            // //             this.innerHTML = '';
+            // //             this.appendChild(input);
+            // //             //获取焦点
+            // //             input.focus();
+            // //             var  dyg= this;
+            // //             //失去焦点
+            // //             input.onblur = function(){
+            // //                     dyg.innerHTML = input.value;
+            // //             }
+            // //     }
+            // 功能优化方法
+            bg.onclick = function(e){
+                e= e || window.event;
+                var target = e.target || e.srcElement;
+                if(target.nodeName.toLowerCase() === 'td'){
+                  //第一列与最后一列不可编辑
+                    
+                    var d = target.cellIndex;console.log(d);
+                    if(d===0||d===7){
+                          return;
+                    }
+
+                    var input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = target.innerText;
+                    target.innerHTML = '';
+                    target.appendChild(input);
+                    //获取焦点
+                    input.focus();
+                    var  dyg= target;
+                    //失去焦点
+                    input.onblur = function(){
+                            dyg.innerHTML = input.value;
+                            }
+                    
+                }
+            }
+
+    }
+                         
+</script>
+</head>
+<body>
+
+        <h3>可编辑表格</h3>
+        <table id="bg">
+                   <tr>
+                       <td>1</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>2</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>3</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>4</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>5</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>6</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>7</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>8</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>9</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+                   <tr>
+                       <td>10</td>
+                       <td>单元格01</td>
+                       <td>单元格02</td>
+                       <td>单元格03</td>
+                       <td>单元格04</td>
+                       <td>单元格05</td>
+                       <td>单元格06</td>
+                       <td><button>删除</button></td>
+                   </tr>
+        </table>       
+    </body>
+</html>

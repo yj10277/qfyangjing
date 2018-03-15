@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .dy{position: absolute;width: 200px;height: 200px;border:1px solid black;border-radius:50%;}
+            .xy{position: absolute;width: 20px;height: 20px;border:1px solid black;border-radius:50%;}
+
+
+        </style>
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    var dy = document.querySelector('.dy');
+                    var xy = document.querySelector('.xy');
+                    
+                    
+                    //浏览器窗口大小改变调整
+                    window.onresize = ()=>{
+                        jz();
+                    }
+                    //中心
+                    var center = {x:window.innerWidth/2,y:window.innerHeight/2}
+                    //半径
+                    var r = dy.offsetWidth/2;
+                    //度数
+                    var deg = 0;
+                    setInterval(()=>{
+                        deg += 5;
+                        deg = deg%360;console.log(deg);
+                        go();
+                    },30);
+
+                    jz();
+
+                    //初始化
+                    function jz(){
+                        dy.style.left = (window.innerWidth - dy.offsetWidth)/2 + 'px';
+                        dy.style.top = (window.innerHeight - dy.offsetHeight)/2 + 'px';
+                        
+                    }
+
+                    function go(){
+                        //转弧度
+                        var hd = deg*Math.PI/180;
+                        //定位小圆到0度位置
+                        //求出自己边
+                        var a = r*Math.cos(hd);
+                        var b = r*Math.sin(hd);
+                        var left = center.x + a - xy.offsetWidth/2;
+                        var top  = center.y + b - xy.offsetHeight/2;
+                        xy.style.left = left + 'px';
+                        xy.style.top = top + 'px';
+                    }
+
+                })  
+
+
+        </script>
+    </head>
+    <body>
+        <div class="xy"></div>
+        <div class="dy"></div>
+    </body>
+</html>

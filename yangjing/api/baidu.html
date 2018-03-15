@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                *{padding: 0;margin: 0;}
+                ul,li{list-style:none;}
+                li{padding: 5px;}
+        </style>
+    </head>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',function(){
+
+            var input = document.querySelector('input');
+            var ul = document.querySelector('ul');
+            //失去焦点向百度请求数据
+            input.oninput = function(){
+                var nl = input.value;
+                var script = document.createElement('script');
+                script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=hq&wd='+nl;
+                document.head.appendChild(script);
+            }
+            //把请求到的数据写入ul
+            window.hq = function(a){
+                    var lj = a.s;
+                    ul.innerHTML = lj.map(function(item){
+                        return `<li>
+                                    ${item}
+                                </li>`
+                    }).join('');
+            }
+        })
+
+
+
+
+
+    </script>
+    <body>
+        <h3>山寨百度</h3>
+        <div>
+            <input type="text" /><button>搜索</button>
+        </div>
+        <ul></ul>
+    </body>
+</html>

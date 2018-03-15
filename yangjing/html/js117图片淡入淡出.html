@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .tp{opacity:0.5;}
+        </style>
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    let tp = document.querySelector('.tp');
+                    console.log(tp);
+                    tp.onmousemove = ()=>{
+                        let cs = 1;
+                        let time = setInterval(()=>{
+                            //初始透明度
+                            let thd = getComputedStyle(tp).opacity*1;
+                            //速度
+                            let speed = (cs - thd)/10;
+                            
+                            let jg = thd + speed
+                            if(thd == cs){
+                                clearInterval(time);
+                            }
+                            tp.style.opacity = jg;
+
+
+                        },1000)
+                        
+                    }
+
+
+
+
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <img src="../images/2.jpg" class="tp" />
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='../../js/vue.js'></script>
+    </head>
+    <body>
+
+        <template id="wo">
+            <div>
+                <h1>我是单独模块</h1>
+            </div>
+        </template>
+        <div>
+            
+                <yangjing></yangjing>
+                <v2></v2>
+                <v3></v3>
+                <h1 >{{txt}}</h1>
+                <button v-on:click='click'>点击++</button>
+                <v4></v4>
+                <select name="" id="">
+                    <option value="">男</option>
+                    <option is='v5'></option>
+                </select>
+                <!-- 动态组件 -->
+                <input type="button" :value='color' />
+                <h2 :is='isd'></h2>
+                <v6 title='头头'>
+                    <span>yangjing</span>
+                </v6>
+                <v7 :tit='click' v-on:eve="click"></v7>
+                <v8></v8>
+                <input type="text" v-model='txt' />
+                <h3>{{txt}}</h3>
+                
+
+        </div>
+
+        <script type="text/javascript">
+                //全局的组件
+                Vue.component('yangjing',{
+                    template:'<h1>我是杨靖</h1>'
+                })
+
+                var vm = new Vue({
+                    el:'div',
+                    data:{
+                        txt:1,
+                        color:'red',
+                        isd:'v4'
+                    },
+                    methods:{
+                        click:function(){
+                            this.txt++; 
+                        }
+                    },
+                    //局部组件
+                    components:{
+
+                        'v2':{
+                            template:'<h2>我是杨靖2</h2>'
+                        },
+                        'v3':{
+                            template:'<h2>我是杨靖3</h2>'
+                        },
+                        'v4':{
+                            template:'<div><h3>v4--{{txt2}}</h3><button v-on:click="click">点击3++</button></div>',
+                            data:function(){
+                                return{
+                                    txt2:3
+                                }
+                                
+                            },
+                            methods:{
+                                click:function(){
+                                    this.txt2++;
+                                }
+                            }
+                        },
+                        'v5':{
+                            template:'<option>女</option>'
+                        },
+                        //组件属性(<slot></slot>可以在v6里面直接写html标签不会被覆盖)
+                        'v6':{
+                            template:'<h5>组件6 {{title}}<slot></slot></h5>',
+                            props:['title']
+
+                        },
+                        //组件事件
+                        'v7':{
+                            template:'<input type="button" @click="click" :value="txt"/>',
+                            data:function(){
+                                return {
+                                    txt:3333
+                                }
+                            },
+                            methods:{
+                                click:function(){
+                                    this.txt++;
+                                    //this.tit();
+                                    this.$emit('eve');
+                                }
+                            },
+                            props:['tit']
+                        },
+                        //组件模板写法  
+                        
+                        'v8':{
+                            template:'#wo'
+                        }
+                    }
+                        
+                });
+        </script>
+
+
+    </body>
+</html>

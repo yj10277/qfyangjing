@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{width: 200px;position: absolute;bottom: 0;left: 0;}
+
+        </style>
+        <script type="text/javascript">
+
+            document.addEventListener('DOMContentLoaded',()=>{
+                var cz = document.querySelector('.cz');
+                console.log(cz);
+                var speed = 80;
+                var time = setInterval(()=>{
+                    speed -= 5;
+                    var left = cz.offsetLeft + speed; 
+                    
+                    if(speed <= 0){
+                        clearInterval(time);
+                        speed = 0;
+                        
+                    }
+                    cz.style.left = left + 'px';
+
+                },20)
+            })
+
+
+        </script>
+    </head>
+    <body>
+        <img src="../images/car.jpg" class="cz" />
+    </body>
+</html>

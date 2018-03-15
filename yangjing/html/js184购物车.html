@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            ul,li{list-style:none;overflow-x: hidden;}
+            h4{float:right;padding-bottom: 30px;margin: 0;}
+            li{width: 500px;margin-bottom: 20px;}
+            h4:hover{color:red;}
+
+        </style>
+
+    </head>
+    <body>
+        <h3>购物车</h3>
+        <ul></ul>
+        <div><button>清空购物车</button><p>总价：<span></span></p></div>
+        <script type="text/javascript">
+                
+             
+                var ul = document.querySelector('ul');
+                var span = document.querySelector('span');
+                var btn = document.querySelector('button');
+                
+                var arr = [];
+                //读取cookie,生成html结构
+                function sclb(){
+                            var total = 0;
+                            var a = document.cookie;
+                            a = a.split('; ');
+                            a.forEach(function(item){
+                                var b = item.split('=');
+                                if(b[0]=='name'){
+                                    arr = JSON.parse(b[1]);
+                                }
+                            })    
+                            console.log(arr);
+                            ul.innerHTML = arr.map(function(item){
+                                    total += item.jg*item.qty;
+                                    return `<li data-sp="${item.id}">
+                                                <h4>&times</h4>
+                                                <img src="${item.img}">
+                                                <h3>${item.name}</h3>
+                                                <p>价格：${item.jg}<span>&times${item.qty}</span></p>
+                                            </li>`
+                             }).join('');               
+                            span.innerHTML = total;
+                }
+                sclb();
+                //点击清除购物车
+                btn.onclick = function(){
+                    var now = new Date();
+                    now.setDate(now.getDate()-10);
+                    
+                    document.cookie = 'name=null;expires=' + now.toUTCString();
+                    console.log(document.cookie);
+                    arr = [];
+                    sclb();
+                    
+                }
+                                       
+                //单个点击删除商品
+                ul.onclick = function(e){
+                    e = e || window.event;
+                    var target = e.target || e.srcElement;
+                    if(target.nodeName.toLowerCase() == 'h4'){
+                        var id = target.parentNode.getAttribute('data-sp');
+                        for(var i=0;i<arr.length;i++){
+                            if(arr[i].id == id){
+                                    arr.splice(i,1);
+                                    break;
+                            }
+                        }
+                        
+                        document.cookie = 'name='+JSON.stringify(arr);
+                        
+                        sclb();
+                    }
+                }
+
+
+
+                               
+
+
+
+
+
+                
+
+
+        </script>
+    </body>
+</html>

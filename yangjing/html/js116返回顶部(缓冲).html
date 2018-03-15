@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .top{display: none;position: fixed; right:5px;bottom: 5px;background:pink;}
+        </style>
+        <script type="text/javascript">
+                    for(var i=0;i<1000;i++){
+
+                        document.write(`<p>点击网络空间登录可见我的${i}</p>`);
+
+                    }
+            document.addEventListener('DOMContentLoaded',()=>{
+                    var top = document.querySelector('.top')
+                    
+                    window.onscroll = ()=>{
+                        let y = window.scrollY;
+                        if(y>=1000){
+                            top.style.display = 'block';
+                        }else{
+                            top.style.display = 'none'
+                        }
+                        //缓冲运动
+
+                        top.onclick = ()=>{
+                           let time = setInterval(()=>{
+                                    let y = window.scrollY
+                                    let speed = y/10;
+                                    y = y - speed;
+                                    console.log(y);
+                                   
+                                   if(speed<=0 || y<=20){
+                                        clearInterval(time);
+                                   }
+                                   scrollTo(0,y); 
+                            },20)
+                            
+                        }
+                    }
+            })
+
+        </script>
+    </head>
+    <body>
+        <div class="top">返回顶部</div>
+    </body>
+</html>

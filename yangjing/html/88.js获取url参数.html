@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+            var url = 'https://www.baidu.com/s?name=laoxie&age=18&sex=male';
+
+            var idx = url.indexOf('?');
+            url = url.substring(idx+1);//'name=laoxie&age=18&sex=male'
+
+            var xing = url.split('&');//['name=laoxie','age=18','sex=male']
+            console.log(xing);
+            var xd = {};
+            xing.forEach(function(item){
+                    var arr = item.split('=');//['name','laoxie']
+                    console.log(arr);
+                    xd[arr[0]] = arr[1];//把数组转成对象
+            });
+            console.log(xd);
+
+        </script>
+
+    </body>
+</html>

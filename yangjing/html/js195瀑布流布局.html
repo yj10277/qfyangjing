@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+       <style>
+            * {padding: 0;margin: 0;}
+            html {height: 100%;}
+             body {height: 100%;}
+            img {border: 0;}
+            .wrap {width: 100%;height: 100%;margin: 0 auto;position: relative;background: #DDD;}
+            
+            .wrap div {width: 200px;padding: 4px;border: 1px solid #000;float: left;position: absolute;left:0;top:0;background:#fff;}
+            .wrap div h3 {line-height: 35px;}
+            
+            .wrap div img { width: 200px;}
+        </style>
+    </head>
+    <script src="../js/common.js"></script>
+    <body>
+            <div class="wrap" id="wrap">
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/1.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/2.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/3.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/4.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/5.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/6.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/7.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/8.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                <div>
+                    <h3>瀑布流</h3>
+                    <a href="#" title=""><img src="../images/waterfall/9.jpg" alt="" title="" /></a>
+                    <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+                    <span>瀑布流瀑布流瀑布流瀑布流</span>
+                </div>
+                
+                
+            </div>
+
+    </body>
+</html>
+        <script type="text/javascript">
+               var hz = document.querySelector('.wrap');
+               var imgs = hz.children;
+               var kd = imgs[0].clientWidth;
+               //行数
+               var hang = Math.floor((hz.clientWidth-17)/kd);
+               //间隔宽度
+               var jg = (hz.clientWidth-17)%kd/(hang + 1);
+               var arr = [];
+               for(var i=0;i<hang;i++){
+                    arr.push({
+                        left:jg*(i+1) + kd*i,
+                        top:jg
+                    });
+               };
+                //给每个div定位
+               for(let k=0;k<imgs.length;k++){
+                    //等待图片加载完才执行
+                    var img = hz.querySelectorAll('img')[k];
+                    img.onload = function(){
+
+                        //找出数组最小top值，
+                        var minx = 0;
+                        var min = arr[minx].top;
+                        for(var j=1;j<arr.length;j++){
+                            if(arr[j].top<min){
+                                min = arr[j].top;
+                                minx = j;
+                            }
+                        };
+                        //动画效果
+                            animate(imgs[k],{left:parseInt(arr[minx].left),top:parseInt(arr[minx].top)});
+                        //普通效果
+                        // imgs[k].style.left = arr[minx].left + 'px';        
+                        // imgs[k].style.top = arr[minx].top + 'px';
+                        // 更新最小top 关键
+                        arr[minx].top += jg + imgs[k].offsetHeight;
+                    }
+                               
+               }
+            
+                window.onresize = function(){
+                         //行数
+                       var hang = Math.floor((hz.clientWidth-17)/kd);
+                       //间隔宽度
+                       var jg = (hz.clientWidth-17)%kd/(hang + 1);
+                       var arr = [];
+                       for(var i=0;i<hang;i++){
+                            arr.push({
+                                left:jg*(i+1) + kd*i,
+                                top:jg
+                            });
+                       };
+                        //给每个div定位
+                       for(let k=0;k<imgs.length;k++){
+                            //等待图片加载完才执行
+                            var img = hz.querySelectorAll('img')[k];
+                            img.onload = function(){
+                            
+
+                                //找出数组最小top值，
+                                var minx = 0;
+                                var min = arr[minx].top;
+                                for(var j=1;j<arr.length;j++){
+                                    if(arr[j].top<min){
+                                        min = arr[j].top;
+                                        minx = j;
+                                    }
+                                };
+                                imgs[k].style.left = arr[minx].left + 'px';        
+                                imgs[k].style.top = arr[minx].top + 'px';
+                                // 更新最小top 关键
+                                arr[minx].top += jg + imgs[k].offsetHeight;
+                            
+                            }           
+                       }
+                }
+
+            
+        </script>

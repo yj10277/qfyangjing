@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>实现秒表功能 : 显示xx时xx分xx秒 , 点击按钮开始计时</h3><button class="btn1">开始</button> <button class="btn2">结束</button>
+        <div></div>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                var btn = document.querySelector('.btn1');
+                var btn2 = document.querySelector('.btn2');
+                var m = 0;
+                var s = 0;
+                var f = 0;
+                div.innerHTML = 'xx时xx分xx秒';
+                
+                var k ='';
+                btn.onclick = function(){
+                    clearInterval(k);
+                    var time = setInterval(mb,1000);
+                    k=time;
+                };
+
+                btn2.onclick = function(){
+                    clearInterval(k);
+                        }
+                function mb(){
+                    m++;
+                    m = m<10 ? '0'+m:m;
+                    if(m==60){
+                        m = '0'+ 0;
+                        f++;
+
+                        f = f<10 ? '0'+f:f;
+                    }
+
+                    if(f==60){
+                        f = '0'+0;
+                        s++;
+                        s = s<10 ? '0'+s:s;
+                    }
+                    
+                    div.innerHTML = s+'时'+f+'分'+m+'秒';
+                } 
+
+                
+
+
+
+
+
+        </script>
+    </body>
+</html>

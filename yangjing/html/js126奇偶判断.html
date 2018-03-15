@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    var input = document.querySelector('input');
+                    var output = document.querySelector('.output');
+                    var btn = document.querySelector('button');
+                    
+                    btn.onclick = ()=>{
+                        var _input = input.value;
+                          if(_input%2 === 0){
+                            output.innerHTML = '偶数';
+                        }else{
+                            output.innerHTML = '奇数';
+                        }
+                        console.log(_input);  
+                    }
+                    
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <h3>判断奇偶</h3>
+        <input type="text" /><button>判断</button>
+        <div class="output"></div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            .dhz{width: 200px;height: 200px;background: pink;border-radius:50%;position: absolute;left: 0;top: 0;}
+            .xhz1{width: 6px;height: 6px;background: blue;position: absolute;}
+            .xhz2{width: 6px;height: 6px;background: blue;position: absolute;}
+            .xhz3{width: 6px;height: 6px;background: blue;position: absolute;}
+            .xhz4{width: 6px;height: 6px;background: blue;position: absolute;}
+        </style>  
+
+
+        
+    </head>
+    <body>
+        <div class="dhz"></div>
+        <div class="xhz1"></div>
+        <div class="xhz2"></div>
+        <div class="xhz3"></div>
+        <div class="xhz4"></div>
+        <script type="text/javascript">
+                var xhz1 = document.querySelector('.xhz1');
+                var xhz2 = document.querySelector('.xhz2');
+                var xhz3 = document.querySelector('.xhz3');
+                var xhz4 = document.querySelector('.xhz4');
+                var hd = 0*Math.PI/180;
+                var left = 100+100*Math.cos(hd)-6;
+                var t = 100+100*Math.sin(hd)-6;
+                xhz1.style.left = left+'px';
+                xhz1.style.top = t+'px';
+                var hd = 90*Math.PI/180;
+                var left = 100+100*Math.cos(hd)-6;
+                var t = 100+100*Math.sin(hd)-6;
+                xhz2.style.left = left+'px';
+                xhz2.style.top = t+'px';
+                var hd = 180*Math.PI/180;
+                var left = 100+100*Math.cos(hd);
+                var t = 100+100*Math.sin(hd)-6;
+                xhz3.style.left = left+'px';
+                xhz3.style.top = t+'px';
+                var hd = 270*Math.PI/180;
+                var left = 100+100*Math.cos(hd)-6;
+                var t = 100+100*Math.sin(hd);
+                xhz4.style.left = left+'px';
+                xhz4.style.top = t+'px';
+
+
+
+        </script>
+    </body>
+</html>

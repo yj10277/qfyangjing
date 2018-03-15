@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='../../js/vue.js'></script>
+    </head>
+    <body>  
+        <div>
+                <input type="text" v-model='xm'  placeholder='请输入姓名'/> <input type="text"  v-model='nl' placeholder='请输入年龄'/> 
+                <select  v-model='xb'>
+                    <option >男</option>
+                    <option >女</option>
+                </select>
+                <input type="button" value='添加' v-on:click='click'/>
+            
+                <table>
+                    <thead>
+                        <tr>
+                            <th v-for='(a,b) in dataset[0]'>{{b}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='(obj,k) in dataset' :key='k'>
+                            <td v-for='(value) in obj'>{{value}}</td>
+                            <td><input type="button" value='删除' v-on:click='click2(k)'/></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <script type="text/javascript">
+                var vm = new Vue({
+                    el:'div',
+                    data:{
+                        xm:'',
+                        nl:'',
+                        xb:'男',
+                        dataset:[{id:1,name:'yang',age:30,xb:'男'},{id:2,name:'jing',age:20,xb:'男'}]
+                    },
+                    methods:{
+                        click:function(){
+                            this.dataset.push({id:this.dataset.length+1,name:this.xm,age:this.nl,xb:this.xb});
+                        },
+                        click2:function(a){
+                            console.log(a);
+                            this.dataset.splice(a,1);
+                        }
+                    }
+                });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="text" id="shuru"/><span id="we">123</span>
+        <p><button id="btn">验证</button></p>
+        <script>
+            var shuru = document.getElementById("shuru");
+            var we = document.getElementById("we");
+            var btn = document.getElementById("btn");
+            
+
+            function shuiji(){
+                    var res = "";
+                    for(var i=1;i<=4;i++){
+                        var num = parseInt(Math.random()*10);
+                        res = res + num;
+                    }
+                
+                return res;
+            }
+
+            var shui = shuiji();
+            we.innerHTML = shui;
+            btn.onclick = function(){
+                var _shuru = shuru.value;
+                if(_shuru === shui){
+                    alert("你已通过验证");
+
+                }
+            }
+        </script>
+    </body>
+</html>

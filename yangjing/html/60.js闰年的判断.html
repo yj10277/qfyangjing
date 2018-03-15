@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        function chaXun(){
+              var shuru=document.getElementById("shuru");
+              var _shuru=shuru.value;
+              if ((_shuru%4 === 0 && _shuru%100 != 0) || _shuru%400 ===0){
+                shuchu.innerHTML="<b>闰年</b>";
+
+              }else{
+                shuchu.innerHTML="平年";
+              }
+        }  
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>查询闰年平年</h3>
+        <input type="text" id="shuru"/><button onclick="chaXun()">查询</button>
+        <div id="shuchu"></div>
+
+
+    </body>
+</html>

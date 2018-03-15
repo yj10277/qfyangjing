@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>五星评分</title>
+    <style type="text/css">
+    #star {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 300px;
+        height: 28px;
+    }
+    
+    #star li {
+        float: left;
+        background: url(../images/star.gif) no-repeat 0 0;
+        width: 27px;
+        height: 28px;
+    }
+    
+    #star .active{background-position:0 -29px;}
+    
+    </style>
+   
+</head>
+
+<body>
+    <ul id="star">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="info"></div>
+    <script type="text/javascript">
+                var ul = document.querySelector('ul');
+                var div = document.querySelector('div');
+                var lis = document.querySelectorAll('li');
+                var index = 0;
+                var arr = '差评,一般,良好,推荐,强力推荐'.split(',');
+                //点击保存索引到djsyz
+                var djsyz = 0;
+                ul.onmouseover = function(e){
+                    if(e.target.nodeName.toLowerCase()== 'li'){
+                        // 获取当前索引值
+                        lis.forEach(function(a,b){
+                            if(e.target == a){
+                                index = b; 
+                            }
+                        });console.log(e.target);
+
+
+                        // 高亮与去除高亮
+                        lis.forEach(function(a,b){
+                            if(b<= index){
+                                a.className = 'active';
+                            }else{
+                                a.className = '';
+                            }
+                        });
+                    };
+                };
+
+                // 点击评分
+                ul.onclick = function(e){
+                   if(e.target.nodeName.toLowerCase()== 'li'){
+                        lis.forEach(function(a,b){
+                              if(e.target == a){
+                                    djsyz = b;
+                                    div.innerHTML = arr[b];
+                              }  
+                        })
+                   } 
+                }
+                       
+                // 鼠标移出保存高亮位置
+                ul.onmouseout = function(){
+                    lis.forEach(function(a,b){
+                            if(b<= djsyz){
+                                a.className = 'active';
+                            }else{
+                                a.className = '';
+                            }
+                        });
+                }
+
+
+
+                        
+                        
+               
+
+    </script>
+</body>
+
+</html>

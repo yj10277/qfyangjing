@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07烟花效果</title>
+    <style>
+        html,body{overflow:hidden;height:100%;background:#000;}
+        .fire {
+            width: 3px;
+            height: 30px;
+            background: white;
+            position: absolute;top:100%;
+        } 
+        .spark {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    </style>
+    <script src="../js/common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            /*
+                找对象
+                    * 飞入烟花（多个）
+                    * 爆炸火花（多个）
+                    * 页面（1个）
+                
+                思路
+                    1）创建并描述对象
+                        * 获取点击的坐标
+                        * 飞入烟花
+                        * 爆炸
+                            * 移除
+                            * 发散（创建很多对象）
+                    2）指挥对象
+                        * 先后顺序
+
+                扩展：
+                 * 自动放烟花
+
+             */
+            
+            var page = {
+                area:document.body,
+
+                //初始化
+                //* 生成/获取节点
+                //* 绑定事件
+                init(){
+                    document.onclick = function(e){
+                        
+                        
+                        // 点击生成烟花
+                        // new Fire(e.clientX,e.clientY).init().move();
+                        new Fire(e.clientX,e.clientY);
+                    }
+                }
+            }
+
+            page.init();
+
+
+            // 烟花构造函数
+            function Fire(x,y){
+                this.left = x;
+                this.top = y;
+
+                // 爆炸数量
+                this.qty = randomNumber(12,36);
+
+                // 爆炸半径
+                this.r = randomNumber(110,220);
+
+                this.init().move();
+            }
+
+
+            Fire.prototype.init = function(){
+                // 生成烟花节点
+                var myFire = document.createElement('span');
+                myFire.className = 'fire';
+
+                // 设定样式
+                myFire.style.left = this.left + 'px';
+
+                // 写入页面
+                page.area.appendChild(myFire);
+
+                // 通过this传递myFire
+                this.ele = myFire;
+
+                // 返回this以便链式调用
+                return this;
+            }
+
+            // 动画
+            Fire.prototype.move = function(){
+                animate(this.ele,{top:this.top});
+                
+                return this;
+            }
+
+            // 爆炸
+            // 
+            Fire.prototype.boom = function(){
+                this.remove();
+
+                // 火花的数量（随机）
+                for(var i=0,len=this.qty;i<len;i++){
+                    // 角度
+                    var deg = 360/this.qty*i;
+
+                    var s = new Spark(this.left,this.top,this.r,deg);
+                    s.init();
+                    s.move();
+                }
+
+                return this;
+            }
+
+            // 移除烟花
+            Fire.prototype.remove = function(){
+                this.ele.parentNode.removeChild(this.ele);
+                return this;
+            }
+
+
+            // 火花构造函数
+            function Spark(x,y,r,deg){
+                // 火花初始位置
+                this.center = {x:x,y:y};
+
+                // 半径
+                this.r = r;
+
+                // 弧度
+                this.rad = deg*Math.PI/180;
+
+                // 随机颜色
+                this.color = randomColor();
+            }
+
+
+            // 方法
+            Spark.prototype.init = function(){
+                // 生成节点
+                var mySpark = document.createElement('span');
+                mySpark.className = 'spark';
+
+                // 设定样式（left,top,backgroundColor）
+                mySpark.style.left = this.center.x + 'px';
+                mySpark.style.top = this.center.y + 'px';
+                mySpark.style.backgroundColor = this.color;
+
+                // 写入页面
+                page.area.appendChild(mySpark);
+
+                // 传递
+                this.ele = mySpark;
+
+                return this;
+            }
+            Spark.prototype.move = function(){
+                // 计算目标top,left值
+                var a = this.r*Math.cos(this.rad);
+                var b = this.r*Math.sin(this.rad);
+                var targetLeft = parseInt(this.center.x + a);
+                var targetTop = parseInt(this.center.y + b);
+                // console.log(targetTop,targetLeft)
+
+                animate(this.ele,{left:targetLeft,top:targetTop},()=>{
+                    this.remove();
+                });
+
+                return this;
+            }
+            Spark.prototype.remove = function(){
+                this.ele.parentNode.removeChild(this.ele);
+                return this;
+            }
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

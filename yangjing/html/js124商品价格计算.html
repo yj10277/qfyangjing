@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    
+                    var s1 = document.querySelector('#s1');
+                    var in2 = document.querySelector('.in2');
+                    
+                    in2.oninput = function yang(){
+                                var total = 1480 * in2.value;
+                                
+                                s1.innerHTML = total;
+                    }
+                    
+
+
+                   
+
+                })
+
+
+        </script>
+
+    </head>
+    <body>
+        <img src="../images/003.jpg"/>
+        <div>价格:￥1480</div>
+        <span>数量:</span><input type="number" class="in2"/>
+        <div>总价:￥<span id="s1"></span></div>
+
+    </body>
+</html>

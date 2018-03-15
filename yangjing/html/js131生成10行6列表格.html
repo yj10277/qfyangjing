@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            td{padding: 10px;border:1px solid black;}
+
+        </style>
+        <script src='../js/common.js'></script>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',()=>{
+            var div = document.querySelector('div');
+            var in1 = document.querySelector('.in1');
+            var in2 = document.querySelector('.in2');
+            var btn = document.querySelector('button');
+            
+            btn.onclick = ()=>{
+
+                let _in1 = in1.value*1;
+                let _in2 = in2.value*1;
+                console.log(_in1);
+
+                let h = '<table>';
+                for(let i =1;i<= _in1;i++){
+                    h += `'<tr style="background:${getColor()}">'`;
+                    console.log(h);
+                    for(let j=1;j<= _in2;j++){
+                        h += '<td>' + '单元格' + '</td>'
+                    }
+                    h += '</tr>'
+                }
+                h += '</table>'
+                div.innerHTML = h;
+            }
+
+
+
+        })
+
+        </script>
+    </head>
+    <body>
+        <h3>生成10行6列表格</h3>
+        <input type="text" placeholder="行" class="in1"/> <input type="text" placeholder="列" class="in2"/> <button>生成</button>
+        <div></div>
+    </body>
+</html>

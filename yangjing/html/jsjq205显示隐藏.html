@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../js/jquery-3.2.1.js"></script>
+    </head>
+    <body>
+        
+        <div>
+            <img src="../images/2.jpg" alt="" />
+            
+        </div>
+        <button>显示隐藏</button>
+        <script type="text/javascript">
+
+            jQuery(function($){
+                $('button').on('click',function(){
+
+                    $('img').slideToggle();
+                })
+            })
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>求1!+2!+3!+4!+5!…20!</h3>
+        <script type="text/javascript">
+                //第一种方法
+                // var h = 0;
+                // for(var i=1;i<=20;i++){
+                        
+                //         var s = 1;
+                //         for(var j=1;j<=i;j++){
+                            
+                //             s = s * j;
+                               
+                //         }   
+                         
+                //         h = h + s;
+                // }
+                
+                // document.write('等于: ' + h);
+
+                //第二种方法
+                var h = 0;
+                var s = 1;
+                for(var i=1;i<=20;i++){
+                        s = s * i;
+                        h = h + s;
+                }
+                document.write('等于: ' + h);
+
+        </script>
+    </body>
+</html>

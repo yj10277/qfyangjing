@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var arr = [10,3,5,7,9,34,56,89,40];
+            var maxid = 0;
+            var max = arr[0];
+            var minid = 0;
+            var min = arr[0];
+
+            var zong = arr[0];
+            for(var i=1;i<arr.length;i++){
+                    if(arr[i]>max){
+                        max = arr[i];
+                        maxid = i;
+                    }
+                    if(arr[i]<min){
+                        min = arr[i];
+                        minid = i;
+                    }
+                    zong += arr[i];
+                    var pj = zong/arr.length;
+            }
+            document.write(arr);
+            document.write('<br />');
+            document.write('最大值:'+max+'&nbsp'+'索引:'+maxid);
+            document.write('<br />');
+            document.write('最小值:'+min+'&nbsp'+'索引:'+minid);
+            document.write('<br />');
+            document.write('平均值:'+pj.toFixed(2));
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{width: 100px;height: 100px;position:absolute;}
+            body{background: black;}
+        </style>
+    </head>
+    <body>
+        <img src="../images/basketball.jpg" alt="" />
+        <script type="text/javascript">
+                var img = document.querySelector('img');
+                var xspeed = 5;
+                var yspeed = 6;
+                var time = setInterval(function(){
+                        yspeed +=2;
+                        xspeed +=2;
+                        var top = img.offsetTop + yspeed;
+                        var left = img.offsetLeft + xspeed;
+                        img.style.top = top + 'px';console.log(yspeed);
+                            
+                        if(top >= window.innerHeight - img.offsetHeight){
+                            // img.style.top = window.innerHeight - img.offsetHeight + 'px';
+                            yspeed *= -1;
+                            // img.style.left = left + 'px';
+                        }
+                },30);
+
+        </script>
+    </body>
+</html>

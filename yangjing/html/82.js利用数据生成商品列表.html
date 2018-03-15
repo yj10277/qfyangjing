@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>用以上数据生成一个商品列表</title>
+    <style>
+    ul,li{list-style: none;}
+        img{width:180px;}
+         p{color:#f00;}
+         p::before{content:'￥';}
+         p:last-child::before{content:none;}   
+        
+        
+        
+            
+    </style>
+    </head>
+    <body>
+        <h1>用以上数据生成一个商品列表</h1>
+        <div id="data"></div>
+
+        <script>
+        
+        
+        var goodslist =  [{
+            id:'001',
+            name:'iphone7 plugs',
+            imgurl:'../images/01.jpg',
+            price:5899.00,
+            sale:5888.00,
+            color:'土豪金'
+        },{
+            id:'002',
+            name:'Note7',
+            imgurl:'../images/1.png',
+            price:3899.00,
+            sale:998.00,
+            color:'黑色'
+        },{
+            id:'003',
+            name:'荣耀7',
+            imgurl:'../images/2.jpg',
+            price:1999.00,
+            sale:1899.00,
+            color:'白色'
+        }];
+            普通办法
+            var html = '<ul>';
+            
+            for(var i=0;i<goodslist.length;i++){
+                var good = goodslist[i];
+                html += '<li id="'+good.id+'"><img src="'+good.imgurl+'"><h3>产品名称:'+good.name+'</h3><p>产品原价:'+good.price+'</p><p>产品现价:'+good.sale+'</p><p>颜色:'+good.color+'</p></li>';
+                
+            }
+            html += '</ul>';
+            var data = document.getElementById("data");
+            data.innerHTML = html;
+            
+
+            //es5 map方法
+            // var html = goodslist.map(function(good){
+                    
+            //     return  '<li id="'+good.id+'"><img src="'+good.imgurl+'"><h3>产品名称:'+good.name+'</h3><p>产品原价:'+good.price+'</p><p>产品现价:'+good.sale+'</p><p>颜色:'+good.color+'</p></li>';
+            // });
+
+            //     console.log(html);
+
+            
+            // var data = document.getElementById("data");
+            // data.innerHTML = html.join('');
+
+
+        </script>
+    </body>
+</html>

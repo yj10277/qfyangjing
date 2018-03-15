@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <h3>求两个数中的最大值</h3>
+        <input type="text" id="in1" />
+        <input type="text" id="in2" />
+        <button onclick="qiu()">比较</button>
+        <div id="shuchu"></div>
+        <script>
+            var in1=document.getElementById("in1");
+            
+            var in2=document.getElementById("in2");
+            
+            var shuchu=document.getElementById("shuchu");
+
+            function qiu(){
+                var _in1=in1.value*1;
+
+                var _in2=in2.value*1;
+
+                if(_in1 > _in2){
+                    shuchu.innerHTML="最大值:"+_in1;
+
+                }else if(_in1 < _in2){
+                    shuchu.innerHTML="最大值:"+_in2;
+
+                }else{
+                    shuchu.innerHTML="相等";
+                }
+            }
+            
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

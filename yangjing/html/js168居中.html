@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{width: 200px;height: 300px;border:2px dashed black;position:absolute;}
+            span{position: absolute;top: 5px;right: 5px;}
+            span:hover{color:red;}
+        </style>
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',function(){
+                    var div = document.querySelector('div');
+                    var left = (innerWidth - div.offsetWidth)/2; 
+                    var top = (innerHeight - div.offsetHeight)/2; 
+                    div.style.left = left + 'px';
+                    div.style.top = top + 'px';
+                        window.onresize = function(){
+                                var left = (innerWidth - div.offsetWidth)/2; 
+                                var top = (innerHeight - div.offsetHeight)/2; 
+                                div.style.left = left + 'px';
+                                div.style.top = top + 'px';
+
+
+                        }
+
+
+
+
+
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <div><span>&times</span></div>
+    </body>
+</html>

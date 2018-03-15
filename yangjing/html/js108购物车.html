@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        ul{list-style: none;padding:0;margin:0;}
+        #carList li{position:relative;padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid #ddd;}
+        #carList img{display:block;width:100px;}
+        #carList li .btn-close{position:absolute;top:0;right:0;padding:0 5px;cursor:default;}
+        #carList li .btn-close:hover{background-color:#f00;color:#fff;}
+        .subPrice{padding:5px 20px;color:#f00;font-weight:bold;text-align:right;}
+        #carList .price span{color:#f00;}
+        .price span::before{
+            content:'￥';
+            font-size:11px;
+        }
+        #carList .price span{font-size:11px;}
+    </style>
+    <script>
+    window.onload = function(){
+        /*
+            读取cookie中的carlist
+            把json字符串转换成对象/数组：JSON.parse()
+            json字符串格式：
+                1.必须用双引号
+                2.不能右注释
+         */
+        var carList = document.getElementById('carList');
+        var subPrice = document.getElementsByClassName('subPrice')[0];
+        
+        
+        var btnClear = document.getElementById('btnClear')
+        //读取cookie
+        var carlist
+
+        var cookies = document.cookie;
+        if(cookies.length){
+            cookies = cookies.split('; ');//['carlist=[{},{}]','usename=xxx']
+            cookies.forEach(function(item){
+                var arr = item.split('=');//['carlist','[]','usename','xxx']
+                if(arr[0]==='carlist'){
+                    carlist = JSON.parse(arr[1]);
+                }
+            });
+        }
+
+        
+        
+        //把carlist数组用map转成html结构
+        
+        console.log(carlist);
+                var zj = 0;
+                var ul = document.createElement('ul');
+                ul.innerHTML=carlist.map(function(sp){
+                                //计算总价
+                                zj += sp.price*sp.qty;
+                                return '<li data-guid="'+sp.guid+'">'
+                                       + '<img src="'+sp.imgurl+'">'
+                                       + '<h3>'+sp.name+'</h3>'
+                                       + '<p class="price">价格:<span>'+sp.price+'&times'+sp.qty+'</span></p>'
+                                       + '<span class="btn-close">&times;</span>'
+                                       
+                                       + '</li>'
+                            }).join('');
+    
+
+        //把ul插入carlist
+        carList.appendChild(ul);
+        //写入总价
+        
+        subPrice.innerHTML = zj;
+        
+        //删除对应的商品
+        carList.onclick = function(e){
+            e = e || widows.event;
+            var target = e.target || e.srcElement;
+            if(target.className==='btn-close'){
+                    var scli = target.parentNode;
+                    var guid = scli.getAttribute('data-guid');
+                    for(var i=0;i<carlist.length;i++){
+                        if(carlist[i].guid===guid){
+                            carlist.splice(i,1);
+                            break;
+                        }    
+                    }
+                //重写cookie
+                document.cookie = 'carlist=' + JSON.stringify(carlist) ;
+                //删除对应的li
+                scli.parentNode.removeChild(scli);
+                //重写价格
+                             
+                
+            }
+        }
+        //清空购物车
+        btnClear.onclick = function(){
+            var now = new Date();
+            now.setDate(now.getDate()-10);
+            document.cookie = 'carlist=x;expires=' + now.toUTCString();
+            carList.innerText = '';
+            subPrice.innerText = '';
+        }
+
+    }
+        
+    </script>
+</head>
+<body>
+    <h1>购物车</h1>
+    <div id="carList">
+        
+    </div>
+    <div class="subPrice"></div>
+    <a href="#" id="btnClear">清空购物车</a>
+</body>
+</html>

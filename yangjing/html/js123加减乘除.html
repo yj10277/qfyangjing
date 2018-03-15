@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',function(){
+                    var input1 = document.querySelector('#input1');
+                    var input2 = document.querySelector('#input2');
+                    var jia = document.querySelector('#jia');
+                    var jian = document.querySelector('#jian');
+                    var cheng = document.querySelector('#cheng');
+                    var chu = document.querySelector('#chu');
+                    var div = document.querySelector('div');
+                    jia.onclick = ()=>{
+                        var he = (input1.value)*1 + (input2.value)*1;
+                        div.innerHTML = he;
+
+                    }
+                    jian.onclick = ()=>{
+                        var jian = (input1.value)*1 - (input2.value)*1;
+                        div.innerHTML = jian;
+
+                    }
+                    cheng.onclick = ()=>{
+                        var cheng = (input1.value)*1 * (input2.value)*1;
+                        div.innerHTML = cheng;
+
+                    }
+                    chu.onclick = ()=>{
+                        var chu = Number(input1.value) / Number(input2.value);
+                        div.innerHTML = chu;
+
+                    }
+                    
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="input1"/>
+        <input type="text" id="input2"/>
+        <button id="jia">加</button>
+        <button id="jian">减</button>
+        <button id="cheng">乘</button>
+        <button id="chu">除</button>
+        <div></div>
+    </body>
+</html>

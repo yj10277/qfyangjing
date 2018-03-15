@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var yuexing=10000;
+            var money = yuexing*12;
+            for(var year=2;year<=10;year++){
+                yuexing=yuexing+yuexing*0.05;
+                money=money+yuexing*12;
+            }
+
+            document.write("10年后小王的薪资:"+yuexing.toFixed(2)+" 十年总薪资:"+money.toFixed(2));
+        </script>
+    </head>
+    <body>
+        <h3>小王入职薪水10K，每年涨幅5%，10年后工资多少？
+这10年小王赚了多少钱</h3>
+
+    </body>
+</html>

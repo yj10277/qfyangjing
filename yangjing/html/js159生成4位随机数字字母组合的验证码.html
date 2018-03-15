@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>生成4位随机数字字母组合的验证码</h3>
+        <script type="text/javascript">
+            function vCode(){
+                
+                var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWSYZ';
+                var k ='';
+                for(var i=0;i<4;i++){
+                        var sj = parseInt(Math.random()*62);
+                        k += str[sj];
+                }
+                return k;
+            } 
+
+            console.log(vCode());
+
+
+        </script>
+    </body>
+</html>

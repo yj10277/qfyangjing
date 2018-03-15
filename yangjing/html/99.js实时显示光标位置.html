@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            #hz{position: absolute;left: 0;bottom:0; padding: 5px 10px ; font-size: 10px;background-color:rgba(3,0,0,.3); }
+
+        </style>
+    </head>
+    <body>
+        <div id="hz">120,160</div>
+        <script>
+            (function(){
+                    var hz = document.getElementById('hz');
+                    document.onmousemove = function(e){
+                        console.log(e.clientX,e.clientY);
+                        hz.innerHTML = '可视区域:'+e.clientX+' '+e.clientY+'<br>'+'电脑屏幕:'+e.screenX+' '+e.screenY+'<br>'+'离顶距离:'+e.pageX+' '+e.pageY;
+                    }
+
+
+            })();
+
+
+
+
+        </script>
+    </body>
+</html>

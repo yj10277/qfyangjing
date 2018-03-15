@@ -1,0 +1,41 @@
+.dddhz{background: #FDF7FF;}
+.dingdan{height: 100px;background: #63AB2D;display:flex;justify-content:space-around;align-items:center;margin-bottom: 15px;}
+.dingdan span:nth-of-type(1){font-size:40px;color:white;}
+.dingdan div{font-size: 30px;color:white;}
+
+.psfs{height: 60px;background: #FAFAFA;line-height: 60px;font-size:25px;}
+
+.shdz{height: 90px;background:white;line-height: 90px;font-size:30px;margin-bottom: 15px;}
+.pssj{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.pssj span:nth-child(1){margin-left: 30px;}
+.pssj span:nth-child(2){margin-right: 30px;}
+
+.zffs{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.zffs span:nth-child(1){margin-left: 30px;}
+.zffs span:nth-child(2){margin-right: 30px;}
+
+.hbyh{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.hbyh span:nth-child(1){margin-left: 30px;}
+.hbyh span:nth-child(2){margin-right: 30px;}
+
+.dw{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.dw span:nth-child(1){margin-left: 30px;}
+.dw span:nth-child(2){margin-right: 30px;}
+
+.spll{height: 120px;background:white;}
+
+.psf{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.psf span:nth-child(1){margin-left: 30px;}
+.psf span:nth-child(2){margin-right: 30px;color:red;}
+
+.yhje{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.yhje span:nth-child(1){margin-left: 30px;}
+.yhje span:nth-child(2){margin-right: 30px;color:red;}
+
+.ddbz{height: 60px;background:white;line-height: 60px;font-size:25px;margin-bottom: 15px;display:flex;justify-content:space-between;}
+.ddbz span:nth-child(1){margin-left: 30px;}
+.ddbz span:nth-child(2){margin-right: 30px;}
+
+.fk{height: 80px;background:white;line-height: 80px;font-size:25px;margin-top:300px;display:flex;justify-content:space-between;}
+.fk span:nth-child(1){margin-left: 30px;color:red;}
+.fk span:nth-child(2){margin-right: 30px;}

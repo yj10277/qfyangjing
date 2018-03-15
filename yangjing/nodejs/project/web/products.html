@@ -1,0 +1,86 @@
+
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../web/libs/common.js"></script>
+        
+        <input type="button" value="添加数据" id="btn_new"/>
+        
+        <div id="datagrid"></div>
+        <script type="text/javascript">
+            jQuery(function($){
+                
+                //第一种方法
+                /*$.get(common.baseUrl+'products',{name:'yang'},function(res){
+                    console.log(res);
+                    common.a(res);
+                    //根据数据生成列表
+                    var $table = $('<table><thead></thead><tbody></tbody></table>');
+                    var $tr = $('<tr></tr>');
+                    for(var key in res.data[0]){
+                        $('<th></th>').text(key).appendTo($tr);
+                    }
+                    $tr.appendTo($('thead',$table));
+
+                    for(var i=0;i<res.data.length;i++){
+                        var $tbodyTr = $('<tr></tr>');
+                        for(var key in res.data[i]){
+                            $('<td></td>').text(res.data[i][key]).appendTo($tbodyTr);
+                        }
+                        $tbodyTr.appendTo($('tbody',$table));
+                    }
+                    $table.appendTo('#datagrid');
+
+
+                })*/
+
+
+
+                //第二种方法二次封装法（更好的方法有遮罩层）
+                common.http.get('products',{name:'yang'},function(res){
+                    console.log(res);
+                    
+                    //根据数据生成列表
+                    var $table = $('<table><thead></thead><tbody></tbody></table>');
+                    var $tr = $('<tr></tr>');
+                    for(var key in res.data[0]){
+                        $('<th></th>').text(key).appendTo($tr);
+                    }
+                    $tr.appendTo($('thead',$table));
+
+                    for(var i=0;i<res.data.length;i++){
+                        var $tbodyTr = $('<tr></tr>');
+                        for(var key in res.data[i]){
+                            $('<td></td>').text(res.data[i][key]).appendTo($tbodyTr);
+                        }
+                        $('<td><input type="button" value="删除" data-id="'+res.data[i]['_id']+'" /></td>').appendTo($tbodyTr);
+                        $tbodyTr.appendTo($('tbody',$table));
+                    }
+                    $table.appendTo('#datagrid');
+
+
+
+                    //点击删除数据
+                    $(':button','#datagrid').click(function(){console.log(77);
+                        common.http.post('delproduct',{id:$(this).data('id')},function(res){
+                            console.log(res);
+                            //如果成功干掉html结构
+                            if(res.status){
+                                $(this).closest('tr').remove();
+                            }
+                        }.bind(this))
+                    })
+                })
+
+
+
+                $('#btn_new').click(function(){
+                    $('.container').html('内容加载中。。').load('product.html')
+                })
+
+
+
+
+                
+
+            })
+        </script>
+

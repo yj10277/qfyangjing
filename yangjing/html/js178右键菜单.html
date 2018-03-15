@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            ul,li{list-style:none;}
+            ul{width: 100px;height: 200px;border:1px dashed black;position: absolute;}
+            a{display: block;width: 100px;height: 38px;border:1px dashed black;text-align: center;line-height: 38px;}
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#">复制</a></li>
+            <li><a href="#">粘贴</a></li>
+            <li><a href="#">全选</a></li>
+            <li><a href="#">刷新</a></li>
+            <li><a href="#">查看</a></li>
+        </ul>
+        <script type="text/javascript">
+                var ul = document.querySelector('ul');
+                document.oncontextmenu = function(e){
+                    e = e || window.event;
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                    ul.style.left = e.clientX  + 'px';
+                    ul.style.top = e.clientY  + 'px';
+                    ul.style.display = 'block'
+                }
+                
+
+                document.onclick = function(){
+                    ul.style.display = 'none';
+                }
+
+                ul.onclick = function(e){
+                    e = e || window.event;
+                    if(e.stopPropagation){
+                        e.stopPropagation()
+                    }else{
+                        e.cancelBubble = true;
+                    }
+                }
+
+        </script>
+    </body>
+</html>

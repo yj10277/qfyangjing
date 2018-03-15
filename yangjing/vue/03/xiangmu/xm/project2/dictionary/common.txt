@@ -1,0 +1,15 @@
+{
+    "en":{
+        "account":"Account",
+        "phone":"Phone",
+        "mail":"E-Mail",
+        "projectname":"Project Name"
+    },
+    "cn":{
+        "account":"账户",
+        "phone":"电话",
+        "mail":"邮箱",
+        "projectname":"项目名称"
+    }
+
+}

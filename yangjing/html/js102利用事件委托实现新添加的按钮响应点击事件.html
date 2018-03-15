@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{padding:5px;border:1px solid black;display:inline-block;}
+            button{display: block;}
+            img{width: 100px;height: 100px;}
+        </style>
+        <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn');
+            var tp = btn.nextElementSibling;
+           
+            btn.onclick = function(){
+                
+                document.body.appendChild(tp.cloneNode(true));
+
+            }
+
+            document.body.onclick = function(e){
+                if(e.target.nodeName==='IMG'){
+                    
+                    alert('狗狗');
+                }
+             
+            }
+
+
+
+        }
+
+
+        </script>
+    </head>
+    <body>
+        <button id="btn">复制</button>
+        <div class="tp">
+            <img src="../images/2.jpg"/>
+        </div>
+
+    </body>
+</html>

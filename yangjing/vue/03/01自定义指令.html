@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='../../js/vue.js'></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-yangjing/>
+        </div>
+        <script type="text/javascript">
+            //全局自定义指令
+            Vue.directive('focus',function(elment){
+                console.log(elment)
+            })
+            var vm = new Vue({
+                el:'#app',
+                //局部自定义指令
+                directives:{
+                    'yangjing':{
+                        //第二执行
+                        inserted:function(){
+                            console.log('inserted');
+                        },
+                        //最先执行
+                        bind:function(){
+                            console.log('bind');
+                        },
+                        update:function(){
+                            console.log('update');
+                        }
+                    }
+
+                }
+
+            })
+
+        </script>
+    </body>
+</html>

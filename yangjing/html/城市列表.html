@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                *{padding: 0;margin: 0;}
+                ul,li{list-style-type:none;overflow: hidden;}
+                li{width: 200px;margin-left: 60px;border:1px dashed black;}
+                ul{display: none;}
+                div{width: 350px;height: 400px;margin:100px auto;}
+                h5{float: left;}
+                h6{float: right;color:blue;}
+                span{color:blue;}
+                li:nth-child(1),li:nth-child(2),li:nth-child(4),li:nth-child(5){background:yellow;}
+        </style>
+    </head>
+    <body>
+            <div>
+                <h3>城市列表</h3>
+                <b>请选择：</b><input type="text" /><span></span>
+                <ul></ul>
+
+            </div>
+        
+
+        <script type="text/javascript">
+                var arr = [
+                            {
+                                "name": "北京", 
+                                "id": 110100, 
+                                "hot": true 
+                            }, { 
+                                "name": "上海",
+                                "id": 310000,
+                                "hot": true 
+                            }, { 
+                                "name": "南京市", 
+                                "id": 320100 
+                            }, { 
+                                "name": "广州", 
+                                "id": 440100, 
+                                "hot": true 
+                            }, { 
+                                "name": "深圳", 
+                                "id": 440300, 
+                                "hot": true 
+                            }, { 
+                                "name": "成都", 
+                                "id": 510100 
+                            }, { 
+                                "name": "杭州", 
+                                "id": 330100 
+                            }, { 
+                                "name": "南宁", 
+                                "id": 450100 
+                            }, { 
+                                "name": "大连", 
+                                "id": 210200 
+                            }
+                            ]
+                var ul = document.querySelector('ul');
+                var input = document.querySelector('input');
+                var span = document.querySelector('span');
+                
+                ul.innerHTML = arr.map(function(b){
+                    return `<li><h5>${b.name}</h5><h6>${b.id}</h6></li>`;
+
+
+                }).join('');
+
+                input.onclick = function(e){
+                    ul.style.display = 'block';
+
+                    e.stopPropagation();
+                }
+                document.onclick = function(e){
+                    ul.style.display = 'none';
+                    
+                }
+                ul.onclick = function(e){
+                    
+                    e.stopPropagation();
+                }
+                var lis = document.querySelectorAll('li');console.log(lis);
+                for(var i=0;i<lis.length;i++){
+                        lis[i].onclick = function(){
+
+                            input.value = this.querySelector('h5').innerHTML;
+                            span.innerHTML = '你选择了'+this.querySelector('h5').innerHTML;
+                        }
+                }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动获取天气</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            /*
+                Promise]
+                    * 创建：new Promise()
+                    * 状态
+                        * Pending（未完成）可以理解为Promise对象实例创建时候的初始状态
+                        * Resolved（成功） 可以理解为成功的状态
+                        * Rejected（失败） 可以理解为失败的状态
+                    * 原型方法
+                        * then(fn[,fn])
+                        * catch(fn)
+                        * finally()
+             */
+            let arr_status = [200,304];
+
+            let pro_ip = new Promise((resolve,reject)=>{
+                let xhr_ip = new XMLHttpRequest();
+                xhr_ip.onload = function(){
+                    if(arr_status.includes(xhr_ip.status)){
+                        let ip = xhr_ip.responseText;
+                        console.log(ip);
+
+                        // 改变promise的状态为Resolved
+                        // 并传递ip地址
+                        resolve(ip);
+                    }else{
+                        // 请求失败的处理
+                        reject();
+                    }
+                }
+                xhr_ip.open('get','../api/promise_ip.php',true);
+                xhr_ip.send();
+            });
+
+            pro_ip.then(ip=>{
+                console.log('then',ip);
+                // 这里得到ip地址
+                // 根据ip获取城市
+
+                let pro_city = new Promise((resolve,reject)=>{
+                    let xhr_city = new XMLHttpRequest();
+                    xhr_city.onload = function(){
+                        if(arr_status.includes(xhr_city.status)){
+                            let city = xhr_city.responseText;
+                            console.log(city);
+
+                            // 改变pro_city对象的状态为Resolved
+                            resolve(city);
+                        }else{
+                            reject();
+                        }
+                    }
+                    xhr_city.open('get','../api/promise_city.php?ip='+ip,true);
+                    xhr_city.send();
+                    
+                });
+
+                // 返回一个promise对象
+                // 以便在下一个then方法中使用数据
+                return pro_city;
+            },()=>{
+
+                console.log('ip地址请求失败');
+
+            }).then(city=>{
+                console.log('then',city);
+
+                let pro_weather = new Promise((resolve,reject)=>{
+                    // 根据城市获取天气
+                    let xhr_weather = new XMLHttpRequest();
+                    xhr_weather.onload = function(){
+                        if(arr_status.includes(xhr_weather.status)){
+                            let weather = JSON.parse(xhr_weather.responseText);
+                            console.log(weather);
+
+
+                            resolve(weather);
+                        }else{
+                            reject();
+                        }
+                    }
+                    xhr_weather.open('get','http://wthrcdn.etouch.cn/weather_mini?city='+city,true);
+                    xhr_weather.send();
+
+                })
+
+                return pro_weather;
+            },()=>{
+                console.log('城市数据获取失败');
+
+            }).then(weather=>{
+                console.log('then',weather);
+            },()=>{
+                onsole.log('天气数据获取失败');
+            });
+
+
+
+                    
+                            
+                            
+
+                            
+                        
+
+
+            // 创建promise对象
+            let pro = new Promise((resolve,reject)=>{//Pending
+                // resolve([10,11,12]);//把promise对象的状态从Pending改成Resolved
+                reject('laoxie');//把promise对象的状态从Pending改成Rejected
+
+            });
+
+            console.log(pro);
+
+            /*pro.then(function(){
+                // 当promise对象的状态变成Resolved时执行这里的代码
+                console.log(666);
+            },function(){
+                // 当promise对象的状态变成Rejected时执行这里的代码
+                console.log(777)
+            })*/
+
+
+            // 等效于以上写法
+            pro.then((n)=>{
+                console.log(666,n);
+            }).catch((n)=>{
+                console.log(777,n);
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <h1>自动获取当前城市天气</h1>
+</body>
+</html>

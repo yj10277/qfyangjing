@@ -1,0 +1,27 @@
+//文件命名前面加下斜杠不会被编译
+div{background: #000}
+//h1-h6
+@for $i from 1 through 6{
+    h#{$i}{
+        font-size: 30px/$i;
+    }
+}
+
+
+
+@function getcolor(){
+    @return  10px;
+}
+
+
+
+//写在后面才能调用函数
+span{background: getcolor();}
+
+//多值变量
+$pd: 5px 10px 20px 30px;
+
+div{
+    padding:$pd;//获取到4个值
+    border-top:nth($pd,2);//获取到第2个值
+}

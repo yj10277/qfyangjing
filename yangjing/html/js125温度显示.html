@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                        var in1 = document.querySelector('#in1');
+                        var sc = document.querySelector('span');
+                        var btn = document.querySelector('button');
+                        console.log(sc);
+                        
+                        btn.onclick = ()=>{
+                            var sr = in1.value;
+                            var jg = (5/9.0*(sr-32)).toFixed(2);
+                            sc.innerHTML = jg;
+                        }
+
+
+
+
+                })
+
+        </script>
+    </head>
+    <body>
+        <label for="in1">华氏温度:</label><input type="text" id="in1"/><button>转换</button>
+        <div>摄氏度:</div><span></span>
+
+    </body>
+</html>

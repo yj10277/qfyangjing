@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='../../js/vue.js'></script>
+        <script src='../../js/jquery-3.2.1.js'></script>
+
+    </head>
+    <body>
+            <div>
+                <table>
+                    <thead>
+                        <tr><th>title列表</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='(a,b) in dataset' :key='a.id'>
+                            <td>{{a.title}}</td>
+                        </tr>
+                     </tbody>  
+                     <tfoot>
+                         <tr>
+                             <th>
+                                 <input type="button" v-for='page in 10' :value='page' @click='click(page)'/>
+                             </th>
+                         </tr>
+                     </tfoot>      
+                        
+                   
+                </table>
+                <h3>{{fy}}</h3>
+            </div>
+            <script type="text/javascript">
+                    //第一种方法（点击一次请求一次数据）
+                    // var vm = new Vue({
+                    //     el:'div',
+                    //     data:{
+                    //         dataset:[]
+                    //     },
+                    //     methods:{
+                    //         click:function(a){
+                    //             $.get('https://cnodejs.org/api/v1/topics',{page:a,limit:10},function(res){
+                    //                     console.log(res);
+                    //                     vm.dataset = res.data;
+                    //             });
+                    //         }
+                    //     }
+                    // });
+
+                    // $.get('https://cnodejs.org/api/v1/topics',{page:1,limit:10},function(res){
+                    //     console.log(res);
+                    //     vm.dataset = res.data;
+                    // });
+
+                    //第二种方法（优化性能 点击相同的页码不会请求数据）
+                    var vm = new Vue({
+                        el:'div',
+                        data:{
+                            dataset:[],
+                            yeshu:1
+                        },
+                        methods:{
+                            click:function(a){
+                                console.log('click');
+                                this.fy = a;
+                            }
+                        },
+                        computed:{
+                            fy:{
+
+                                get:function(){
+                                        console.log('get');
+                                        $.get('https://cnodejs.org/api/v1/topics',{page:this.yeshu,limit:10},function(res){
+                                            console.log(res);
+                                            vm.dataset = res.data;
+                                        });
+                                },
+                                set:function(fym){
+                                    console.log('set');
+                                    console.log(fym);
+                                    this.yeshu = fym;
+
+
+                                }
+                            }
+                        }
+                    });
+                    
+                    $.get('https://cnodejs.org/api/v1/topics', {page: 1, limit: 10}, function(res){
+                        console.log(res);
+                        vm.dataset = res.data;
+                    })
+                    
+            </script>
+    </body>
+</html>

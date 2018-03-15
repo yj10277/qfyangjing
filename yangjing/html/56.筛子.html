@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+                *{box-sizing:border-box;}
+                .dhz{width: 800px;height: 200px;background: #FFFFFF; border:2px solid black; margin:100px auto;display: flex;padding:0 50px;justify-content:space-between;align-items:center;}
+                .xhz{width: 100px;height: 100px;background: #ccc; display: flex;padding:4px; box-shadow:0 -4px 0 0 #D7D7D7 inset,0 4px 0 0 #FFFFFF inset,-4px 0 0 0 #D7D7D7 inset,4px 0 0 0 #D7D7D7 inset; border-radius:5px;}
+                .d1{justify-content:center; align-items:center;}
+                .d2{justify-content:space-between; align-content:flex-start;}
+                .d2 span:nth-child(2){align-self:flex-end;}
+                .d3{justify-content:space-between;}
+                .d3 span:nth-child(2){align-self:center;}
+                .d3 span:nth-child(3){align-self:flex-end;}
+                .d4{display: flex; flex-direction:column;justify-content:space-between;}
+                .d41{height: 26px;display: flex; justify-content:space-between;}
+                .d5,.d6{display: flex; flex-direction:column;justify-content:space-between;}
+                .d51,.d61{height: 26px;display: flex;justify-content:space-between;}
+                .d511{justify-content:center;}
+
+
+                span{display:block ;width: 26px;height: 26px;background: black; border-radius:50%; box-shadow:0 2px 0 0 #111111 inset,0 -2px 0 0 #555555 inset;}
+        </style>
+    </head>
+    <body>
+            <div class="dhz">
+                <div class="xhz d1">
+                    <span></span>
+                </div>
+                <div class="xhz d2">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="xhz d3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="xhz d4">
+                    <div class="d41">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="d41">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="xhz d5">
+                    <div class="d51">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="d511 d51">
+                        <span></span>
+                    </div>
+                    <div class="d51">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="xhz d6">
+                    <div class="d61">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="d61">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="d61">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    
+                </div>
+
+            </div>
+    </body>
+</html>

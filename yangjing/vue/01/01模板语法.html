@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/vue.js"></script>
+    </head>
+    <body>
+
+            <div id="a">
+                <h1 v-pre>{{txt}}</h1>
+                <h1 v-text='txt'></h1>
+                <h2>{{html}}</h2>
+                <h2 v-html='html'></h2>
+                <a v-bind:href='href'>百度</a>
+                <a :href='href'>百度2</a>
+                <img v-bind:src='src'/>
+                <img :src='src' v-show='show1'>
+                <button v-on:click='click'>按钮</button>
+                <button @click='click' >按钮2</button>
+                <h3 v-show='show'>显示</h3>
+                <input type="text" v-model='txt'/>
+                <ul>
+                    <li v-for='(value,key) in data'>
+                        {{value}}-{{key}}
+                    </li>
+                </ul>
+            </div>
+            
+
+
+            <script type="text/javascript">
+                    var v = new Vue({
+                        el:'#a',
+                        data:{
+                            txt:'我是数据驱动的数据',
+                            html:'<p>p标签</p>',
+                            href:'https://www.baidu.com',
+                            src:'../../images/001.jpg',
+                            show:true,
+                            show1:false,
+                            data:{name:'yangjing',age:30,gender:'男'},
+                        },
+                        methods:{
+                            click:function(){
+                                    console.log(6666);
+                            },
+                        }
+                    });
+
+
+
+            </script>
+    </body>
+</html>

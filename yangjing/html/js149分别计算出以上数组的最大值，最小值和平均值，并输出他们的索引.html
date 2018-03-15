@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>分别计算出以上数组的最大值，最小值和平均值，并输出他们的索引
+                [10,2,8,55,32,18,9,11,30,16,19,20]</h3>
+        <script type="text/javascript">
+                var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+                var arr1 = [10,2,8,55,32,18,9,11,30,16,19,20];
+
+                arr.sort(function(a,b){
+                    return a-b;
+                });
+                var sum = 0;
+                for(var i=0;i<arr.length;i++){
+                        sum += arr[i];
+                }
+
+                document.write('最大值：'+arr[arr.length-1]+' 索引：'+arr1.indexOf(arr[arr.length-1]) + '<br>');
+                document.write(' 最小值：'+arr[0]+' 索引：'+arr1.indexOf(arr[0]) + '<br>');
+                document.write(' 平均值：'+sum/(arr.length));
+
+
+
+        </script>
+    </body>
+</html>

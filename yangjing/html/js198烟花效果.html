@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放烟花效果</title>
+    <style type="text/css">
+    html,body{overflow:hidden;height:100%;}
+    body{margin:0;}
+    body{background:#000;}
+    a{text-decoration:none;outline:none;}
+    #tips,#copyright{position:absolute;width:100%;height:50px;text-align:center;background:#171717;border:2px solid #484848;}
+    #tips{top:0;border-width:0 0 2px;}
+    #tips a{font:14px/30px arial;color:#FFF;background:#F06;display:inline-block;margin:10px 5px 0;padding:0 15px;border-radius:15px;}
+    #tips a.active{background:#FE0000;}
+    .fire {
+        width: 3px;
+        height: 30px;
+        background: white;
+        position: absolute;top:100%;
+    } 
+    .spark {
+        display: inline-block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    h6{width: 100%;height: 100%;margin-top:50px;}
+</style>
+<script src="../js/common.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        /*
+            放烟花效果
+                思路：
+                1）烟花飞入阶段
+                    1>给document绑定点击事件,得到点击的坐标(x,y)
+                    2>生成一个烟花：left = x;
+                    3>烟花飞入：top = y; animate()
+
+                2）烟花爆炸阶段
+
+
+            找对象
+                * 页面 page（1个）
+                    * 属性
+                        * 按钮
+                        * 显示区域
+                    * 方法
+                        * 初始化
+                * 烟花 Firework（飞入阶段，多个）
+                    * 属性
+                        //* 速度
+                        * 位置top,left
+                        * 爆炸数量
+                        * 爆炸半径
+                    * 方法
+                        * 初始化
+                        * 移动
+                        * 移除
+                        * 爆炸
+                * 火花 Spark（爆炸阶段，多个）
+                    * 属性
+                        * 颜色
+                        * 位置
+                        * 半径
+                        * 弧度
+                    * 方法
+                        * 初始化
+                        * 移动
+                        * 移除
+         */
+        var obj = {
+            // 属性
+            ele:'h6',
+            button:'a',
+            // 方法
+            // 初始化
+            // * 创建/获取元素
+            // * 绑定事件
+            init(){
+                this.ele = document.querySelector('h6');
+                this.button = document.querySelector('a');
+                //点击飞入烟花
+                this.ele.onclick = function(e){
+                    new Firework(e.clientX,e.clientY);
+                };
+                //点击自动放烟火
+                document.onclick = e =>{
+                    
+                    if(e.target.nodeName.toLowerCase() == 'a'){
+                            this.timer = setInterval(()=>{
+                                    var sjs1 = randomNumber(100,1000);
+                                    var sjs2 = randomNumber(100,1000);
+                                    new Firework(sjs1,sjs2);
+
+                            },1000);
+                    }else{
+                        //清除自动放烟火
+                        clearInterval(this.timer);console.log(this.timer);
+                    };
+
+
+                    
+
+                    
+
+                }
+
+            }
+            
+        }
+    
+        // 烟花飞入构造函数
+        var Firework = function(a,b){
+            this.x = a;
+            this.y = b;
+            // 爆炸数量
+            this.qty = randomNumber(10,25);
+            //// 爆炸半径
+            this.r = randomNumber(100,200);
+            this.init(this.x,this.y);
+        }
+
+        // 重置原型对象
+        Firework.prototype = {
+            constructor:Firework,
+            init(a,b){
+                //创建div并写入页面
+                var div = document.createElement('div');
+                div.className = 'fire';
+                div.style.left = a + 'px';
+                obj.ele.appendChild(div);
+                //把div写入构造函数
+                this.div = div;
+                this.move(b);
+            },
+            move(b){
+                animate(this.div,{top:b,height:4},()=>{
+                    this.remove();
+                    this.boom();
+                });
+            },
+            remove(){
+                this.div.parentNode.removeChild(this.div);
+            },
+            boom(){
+                for(var i=0;i<this.qty;i++){
+                    var deg = 360/this.qty*i;
+                    new Spark(this.x,this.y,this.r,deg);
+                }
+            }
+        }
+
+
+        // 火花构造函数（烟花爆炸后）
+        var Spark = function(x,y,r,deg){
+            // 烟花运动结束后的位置
+            this.x = x;
+            this.y = y;
+            // 随机颜色
+            this.color = randomColor();
+            //爆炸半径
+            this.r = r;
+            this.rad = deg*Math.PI/180;
+            this.init();
+        }
+
+
+        Spark.prototype = {
+            constructor:Spark,
+            init(){
+                var span = document.createElement('span');
+                span.className = 'spark';
+
+                // 设置样式并写入页面
+                span.style.left = this.x + 'px';
+                span.style.top = this.y + 'px';
+                span.style.backgroundColor = this.color;
+                obj.ele.appendChild(span);
+                //把span写入构造函数方便调用
+                this.span = span;
+                
+                this.move();
+
+            },
+            move(){
+                var a = this.r*Math.cos(this.rad);
+                var b = this.r*Math.sin(this.rad);
+
+                var left = parseInt(this.x +a);
+                var top = parseInt(this.y +b);
+
+                animate(this.span,{left:left,top:top,opacity:0.9},()=>{
+                        this.remove();
+                })
+            },
+            remove(){
+                this.span.parentNode.removeChild(this.span);
+            }
+        }  
+
+        //开始执行
+        obj.init();
+
+
+    })   
+    
+</script>
+</head>
+<body>
+    <div id="tips"><a id="auto" href="javascript:;" class="">自动放烟花</a></div>
+    <h6></h6>
+</body>
+</html>

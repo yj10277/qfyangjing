@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>计算任意数的阶乘</h3>
+        <input type="text" id="shulu"/>
+        <button onclick="jieguo()">结果</button>
+        <div id="shuchu"></div>
+        <script>
+                var shulu=document.getElementById("shulu");
+                var shuchu=document.getElementById("shuchu");
+                function jieguo(){
+                    var _shulu=shulu.value;
+                    var he = 1;
+                    for(var i=2;i<=_shulu;i++){
+                        he = he * i;
+                    }
+                    shuchu.innerHTML = _shulu+"的阶乘:"+he;
+                }
+
+
+        </script>
+    </body>
+</html>

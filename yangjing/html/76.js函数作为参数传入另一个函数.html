@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{width: 200px;height: 200px;}
+        </style>
+    </head>
+    <body>
+        <div id="hz"></div>
+        <script src="../js/common.js"></script>
+        
+        <script>
+                function show(){
+                    console.log(888);
+                }
+
+                function  getName(t){console.log(777);
+                    console.log(t);
+                    //判断t是一个函数typeof
+                    if(typeof t === 'function'){
+                        t(); 
+                    }
+                    
+                }
+                getName('yang');
+                getName(show);
+                getName(function(){
+                    var hz = document.getElementById('hz');
+                    hz.style.backgroundColor = randomColor();
+                })
+
+        </script>
+    </body>
+</html>

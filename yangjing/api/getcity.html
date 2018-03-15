@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>城市天气列表</h1>
+        <h2>热门城市</h2>
+        <ul class="lm">
+        <ul class="lm1">
+            
+       
+        <script type="text/javascript">
+                var lm = document.querySelector('.lm');
+                var lm1 = document.querySelector('.lm1');
+                var sl = new XMLHttpRequest();
+                
+                sl.onload = function(){
+                    if(sl.status == 200 || sl.status == 304){
+                        var sj = JSON.parse(sl.responseText).regions;
+                        console.log(sj);
+                        lm.innerHTML = sj.map(function(a){
+                            if(a.hot){
+
+                                return `<li>${a.name}</li>`
+                                       
+                            }
+                           
+                            
+                        }).join('');
+
+                    }
+                    
+                }
+                sl.open('get','../api/date/city.json');
+                sl.send();
+
+                    
+        </script>
+    </body>
+</html>

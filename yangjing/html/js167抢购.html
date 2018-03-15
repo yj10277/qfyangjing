@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            span{position: absolute;left: 49px;top: 41px;}
+            div{position: relative;}
+        </style>
+
+    </head>
+    <body>
+        <img src="../images/002.jpg" alt="" />
+        <div>
+            <span></span><img src="../images/btn_buy0.jpg" alt="" class="tp1"/>
+        </div>  
+        <script type="text/javascript">
+            var span = document.querySelector('span');
+            var img = document.querySelector('.tp1');
+            var time = setInterval(function(){
+                var js = Date.parse('2018-03-02 17:00:00');
+                var xz = Date.now();
+                var c = js-xz;
+                var m = Math.floor(c/1000)%60;
+                var f = Math.floor(c/1000/60)%60;
+                var s = Math.floor(c/1000/60/60)%24;
+                var t = Math.floor(c/1000/60/60/24);
+                m = m<10 ? '0'+m:m;
+                f = f<10 ? '0'+f:f;
+                s = s<10 ? '0'+s:s;
+                t = t<10 ? '0'+t:t;
+                span.innerHTML = t+'天'+s+'时'+f+'分'+m+'秒';
+                if(c <= 0){
+                        clearInterval(time);
+                        span.style.display = 'none';
+                        img.src = '../images/btn_buy.jpg';
+
+                }
+            },1000)
+
+
+
+
+        </script>
+        
+
+    </body>
+</html>

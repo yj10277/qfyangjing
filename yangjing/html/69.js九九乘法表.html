@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            span{display:inline-block;width: 70px;height: 40px;line-height: 40px;text-align: center;background:pink;margin:5px;}
+
+        </style>
+
+    </head>
+    <body>
+        <h2>99乘法表</h2>
+        <div id="cfb"></div>
+         <script type="text/javascript">
+
+            // for(var i=1;i<=9;i++){
+            //     for(var j=1;j<=i;j++){
+            //         document.write("<span>"+i+"x"+j+"="+i*j+"</span>");
+                    
+            //     }
+            //     document.write("<br />");
+            // }
+                var cfb=document.getElementById("cfb");
+                var res="";
+                for(var i=1;i<=9;i++){
+
+                    for(var j=1;j<=i;j++){
+                        res=res+"<span>"+i+"x"+j+"="+i*j+"</span>";
+                        
+
+                    }
+                    res=res+"<br />";
+                    console.log(res);
+                }
+                cfb.innerHTML=res;
+            
+        </script>
+    </body>
+</html>

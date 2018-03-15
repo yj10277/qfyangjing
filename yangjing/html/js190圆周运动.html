@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            div{width: 198px;height: 198px;border:1px solid black;border-radius:50%;position: absolute;}
+            h4{width: 18px;height: 18px;border:1px solid black;border-radius:50%;position: absolute;}
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <h4></h4>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                var h4 = document.querySelector('h4');
+                var x = (window.innerWidth - div.offsetWidth)/2;
+                var y = (window.innerHeight - div.offsetHeight)/2;
+                div.style.left = x+'px';
+                div.style.top = y+'px';
+                var jd = 0
+                var time = setInterval(function(){
+                    jd += 4;
+                    var deg = jd*Math.PI/180;
+                    var a = 100*Math.cos(deg);
+                    var b = 100*Math.sin(deg);
+                    h4.style.left = x+a+100-10 + 'px';
+                    h4.style.top = y+b+100-10 + 'px';
+                },30)
+
+
+
+
+        </script>
+    </body>
+</html>

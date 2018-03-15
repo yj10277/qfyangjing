@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制到购物车</title>
+    <style>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .cart-list {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        width: 150px;
+        /*height: 400px;*/
+        border: 1px solid #ddd;
+        /*overflow-y:auto;*/
+    }
+    
+    .cart-list h4 {
+        margin: 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .cart-list img {
+        width: 40px;
+    }
+
+    .cart-list li{position:relative;font-size:12px;}
+    .cart-list .btn-close{position:absolute;top:0;right:0;padding:5px;}
+    .cart-list .btn-close:hover{background-color:#f00;color:#fff;}
+    
+    .goods-list img {
+        width: 200px;
+    }
+    </style>
+   <script src="../js/jquery-3.2.1.js"></script>
+   <script>
+       jQuery(function($){
+            /*
+                购买商品飞入购物车的效果
+                    1）给按钮绑定点击事件
+                        1>复制当前商品图片(目的：用于实现动画效果)
+                            * 把复制的图片写入页面，并设置样式
+                            * 动画效果
+                    2）动画效果完成
+                        1>复制当前商品所有信息(目的：于往购物车添加)
+                            * 删除购物车中的“添加到购物车”按钮
+                        2>在购物车列表中添加移除按钮
+                        3)删除用于动画的图片
+                    3）删除购物车商品
+                        点击按钮时，删除购物车中对应的商品
+
+
+
+                DOM节点操作
+                    * 创建
+                        * $('<span/>')
+                    * 增（把元素添加到页面）
+                        * append()      => appendTo()
+                        * prepend()     => prependTo()
+                        * after()       => insertAfter()
+                        * before()      => insertBefore()
+                    * 删
+                        * remove()
+                    * 改
+                    * 复制
+                        * clone()
+
+                动画
+                    * animate()
+             */
+            $lb = $('.goods-list');
+            $gwc = $('.cart-list ul');
+            $lb.on('click','button',function(){
+                //点击复制相应的图片并定位在原图片位置以便隐藏
+                $li = $(this).parents('li');
+                $img = $li.find('img');
+                $fztp = $img.clone()
+                $fztp.css({
+                    position:'absolute',
+                    left:$img.offset().left,
+                    top:$img.offset().top,
+                });
+                $li.append($fztp);
+                //让复制的图片动
+                $fztp.animate({
+                    left:$gwc.offset().left,
+                    top:$gwc.offset().top + $gwc.height(),
+                    width:30
+                },function(){
+                    //删除动画后对应的图片，复制点击的li，过滤button后再添加到购物车
+                    $fztp.remove();
+
+                    
+                    
+                    $fzli = $li.clone();  
+                    $fzli.find('button').remove();
+
+                    
+                    $gwc.append($fzli);
+                    //添加删除按钮
+                    $('<span/>').addClass('btn-close').html('&times').appendTo($fzli);
+                })
+                console.log($li);
+            })
+            //点击删除购物车对应商品
+            $gwc.on('click','span',function(){
+                $(this).parents('li').remove();
+            })
+       });
+   </script>
+</head>
+
+<body>
+    <div class="goods-list">
+        <h4>产品列表</h4>
+        <ul>
+            <li><img src="../images/5.png">
+                <p>亚瑟士ASICS跑步鞋2015春夏新款运动鞋男款避震跑鞋KAYANO T4H2N-9001</p>
+                <p class="color">颜色：橙色/白色</p>
+                <p class="size">码数：42</p>
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+            </li>
+            <li><img src="../images/4.png">
+                <p>亚瑟士ASICS运动鞋2015春夏新款跑步鞋女鞋稳定跑鞋KAYANO T4H7N-0701</p>
+                 <p class="color">颜色：黄色/白色</p>
+                 <p class="size">码数：37.5</p>
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+            </li>
+            <li><img src="../images/3.png">
+                <p>亚瑟士ASICS跑步鞋春夏透气稳定女款跑鞋 KAYANO T4N5N-3591 37.5</p>
+                 <p class="color">颜色：玫红色/黑色</p>
+                 <p class="size">码数：37.5</p>
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+            </li>
+           
+        </ul>
+    </div>
+    <div class="cart-list">
+        <h4>购物车列表</h4>
+        <ul>
+        </ul>
+    </div>
+</body>
+
+</html>

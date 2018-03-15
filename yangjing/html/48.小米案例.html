@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+
+                *{margin:0; padding:0;}
+                div{width:200px;height:300px; margin:100px auto;}
+                img{transition:all 2s;}
+                /*div::after*/i{
+                    content:"";
+                    display:block;
+                    width: 200px;
+                    height: 0px;
+                    background:yellow;
+                    transition:all 2s;
+                }
+
+
+
+                div:hover img:nth-child(1){transform:translate(0,-20px);}
+                div:hover i{transform:translate(0,-20px);height:20px; background:yellow;}
+                /*div:hover img:nth-child(2){transform:translate(0,-20px);}
+                div:hover img:nth-child(3){transform:translate(0,-20px);}
+                div:hover img:nth-child(4){transform:translate(0,-20px);}
+                div:hover img:nth-child(5){transform:translate(0,-20px);}*/
+
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="../images/xiaomi1.jpg"/>
+             <i></i>
+            <!-- <img src="../images/xiaomi2.jpg"/>
+            <img src="../images/xiaomi3.jpg"/>
+            <img src="../images/xiaomi4.jpg"/>
+            <img src="../images/xiaomi5.jpg"/> -->
+        </div>
+    </body>
+</html>

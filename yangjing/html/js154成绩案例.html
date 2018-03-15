@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号。</h3>
+        <script type="text/javascript">
+                    var arr = [
+                                {xh:1,yw:105,sx:62,yy:118},
+                                {xh:2,yw:89,sx:78,yy:120},
+                                {xh:3,yw:86,sx:64,yy:80},
+                                {xh:4,yw:78,sx:99,yy:91},
+                              ]
+                                
+                              arr.forEach(function(a,b,c){
+                                        a.zcj = a.yw + a.yy + a.sx;
+                              })
+
+                              console.log(arr);
+
+        </script>
+    </body>
+</html>

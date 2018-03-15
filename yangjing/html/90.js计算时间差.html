@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h2>算两个日期相差的天数</h2>
+        <input type="date" id="ks" />
+        <input type="date" id="js" />
+        <button id="btn">计算相差天数</button>
+        <div id="sc"></div>
+        <script type="text/javascript">
+        var ks = document.getElementById('ks');
+        var js = document.getElementById('js');
+        var btn = document.getElementById('btn');
+        var sc = document.getElementById('sc');
+        //普通方法
+        // btn.onclick = function(){
+        //     var _ks = new Date(ks.value);
+        //     var _js = new Date(js.value);
+        //     var cha = _js.getTime() - _ks.getTime();
+        //     var tian = Math.ceil(cha/1000/60/60/24);
+        //     sc.innerHTML = '相差'+tian+'天';
+        // }
+
+
+        //es5
+            btn.onclick = function(){
+                var cha = Date.parse(js.value) - Date.parse(ks.value);
+                var tian = Math.ceil(cha/1000/60/60/24);
+                sc.innerHTML = '相差'+tian+'天';
+            }
+        </script>
+    </body>
+</html>

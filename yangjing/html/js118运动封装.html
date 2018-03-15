@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            #div1{width:100px; height:100px; background:#58bc58; position: absolute;}
+        </style>
+        <script>
+                document.addEventListener('DOMContentLoaded',()=>{
+                    var ele = document.querySelector('#div1');
+                    console.log(ele);
+
+                    animate(ele,{width:200},function(){
+                        animate(ele,{height:200});
+                    });
+
+                    //回调函数
+                    //链式运动
+                    function animate(_ele,_opt,_cb){
+                        var speedx = 10;
+                        var timer = window.setInterval(function(){
+                            for(var key in _opt){
+                                var _val = parseInt(getComputedStyle(_ele)[key]);
+                                if(_val+speedx >= _opt[key]|| _val+speedx == _opt[key]){
+                                        clearInterval(timer);
+                                        _val = _opt[key];
+                                        if(_cb){
+                                            _cb();
+                                        }
+                                }else if(_val>_opt[key]){
+                                        _val -= speedx; 
+                                }else{
+                                        _val += speedx; 
+
+                                }
+                                ele.style[key] = _val + 'px';
+                            }
+                            console.log(_val);
+                        },100) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
+
+                })
+
+
+        </script>
+        
+    </head>
+    <body>
+        <div id="div1"></div>
+    </body>
+</html>

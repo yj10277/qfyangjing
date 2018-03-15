@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+                var arr = [12,55,4,5,6,7,89,9,0];
+
+                arr.indexOf(9);//得到索引值
+                console.log(arr.indexOf(9));
+                //判断arr数组是否包含0这个值
+                if(arr.indexOf(0)>=0){}
+                //或者
+                if(arr.indexOf(0)!= -1){}
+                //简单遍历法
+                arr.forEach(function(name,id,arr){
+                        console.log(name,id,arr);
+                });
+                //求和
+                var he=arr.reduce(function(p,c,i){
+                        return p+c;
+                },0)
+                    console.log(he);
+        </script>
+    </body>
+</html>

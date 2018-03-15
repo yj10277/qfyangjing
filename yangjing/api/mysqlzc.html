@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+        <script src="../js/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+                jQuery(function($){
+                    $('.btn').on('click',function(){
+
+                        $.ajax({
+                            url:'../api/mysqlzc.php',
+                            
+                            data:{
+                                username:$('#username').val(),
+                                password:$('#password').val()
+                            },
+                            success:function(a){
+                                console.log(a);
+                                if(a == 'success'){
+                                    location.href = 'mysqldl.html';
+                                }else if(a == 'fail'){
+                                    $('#username').parent().addClass('has-error');
+                                }
+                            }
+                        })
+                    })
+                });
+
+
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 >注册</h1>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" class="form-control"/>
+            </div>
+            <button class="btn btn-success">注册</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{position: absolute;}
+        </style>
+    </head>
+    <body>
+        <img src="../images/1.gif" alt="" />
+        <script type="text/javascript">
+                var img = document.querySelector('img')
+                var i = 0;
+                var arr = [];
+                document.onmousedown = function(){
+
+                        document.onmousemove = function(e){
+                                var x = e.pageX;
+                                var y = e.pageY;
+                                var obj = {left:x,top:y}
+                                arr.push(obj);
+                        }
+                }
+                document.onmouseup = function(){
+                    
+                    document.onmousemove = null;
+                    var t = setInterval(function(){
+                            i++
+                            img.src = '../images/2.gif'
+                            img.style.left = arr[i].left + 'px';
+                            img.style.top = arr[i].top + 'px';
+                            if(i>=arr.length-1){
+                                clearInterval(t);
+                                img.src = '../images/1.gif';
+                            }
+                    },60);
+                
+                    
+                }
+                console.log(arr);
+
+        </script>
+    </body>
+</html>

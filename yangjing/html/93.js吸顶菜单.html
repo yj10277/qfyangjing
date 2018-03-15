@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02吸顶菜单</title>
+    <style>
+        body{margin:0;}
+        header{height:60px;padding:15px;background-color: #58bc58;}
+        .container{height:1600px;background-color: #efefef;}
+        .logo{display: inline-block;}
+        .logo img{width:60px;}
+        footer{height:60px;background-color: #ccc;line-height:60px;text-align:center;}
+        .fixed{position:fixed;top:0;left:0;right:0;}
+        .toolbar{height:100px;background: #fc0;text-align:center;line-height:100px;color:#999;}
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                吸顶菜单
+                    * window.onscroll
+                    * 当滚动条滚动到100px时，给#search元素添加一个类
+
+                知识点：
+                    * 修改元素的类名：className
+             */
+            
+            var search = document.getElementById('search');
+            
+            window.onscroll = function(){
+                    var h = window.scrollY;
+                    console.log(h);
+                    if(h>=100){
+                        search.className = 'fixed';
+                    }else{
+                        search.className = '';
+                    }
+            }
+        }
+           
+    </script>
+</head>
+<body>
+    <div class="toolbar">toolbar</div>
+    <header id="search">
+        <div class="logo">
+            <img src="../images/g5.jpg" alt="">
+        </div>
+        <input type="search"><button>搜索</button>
+    </header>
+    <div class="container" id="container">
+        abcd
+    </div>
+    <footer>Footer</footer>
+</body>
+</html>

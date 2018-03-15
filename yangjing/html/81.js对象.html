@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+            <script>
+            //写入
+                //创建对象
+                var girl = {};
+                girl.name = 'yang';
+                girl['age'] = 37;
+                girl.gender = '女';
+                console.log(girl);
+                for(var attr in girl){
+                    console.log(attr,typeof attr);
+                }
+            //读取
+                console.log(girl.name);
+                console.log(girl['gender']);
+
+
+
+
+            </script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    var img = document.querySelector('img');
+                    var button = document.querySelector('button');
+                    var h = true;
+                        button.onclick = xy;
+                            
+                        
+                        function xy(){
+                            //双分支方法
+                            // if(h == true){
+                            //        img.style.display = 'none';
+                            //        h = false;
+                            // }else{
+                            //        img.style.display = 'inline-block';
+                            //         h = true;
+                            // }
+                            
+
+                            //三元运算（双分支方法简写）
+                            img.style.display = h==true ? 'none':'block';
+                            h = !h;
+                            console.log(h);    
+                        }
+                         
+                                   
+                            
+                            
+                })
+
+        </script>
+    </head>
+    <body>
+        <h3>封装一个显示隐藏页面元素的函数</h3>
+        <img src="../images/01.jpg" alt="" /><button>显示/隐藏</button>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded',()=>{
+                var in1 = document.querySelector('.in1');
+                var in2 = document.querySelector('.in2');
+                var btn = document.querySelector('button');
+                var div = document.querySelector('div');
+                btn.onclick = ()=>{
+                    let _in1 = in1.value;
+                    let _in2 = in2.value;
+                    if(_in1 > _in2){
+                        div.innerHTML = '最大数' + _in1;
+                    }else if(_in1 < _in2){
+                        div.innerHTML = '最大数' + _in2;
+                    }else{
+                        div.innerHTML = '两个数相等';
+                    }
+                }
+            })
+
+        </script>
+    </head>
+    <body>
+        <h3>求最大数</h3>
+        <input type="text" class="in1" /> <input type="text" class="in2" /><button>判断</button>
+        <div></div>
+    </body>
+</html>

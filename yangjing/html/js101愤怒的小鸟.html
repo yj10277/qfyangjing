@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{width: 100px;position: absolute;left: 0;top: 0;}
+            .right{transform:rotateY(180deg);}
+            .top{transform:rotateZ(30deg);}
+            .bottom{transform:rotateZ(-30deg);}
+        </style>
+
+    </head>
+    <body>
+        <img src="../images/bird.jpg" class="niao"/>
+        <script>
+                var  niao = document.images[0];
+                var className = '';
+                document.onkeydown = function(e){
+                    //常用按键37 38 39 40 左上右下
+                    console.log(e.keyCode);
+                    var left = niao.offsetLeft;
+                    var top = niao.offsetTop;
+                    if(e.keyCode===37){
+                        className = 'left';
+                        left -= 5;
+                    }else if(e.keyCode===38){
+                        className = 'top';
+                        top -= 5;
+                    }else if(e.keyCode===39){
+                        className = 'right';
+                        left += 5;
+                    }else if(e.keyCode===40){
+                        className = 'bottom';
+                        top += 5;
+                    }
+                    console.log(left,top);
+                    
+                    niao.style.left = left + 'px';
+                    niao.style.top = top + 'px';
+                    niao.className = 'niao '+className;
+                }
+
+
+        </script>
+    </body>
+</html>

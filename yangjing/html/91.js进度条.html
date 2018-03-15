@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <style>
+        body{margin:0;}
+        #b{position:relative;height:5px;background-color:#58bc58;}
+        #p{position:absolute;top:100%;left:50%;transform:translate(-50%,0);padding:5px;font-size:10px;}
+    </style>
+    <script>
+        window.onclick = function(){
+            var b = document.getElementById('b');
+            var p = document.getElementById('p');
+            var width = 0;
+            var time = setInterval(function(){
+                width += 5;
+                if(width>=window.innerWidth){
+                    clearInterval(time);
+                    width = window.innerWidth;
+                }
+
+                p.innerHTML = (width/window.innerWidth*100).toFixed(2) + '%';
+
+                b.style.width = width + 'px';
+
+            },20)
+        }
+
+         
+    </script>
+</head>
+<body>
+    <div id="b"><span id="p"></span></div>
+</body>
+</html>

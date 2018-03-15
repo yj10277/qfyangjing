@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{margin: 0;padding: 0;}
+            .hz{width: 600px;border:2px dashed black;margin: 50px auto;}
+            h3{padding-left: 10px;border-bottom: 1px dashed black;height: 40px;line-height: 40px;}
+            h4{height: 60px;line-height: 60px;padding-left: 30px;}
+            span{display: inline-block;margin-right:120px;}
+            input{width: 200px;height: 25px;background: #ccc;}
+            .hz div{width: 100px;height: 30px;margin: 0 auto;background:#ccc ;text-align:center;line-height: 30px;}
+            button{width: 100px;height: 30px;margin: 20px 255px;}
+
+        </style>
+    </head>
+    <body>
+        <div class="hz">
+            
+            <h3>注册账号</h3>
+            <h4><span>登入账号</span><input type="text" placeholder="限小写字母或数字组合"/></h4>
+            <h4><span>你的昵称</span><input type="text" placeholder="中英文皆可"/></h4>
+            <h4><span>电子邮箱</span><input type="text" placeholder="xxxx@xxxx"/></h4>
+            <h4><span>设置密码</span><input type="password" /></h4>
+            <h4><span>确认密码</span><input type="password" /></h4>
+            
+            <div>强度评估</div>
+            <h4><span>上传头像</span><input type="file" multiple /></h4>
+            <h4><span>个人说明</span><textarea name="" id="" cols="25" rows="3" placeholder="用一句话介绍自己"></textarea></h4>
+            <h4><span>个人主页</span><input type="text" /></h4>
+            <button>注册</button>
+        </div>
+        <script type="text/javascript">
+                var input = document.getElementsByTagName('input');
+                var btn = document.getElementsByTagName('button')[0];
+                console.log(input);
+                btn.onclick = function(){console.log(666)
+                    var in1 = input[0].value;
+                    if(!/^[a-z\d]{3,}$/.test(in1)){
+                            alert('请输入规范的账号格式');
+                            return false;
+                    }
+
+                    var in2 = input[1].value;
+                    if(!/^[\u2E80-\u9FFFa-zA-Z]+$/.test(in2)){
+                        alert('请输入规范的昵称格式');
+                        return false;
+                    }
+
+                    var in3 = input[2].value;
+                    if(!/^[a-z0-9_\-\.]{2,}@[a-z\d\-]{1,63}(\.[a-z\u2E80-\u9FFF]{2,6})+$/.test(in3)){
+                        alert('请输入规范的邮箱格式');
+                        return false;
+                    }
+
+
+                    var in3 = input[3].value;
+                    if(!/^\S+$/.test(in3)){
+                        alert('请输入规范的密码格式');
+                        return false;
+                    }
+
+
+                    var in4 = input[4].value;
+                    if(in4 != in3 ){
+                        alert('两次密码输入不一样');
+                        return false;
+                    }
+
+
+                    var in5 = input[5].value;
+                    if(in5 == false){
+                        alert('未上传头像');
+                        return false;
+                    }
+
+
+                    
+
+
+
+                    alert('恭喜注册成功');
+
+                }
+
+
+        </script>
+    </body>
+</html>

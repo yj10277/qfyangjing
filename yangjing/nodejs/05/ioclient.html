@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script>
+</head>
+<body>
+    <h2>聊天工具的另一种写法（socket.io）</h2>
+    <h3 id="status"></h3>
+    <label for="">昵称</label> <input type="text" id="nickname">
+    <input type="button" value="登陆" id="btn_login">
+    <input type="button" value="下线" id="btn_logout">
+    <div id="messageList">
+        <ul></ul>
+    </div>
+    <input type="text" id="txt_message">
+    <input type="button" value="发送" id="btn_send">
+
+    <script>
+        var socket;
+        $(function(){
+            $('#btn_login').click(function(){
+                socket = io.connect('ws://localhost:88');
+                socket.on('b');
+                socket.emit('b', {nickname: $('#nickname').val(), message: $('#txt_message').val()})
+
+                socket.on('lemonMess', function(msg){
+                    console.log(msg);
+                })
+            })
+
+            $('#btn_send').click(function(){
+                socket.emit('dkmess', JSON.stringify({nickname: $('#nickname').val(), message: $('#txt_message').val()}))
+            })
+
+            // $('#')
+        })
+    </script>
+</body>
+</html>

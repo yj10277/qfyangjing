@@ -1,0 +1,18 @@
+$ys:red;
+$t:top;
+div{
+    $ztdx:100px;
+    $ys:pink;
+    h3{color:red;font-size:$ztdx ;background:$ys;}
+    h4{font-size:$ztdx; color:$ys; }
+    border-#{$t}:1px solid black;
+}
+
+
+
+//h1-h6
+@for $i from 1 through 6{
+    h#{$i}{
+        font-size: 30px/$i;
+    }
+}

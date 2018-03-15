@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/vue-router.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to='/bar'>路由跳转</router-link>
+        <!-- 放置template的标签 -->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        const Foo = {template:'<div><h3>Foo content</h3></div>'}
+        const bar = {template:'<div><h1>bar link</h1></div>'}
+       var router = new VueRouter({
+            routes:[
+                {path:'/foo',component:Foo},
+                {path:'/bar',component:bar}
+            ]
+       })
+       var vm = new Vue({
+            el:'#app',
+            router:router
+       })
+    </script>
+</body>
+</html>

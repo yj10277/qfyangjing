@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{position: absolute;}
+        </style>
+    </head>
+    <body>
+        <h3>拖拽效果(必须用服务器打开才有效)</h3>
+        <img src="../images/01.jpg" alt="" />
+        <script type="text/javascript">
+                var img = document.querySelector('img');
+                
+                img.onmousedown = function(a){
+                        var x = a.clientX-img.offsetLeft;
+                        var y = a.clientY-img.offsetTop;
+                    document.onmousemove = function(b){
+                        img.style.left = b.clientX - x + 'px';
+                        img.style.top = b.clientY - y + 'px';
+                        
+                            b.preventDefault();
+                        
+                    }
+                }
+
+                document.onmouseup = function(){
+                    
+                    document.onmousemove = null;
+                    var left = img.style.left;
+                    var top = img.style.top;
+                    document.cookie = 'left='+left;
+                    document.cookie = 'top='+top;
+                }
+                var a = document.cookie;
+                var b = a.split('; ');console.log(a);
+                b.forEach(function(j,k,l){
+                      var q = j.split('=');
+                      if(q[0]=='left'){
+                            img.style.left = q[1];
+                      }
+                      if(q[0]=='top'){
+                            img.style.top = q[1];
+                      }
+                });
+
+        </script>
+    </body>
+</html>

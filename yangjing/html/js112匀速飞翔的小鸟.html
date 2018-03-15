@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{position: absolute;left: 0;top: 0;}
+        </style>
+        <script>
+                document.addEventListener('DOMContentLoaded',()=>{
+                    let xn = document.querySelector('.xn');
+                 
+                    var left = 0;
+                    let time = setInterval(()=>{
+                        left += 10;
+                        xn.style.left = left + 'px';
+                        if(left >= window.innerWidth - xn.offsetWidth){
+                            clearInterval(time);
+
+                        }
+
+                    },30)
+
+
+
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <img src="../images/bird.gif" class="xn"/>
+    </body>
+</html>

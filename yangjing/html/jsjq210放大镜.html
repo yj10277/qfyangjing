@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜插件</title>
+    <link rel="stylesheet" href="../css/fdj.css">
+    <style>
+        /*body{padding-left:600px;}*/
+        .smallList img{width:80px;}
+        
+    </style>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/fdj.js"></script>
+    <script>
+        jQuery(function($){
+            $('.goods').gdsZoom({position:'right'});
+            $('.smallList').on('click','img',function(){
+                $('.goods img').attr({ 
+                    src:this.src,
+                    'data-big': this.dataset.big || this.src
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="goods">
+        <img src="../images/car_min.png" data-big="../images/car.jpg">
+    </div>
+    <div class="smallList">
+        <img src="../images/g1.jpg" data-big="../images/g1.jpg">
+        <img src="../images/g2.jpg" alt="">
+        <img src="../images/g3.jpg" alt="">
+        <img src="../images/g4.jpg" alt="">
+        <img src="../images/g5.jpg" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{margin: 0;padding: 0;}
+            ul,li{list-style:none;}
+            li{width: 170px;height: 20px;border:1px dashed black;}
+            div{margin: 200px auto;width: 300px;height: 200px;}
+            ul{display: none;}
+
+            .ys{background:pink;}
+            body{overflow: hidden;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <input type="text" /><button>搜索</button>
+            <ul>
+                <li>英雄联盟</li>
+                <li>穿越火线</li>
+                <li>QQ飞车</li>
+                <li>劲舞团</li>
+                <li>反恐精英</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+                    var ul = document.querySelector('ul');
+                    var input = document.querySelector('input');
+                    var lis = ul.children;
+                    input.onclick = function(e){
+                            ul.style.display = 'block';
+                            e.stopPropagation();
+
+                    }
+                    document.onclick = function(){
+
+                            ul.style.display = 'none';
+                    }
+                    
+                    for(var i=0;i<lis.length;i++){
+                            lis[i].onclick = function(e){
+                                e.stopPropagation();
+                                input.value = this.innerHTML;
+                            }
+                    }
+
+                    var k = 0;
+                    document.onkeydown = function(e){
+                        if(e.keyCode == 40){
+                              k++;
+                              gl();
+                              
+                        }else if(e.keyCode == 38){
+                              k--;
+                              gl();
+                        }else if(e.keyCode == 13){
+                            input.value = lis[k].innerHTML;
+                        }
+                    }
+
+
+                        // 封装设置高亮样式函数
+                     function gl(){
+                        // 对临界值的判断
+                        if(k<0){
+                            k = 0;
+                            
+                        }else if(k>lis.length-1){
+                            k=lis.length-1;
+                            
+                        }
+
+                        // 先清除其他li的高亮效果
+                        for(let i=0;i<lis.length;i++){
+                            lis[i].className = '';
+                        }
+
+                        // 添加当前li的高亮
+                        lis[k].className = 'ys';
+                     }
+        </script>
+            
+    </body>
+</html>

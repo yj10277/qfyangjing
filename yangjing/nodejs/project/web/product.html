@@ -1,0 +1,23 @@
+<div>
+    <input type="text" id="proname"/> 
+    <input type="text" id="price"/> 
+    <input type="text" id="pcs"/>
+    <input type="button" value="添加" id="btn_save" />
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        $('#btn_save').click(function(){
+            var params = {};
+            $('input[type=text]').each(function(){
+                params[$(this).attr('id')] = $(this).val();
+            })
+            console.log(params);
+            common.http.post('addproduct',params,function(res){
+                console.log(res);
+            })
+
+        })
+    })
+</script>

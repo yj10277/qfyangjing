@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //简单办法
+            // var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+            // arr.sort(function(a,b){return a-b;});
+            // arr.reverse();
+
+            // console.log(arr);
+            
+            //冒泡排序
+            // var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+            //     for(var j=1;j<=arr.length-1;j++){
+            //         for(var i=0;i<arr.length;i++){
+            //             if(arr[i]>arr[i+1]){
+                            
+            //                 var kong = arr[i];
+            //                 arr[i] = arr[i+1];
+            //                 arr[i+1] = kong;
+
+            //             }
+            //             console.log(arr);  
+            //         }
+            //         console.log('....................................')  
+            //     }
+
+            //选择排序
+            var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+                for(var i=0;i<=arr.length;i++){
+                    for(var j=i+1;j<=arr.length;j++){ 
+                        if(arr[i] > arr[j]){
+                            var kong = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = kong;
+                        }
+                    
+                    }
+                    console.log('....................................');
+                }
+            console.log(arr);  
+                        
+                        
+
+                      
+
+        </script>
+    </body>
+</html>

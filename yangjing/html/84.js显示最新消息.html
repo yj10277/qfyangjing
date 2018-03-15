@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[案例]显示5条最新消息</title>
+    <style>
+        h1{text-align: center;}
+        .news-list{border:2px solid #ddd;border-radius: 10px;width:600px;margin:0 auto;padding:10px;}
+        .news-list h4{margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid #ddd;}
+        .news-list ul{padding:0;margin:0;list-style:none;line-height:2;}
+
+        .form{margin:100px auto 0;width:600px;text-align:center;overflow:hidden;}
+        .form input{float:left;width:480px;height:50px;box-sizing: border-box;padding:10px;}
+        .form button{float:left;width:120px;height:50px;}
+    </style>
+    
+</head>
+<body>
+    <h1>显示10条最新消息</h1>
+    <div class="news-list">
+        <h4>最新消息</h4>
+        <ul id="newsList"></ul>
+    </div>
+
+    <div class="form">
+        <input type="text" id="news"><button id="btnAdd">添加</button>
+    </div>
+
+    <script>
+       
+        var newall = ['小明由于调戏女老师再次被滚粗教室','iPhone10发布,屏幕高度亮瞎了所有小伙伴','讲道理肯定撒家里看大家基督教'];
+        var news = document.getElementById('news');
+        var btnAdd = document.getElementById('btnAdd');
+        var newsList = document.getElementById('newsList');
+       
+        cxxr();
+
+
+        btnAdd.onclick = function(){
+            var _news= news.value;
+            newall.unshift(_news);
+            cxxr();
+            news.value = '';
+            news.focus();
+        }
+
+
+        function cxxr(){
+        //写入ul里面         
+                  var html = '';
+            for(var i=0;i<newall.length;i++){
+                    html += '<li><a href="#">'+newall[i]+'</a></li>';
+            }
+            newsList.innerHTML = html;   
+        }
+        
+    </script>
+</body>
+</html>

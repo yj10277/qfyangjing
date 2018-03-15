@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动应答机器人</title>
+    <style>
+        ul{list-style: none;padding:0;margin:0;}
+        .msg-list{width:600px;margin:0 auto;}
+        .msg-list ul{padding:10px;min-height:200px;overflow:hidden;border:1px solid #ddd;}
+        .msg-list li{float:left;clear:both;margin:10px 0;padding:5px;line-height:2;border-radius:5px;background-color:#efefef;}
+        .msg-list li.active{float:right;background-color:#fc0;color:#fff;}
+        .msg-list textarea{display:block;min-height:50px;margin:10px 0;width:100%;box-sizing: border-box;}
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                自动应答
+                    * 预设应答内容
+                    * 显示输入内容
+                    * 根据显示内容选择性显示应答
+                        * 模拟思考时间setTimeout(fn,duration)
+             */
+            var q = '你好,约吗,我要退货'.split(',');
+            var a = '你好我也好,抱歉，没空,那是不可能的'.split(',');
+
+
+            // 获取页面元素
+            var autoApply = document.getElementById('autoApply');
+            var msglist = autoApply.children[0];
+            var sl = autoApply.children[1];
+            var btn = autoApply.children[2];
+            console.log(sl);
+            btn.onclick = function(){
+                var _sl = sl.value.trim();
+                var li = document.createElement('li');
+                li.innerHTML = _sl;
+                li.className = 'active';
+                var time = document.createElement('time')
+                time.innerHTML = new Date().toLocaleDateString();
+                li.appendChild(time);
+                msglist.appendChild(li);
+                //自动应答
+                
+
+                
+                var idx = q.indexOf(_sl)
+                if(idx>=0){
+                    setTimeout(function(){
+                    var li = document.createElement('li');
+                    li.innerHTML = a[idx];
+                    var time = document.createElement('time')
+                    time.innerHTML = new Date().toLocaleDateString();
+                    li.appendChild(time);
+                    msglist.appendChild(li);
+                    },2000)
+                }
+
+
+            }
+        }    
+    </script>
+</head>
+<body>
+    <h1>自动应答机器人</h1>
+    <div id="autoApply" class="msg-list">
+        <ul>
+        </ul>
+        <textarea></textarea>
+        <button>提交</button>
+    </div>
+</body>
+</html>

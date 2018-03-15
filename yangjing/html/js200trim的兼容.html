@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>trim()的兼容</h3>
+        <script type="text/javascript">
+                var a = '  yangj ing '
+                
+                if(!String.prototype.trim){
+                    String.prototype.trim = function(){
+                        return this.replace(/^\s+|\s+$/g,'');
+                    } 
+                }
+
+                //另一种方法
+                // !String.prototype.trim && (String.prototype.trim = function(){
+                //     return this.replace(/^\s+|\s+$/g,'');
+                // })
+            
+
+        </script>
+    </body>
+</html>

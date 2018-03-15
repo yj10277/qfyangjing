@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            p{color:red;}
+        </style>
+        <script type="text/javascript">
+            var shuzhi=parseInt(Math.random()*1000);
+
+            var bai=parseInt(shuzhi/100);
+
+            var shi=parseInt(shuzhi/10)%10;
+
+            var ge=shuzhi%10;
+
+            document.write("<p>三位数:"+shuzhi+"</p>");
+            document.write("<p>百位:"+bai+"</p>");
+            document.write("十位:"+shi+"<br />");
+            document.write("个位:"+ge+"<br />");
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>给定一个三位数，分别把这个数字的百位、十位、个位算出来并显示</h3>
+    </body>
+</html>

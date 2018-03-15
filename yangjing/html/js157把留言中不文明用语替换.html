@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                ul,li{list-style:none;}
+                *{margin: 0;padding: 0;}
+                div{margin:100px auto;border:1px solid black;width: 400px;height: 400px;padding-left: 60px;}
+                ul{width: 300px;height: 300px;border:1px solid black;}
+        </style>
+    </head>
+    <body>
+            <div>
+                
+                    <h3>显示10条最新消息</h3>
+                    <ul></ul>
+                    <input type="text" /><button>添加</button>
+            </div>
+                
+            <script type="text/javascript">
+                    
+                        var ul = document.querySelector('ul');
+                        var sl = document.querySelector('input');
+                        var btn = document.querySelector('button');
+                        var arr = ['他妈的','我去','tmd','fuck'];
+                        var kong = '';
+                        btn.onclick = function(){
+                            var slz = sl.value;
+                            arr.forEach(function(a,b,c){
+                                var zz = new RegExp(a,'gi')
+                                slz = slz.replace(zz,'**');
+                            });
+                            kong += '<li>'+slz+'</li>';
+                            ul.innerHTML = kong;
+                            sl.value = '';
+                            sl.focus();
+
+
+                        }
+                                    
+
+            </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',function(){
+            var splb = [{
+                title:'iphone X',
+                nickname:'肾X',
+                price:8888,
+                color:'白色'
+            },
+            {
+                title:'Note 7',
+                nickname:'炸7',
+                price:98,
+                color:'黑色'
+            },
+            {
+                title:'Honor 7',
+                nickname:'农药7',
+                price:1998,
+                color:'白色'
+            }
+            ]
+            var hz = document.querySelector('.hz');
+            var ul = document.createElement('ul');
+            ul.innerHTML = splb.map(function(sp){
+                return `<li>
+                        <h3>${sp.title}</h3>
+                        <h5>${sp.nickname}</h5>
+                        <p>价格:${sp.price}</p>
+                        <p>颜色:${sp.color}</p>
+
+
+                        </li>`
+            }).join('');
+            hz.appendChild(ul);
+
+        });
+        
+    </script>
+    <body>
+        <div class="hz"></div>
+    </body>
+</html>

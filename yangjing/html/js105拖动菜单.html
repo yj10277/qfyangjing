@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+
+            img{position:absolute;left: 0;top: 0;width: 100px;}
+
+        </style>
+        <script>
+                window.onload = function(){
+                    var tp = document.getElementsByTagName('img')[0];
+                    console.log(tp);
+
+                    tp.onmousedown = function(ev){
+                        var evx = ev.offsetX;
+                        var evy = ev.offsetY;
+                        document.onmousemove = function(e){
+                            tp.style.left = e.clientX-evx + 'px';
+                            tp.style.top = e.clientY-evy + 'px';
+                            e.preventDefault();
+                        }
+                        ev.preventDefault();
+                    }
+
+
+                   tp.onmouseup = function(){
+                            document.onmousemove = null;
+                            //保存拖拽位置存到到cookie
+                            //cookie多次写入不会被覆盖
+                            var left = tp.offsetLeft;
+                            var top = tp.offsetTop;
+                            document.cookie = 'left=' + left;
+                            document.cookie = 'top=' + top;
+
+                    } 
+                            //保存拖拽位置存到到cookie
+                            //多个cookie以; 隔开，所以以; 分割
+                            var cookie = document.cookie;
+
+                            cookie = cookie.split('; ');console.log(cookie);
+                            //遍历cookie拿出想要的left top 
+                            cookie.forEach(function(item){
+                                console.log(item);
+                                var arr = item.split('=');console.log(arr);
+                                if(arr[0]=='left'){
+                                    tp.style.left = arr[1] + 'px';
+                                }else if(arr[0]=='top'){
+                                    tp.style.top = arr[1] + 'px';
+                                }
+                            });
+                            
+                            
+                            
+
+                }
+
+
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <img src="../images/2.jpg" alt="" />
+    </body>
+</html>

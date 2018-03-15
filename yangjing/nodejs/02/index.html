@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h3>登录验证</h3>
+        <input type="text" id="user"/>
+        <input type="password" id="pwd"/>
+        <input type="button" id="btn" value="login"/>
+        <script type="text/javascript">
+                jQuery(function($){
+                    $('#btn').click(function(){
+                        $.get('index',{user:$('#user').val(),pwd:$('#pwd').val()},function(res){
+                                console.log(res);
+                        })
+                        
+                    })
+                })
+
+
+
+        </script>
+    </body>
+</html>

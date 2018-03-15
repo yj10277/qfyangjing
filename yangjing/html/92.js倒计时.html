@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09倒计时</title>
+    <style>
+        .btn{position:relative;}
+        #countDown{position:absolute;left:55px;top:50%;transform:translate(0,-58%);}
+    </style>
+
+</head>
+<body>
+    <div class="goods">
+        <img src="../images/2.jpg" id="meinv">
+        <h4>12.12过节不收礼，收礼只收狗狗</h4>
+        <p class="price">价格：<span>9.8W</span></p>
+        <div class="btn">
+            <div id="countDown"></div>
+            <img src="../images/btn_buy0.jpg" id="btnBuy">
+        </div>
+    </div>
+    <script>
+            /*
+                倒计时
+                    1）指定结束时间
+                    2）不断拿当前时间跟结束时间对比，计算差值
+                    3）把差值转换成《剩余时间》
+                    4）拼接时间格式，写入页面
+                    5）倒计时结束时
+                        * 停止定时器
+                        * 替换购买按钮
+                        * 隐藏倒计时
+             */
+            
+            // 获取页面元素
+            var meinv = document.getElementById('meinv');
+            var countDown = document.getElementById('countDown');
+            var btnBuy = document.getElementById('btnBuy');
+
+
+            var js = Date.parse('2017-11-24 13:25:00');
+            time();
+                var f = setInterval(time,1000)
+
+
+            function time(){
+                    var now = Date.now();
+
+                    var cha = Math.floor((js - now)/1000);
+                    if(cha <= 0){
+                            clearInterval(f);
+                            countDown.style = 'display:none'
+                            btnBuy.src = '../images/btn_buy.jpg'
+                    }
+                    //剩余时分秒
+                    var sym = cha%60;
+                    var syf = Math.floor((cha/60)%60);
+                    var hour = Math.floor(cha/3600);
+                    //补0操作
+                    sym = sym < 10 ?  '0' + sym : sym;
+                    syf = syf < 10 ?  '0' + syf : syf;
+                    hour = hour < 10 ?  '0' + hour : hour;
+                    countDown.innerHTML = hour + '时' + syf + '分' + sym + '秒';
+                    console.log(cha);
+
+                }
+
+          
+           
+              
+
+    </script>
+</body>
+</html>

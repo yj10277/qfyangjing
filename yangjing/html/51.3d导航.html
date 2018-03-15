@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+           *{margin:0; padding:0;}
+           ul li{list-style:none; }
+           ul{width: 300px; overflow:hidden; margin:100px auto;}
+           li{width: 100px;height: 40px;float:left; position:relative; transition:all 2s;transform-style:preserve-3d;}
+           ul li span{display:block; width: 100px;height: 40px; background: pink; position:absolute;left:0;top:0;}
+            ul li span:nth-child(2){background: blue; transform:translate(0,-20px) rotateX(90deg);}
+            ul li span:nth-child(1){background: yellow; transform:translateZ(20px);}
+            ul:hover li{transform:rotateX(-90deg);} 
+            ul:hover li:nth-child(2){transition-delay:0.2s;} 
+            ul:hover li:nth-child(3){transition-delay:0.3s;} 
+        </style>
+        
+    </head>
+    <body>
+            <ul>
+                <li><span>html</span><span>前段培训</span></li>
+                <li><span>html</span><span>前段培训</span></li>
+                <li><span>html</span><span>前段培训</span></li>
+                
+            </ul>
+    </body>
+</html>

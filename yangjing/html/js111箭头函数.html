@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                // 一般写法
+                 var he1 = function (){
+                    return 10 + 10;
+                }
+                // 箭头写法
+                var he2 = () => 10 + 10;
+                var a = he2();
+                console.log(a);
+
+                 // 有参数一般写法
+                 var text1 = function (x){
+                    return x + 10;
+                }
+                // 箭头写法
+                var text2 = x => x + 10;
+                
+                // 有多个参数一般写法
+                 var t1 = function (x,y){
+                    return x + y;
+                }
+                // 箭头写法
+                var t2 = (x,y) => x + y;
+
+
+        // 函数中包含多行代码时用代码块括起来
+        // btn.onclick = function (e) {
+        //   e = e || window.event;
+        //   var keyCode = e.which || e.keyCode;
+        //   console.log(keyCode);
+        // };
+
+        // 简写
+        document.onclick = e=> {
+            e = e || window.event;
+            var keyCode = e.which || e.keyCode;
+            // console.log(keyCode);
+
+            return false;
+        }
+
+
+        // 函数中返回一个对象
+        var person = function(){
+            return {
+                name:'laoxie',
+                age:18,
+                gender:'男'
+            }
+        }
+
+        // 简写
+        var person = ()=>({
+                name:'laoxie',
+                age:18,
+                gender:'男'
+            });
+
+
+        // 配合默认值的箭头函数
+        var show = (a=0,b=0)=>{
+            var res = a + b;
+            return res;
+        }
+
+        show(10,20);//30
+       
+
+
+        // 剩余值/剩余参数
+        var sum = (a,...b)=>{
+            return b;
+        }
+
+        sum(10,20,30,40);//20
+
+        document.addEventListener('DOMContentLoaded',function(){
+            var btn = document.querySelector('button');
+
+            // 箭头函数中的this（重点）
+            // 箭头函数没有它自己的this值
+            // btn.onclick = ()=>{
+            //  console.log(this);
+            // }
+
+
+            // 格两妙后输出按钮内容
+            btn.onclick = function(){
+                // 这里的this指向btn
+                setTimeout(()=>{
+                    //这里的this为window
+                    console.log(this.innerText);
+                },2000)
+            }
+            
+        });
+
+        </script>
+    </head>
+    <body>
+        <button>按钮</button>
+    </body>
+</html>

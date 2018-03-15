@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            ul,li{list-style:none;}
+            ul{width: 500px;height: 300px;border:1px dashed black;}
+            li.nr{float:right;background: pink;padding: 5px;border-radius: 8px;}
+            li{float:left;clear:both;background: green;padding: 5px;border-radius: 8px;}
+        </style>
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',function(){
+                            var ul = document.querySelector('ul');
+                            var sl = document.querySelector('input');
+                            var btn = document.querySelector('button');
+                            function zx(){
+                                    var _sl = sl.value;
+                                    var li = document.createElement('li');
+                                    var txt = document.createTextNode(_sl);
+                                    li.className = 'nr'
+                                    li.appendChild(txt);
+                                    ul.appendChild(li);
+                                    var arr = ['你好','约吗','我要退货'];
+                                    var arr1 = ['你好我也好','抱歉，上班时间没空','那是不可能的'];
+                                    if(arr.indexOf(_sl)>=0){
+                                        setTimeout(function(){
+
+                                            var li1 = document.createElement('li');
+                                            var txt1 = document.createTextNode(arr1[arr.indexOf(_sl)]);
+                                            li1.appendChild(txt1);
+                                            ul.appendChild(li1);
+                                        },2000)
+                                    }else{
+                                        setTimeout(function(){
+
+                                            var li1 = document.createElement('li');
+                                            var txt1 = document.createTextNode('不要再来吵我了');
+                                            li1.appendChild(txt1);
+                                            ul.appendChild(li1);
+                                        },2000)
+                                    }
+
+
+                            }
+                            
+                            btn.onclick = function(){
+                                zx();
+
+                            }
+
+                            document.onkeydown = function(e){
+                                e = e || window.event;
+                                console.log(e.ctrlKey);
+                                if(e.keyCode == 13 && e.ctrlKey == true){
+                                        zx();
+                                }
+                            }
+
+
+
+
+
+
+                })
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>自动应答机器人</h3>
+        <ul></ul>
+        <input type="text" /> <button>发送</button>
+    </body>
+</html>

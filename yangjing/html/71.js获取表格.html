@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            table{border:1px solid black; border-collapse:collapse;}
+            td{border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <h1>表格</h1>
+        <input type="text" id="row" placeholder="行"/>
+        <input type="text" id="col" placeholder="列"/>
+        <button id="btn">生成表格</button>
+        <div id="bg"></div>
+        <script src="../js/common.js"></script>
+        <script>
+            
+            var row=document.getElementById("row");
+            var col=document.getElementById("col");
+            var bg=document.getElementById("bg");
+            var btn = document.getElementById('btn');
+            // console.log(randomColor());
+            function tab(){
+                var _row=row.value;
+                var _col=col.value;
+                var res="<table><tbody>"
+                for(var i=1;i<=_row;i++){
+                        res=res+'<tr style="background-color:'+randomColor()+";"+'">';
+                        for(var j=1;j<=_col;j++){
+                            res=res+"<td>单元格"+i+j+"</td>";
+                        }
+                        res=res+"</tr>";
+                }
+                res=res+"</tbody></table>";
+                bg.innerHTML=res;
+            }
+
+            btn.onclick = tab;
+
+        </script>
+
+    </body>
+</html>

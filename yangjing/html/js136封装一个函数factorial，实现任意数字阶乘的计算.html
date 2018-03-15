@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded',()=>{
+                var input = document.querySelector('input');
+                var btn = document.querySelector('button');
+                var div = document.querySelector('div');
+                console.log(btn);
+                btn.onclick = ()=>{
+                     var number = input.value*1;
+                     
+                     div.innerHTML = factorial(number);
+                     
+                }
+                function factorial(n){
+                        var jc = 1;
+                        for(var i=2;i<=n;i++){
+                            jc *= i;
+                        }
+                        return jc;
+                }
+        })
+        </script>
+    </head>
+    <body>
+        <h3>封装一个函数factorial，实现任意数字阶乘的计算</h3>
+        <input type="text" /><button>计算阶乘</button>
+        <div></div>
+    </body>
+</html>

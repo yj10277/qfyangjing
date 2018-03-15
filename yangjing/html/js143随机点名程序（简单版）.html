@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>随机点名程序（简单版）</h3>
+        <input type="text" /><button>随机点名</button>
+        <script type="text/javascript">
+                var in1 = document.querySelector('input');
+                var btn = document.querySelector('button');
+                var mc = ['F4','阿杜','林俊杰','s.h.e','周杰伦','潘玮柏','蔡依林','王心凌'];
+                sjdm();
+                btn.onclick = sjdm;
+                function sjdm(){
+                    var sj = parseInt(Math.random()*mc.length);
+                    in1.value = mc[sj];
+                }
+
+
+        </script>
+    </body>
+</html>

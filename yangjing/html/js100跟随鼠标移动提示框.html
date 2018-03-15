@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07制作跟随鼠标移动提示框</title>
+    <style>
+
+       
+        .details{display:none;position:absolute;padding:10px;width:200px;border:1px solid #f60;background-color: #ffc;}
+        .details::before,.details::after{
+            content:'';
+            position:absolute;top:-20px;left:15px;
+            border:10px solid transparent;border-bottom-color:#f60;
+        }
+        .details::after{top:-18px;border-bottom-color:#ffc;}
+
+       
+        .box{width:0;height:0;border:20px solid transparent;border-bottom-color:green;}
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                鼠标移入
+                    * onmouseover
+                    * 把a标签中的title属性内容写入.details
+                    * 显示.details
+                跟随鼠标
+                    * onmousemove
+                    * 把.details定位到光标所在位置
+                    * event对象的兼容性
+                鼠标移开
+                    * onmouseout
+                    * 隐藏.details
+
+             */
+            // var newslist = document.getElementsByClassName('newslist')[0];
+            // var details = document.getElementsByClassName('details')[0];
+
+            var newslist = document.getElementById('newslist');
+            var details = document.getElementById('details');
+
+            var links = newslist.getElementsByTagName('a');
+            console.log(links)
+
+            // 遍历所有a标签，分别添加事件处理函数（绑定事件）
+            for(var i=0;i<links.length;i++){
+                links[i].onmouseover = function(){
+                    details.innerHTML = this.title;
+                    details.style.display = 'block';
+                }
+                links[i].onmouseout = function(){
+                    details.style.display = 'none'
+                }
+                links[i].onmousemove = function(e){
+                    details.style.left = e.clientX-20 +'px';
+                    details.style.top = e.clientY+35 +'px';
+                }
+            }
+          
+        }
+    </script>
+</head>
+<body>
+    <h1>新闻提示信息</h1>
+    <ul class="newslist" id="newslist">
+        <li><a href="#" title="小明由于调戏女老师再次被滚粗教室">教室文化</a></li>
+        <li><a href="#" title="iPhone10发布,屏幕高度亮瞎了所有小伙伴">iphone10发布会</a></li>
+        <li><a href="#" title="为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号">关于老王</a></li>
+    </ul>
+    <div class="details" id="details"></div>
+     <div class="box"></div>
+   
+</body>
+</html>

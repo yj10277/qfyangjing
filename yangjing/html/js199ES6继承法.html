@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>ES6继承法</h3>
+        <script type="text/javascript">
+
+                class Jc{
+                    constructor(a,b,c){
+                            this.name = a;
+                            this.age = b;
+                            this.xb = c;
+                    }
+                    say(){
+                        console.log(6666);
+                    }
+                }
+                let y1 = new Jc('yangjing',18,'男');
+
+                class Jc2 extends Jc{
+                    constructor(a,b){
+                        //改变this指向 ，执行父类constructor函数,继承父类的属性。
+                        super(a);
+                        this.ccc = '女';
+                    }
+                    // 静态方法
+                    // static加在函数前面不用实例化可以直接调用
+                    static city(){
+                        console.log(888);
+                    }
+                }
+                let y2 = new Jc2('wo');
+                // 静态方法
+                // static加在函数前面不用实例化可以直接调用
+                Jc2.city();
+
+                
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+/* 
+* @Author: Marte
+* @Date:   2017-10-24 15:09:13
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-10-24 17:49:52
+*/
+*{margin:0; padding:0;}
+a{text-decoration:none;}
+ul li{list-style:none;}
+.jd{width:1213px;
+    height:36px;
+    background:#FFFFFF;
+    border-bottom:1px solid #C81622;
+    margin:100px auto;
+}
+.jd h3{width:100px;
+    height:36px;
+    /*background:blue;*/
+    padding-left:40px;
+    float:left;
+    line-height:28px;
+    font-size:20px;
+    font-weight:normal;
+    background:url(../images/jd.jpg) no-repeat;
+}
+.jd ul{width:748px;
+    height:36px;
+    /*background:pink;*/
+    float:right;
+    border:1px solid #EDEDED;
+    border-bottom:0px;
+}
+.jd ul li{
+    float:left;
+}
+.jd ul li a{
+    
+    height:36px;
+    display:block;
+    font-size:12px;
+    line-height:36px;
+    text-align:center;
+}
+.jd ul li span{
+    padding:0 17px;
+    border-right:1px solid #CCCCCC;
+}
+.jd ul li:hover a{
+    border:1px solid #C81622;
+    height:33px;
+    border-bottom:1px solid #FFFFFF;
+    border-top:3px solid #C81622;
+    margin-top:-1px;
+    margin-left:-1px;
+}
+.jd ul li:hover span{
+    border-right:0px;
+}
+

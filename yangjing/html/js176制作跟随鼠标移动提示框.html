@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07制作跟随鼠标移动提示框</title>
+    <style>
+        #box{border:20px solid transparent;width:0;height:0;border-bottom-color:#f90;}
+        .details{display:none;position:absolute;padding:10px;width:200px;border:1px solid #f60;background-color: #ffc;}
+        .details::before,.details::after{
+            content:'';
+            position:absolute;top:-20px;left:15px;
+            border:10px solid transparent;border-bottom-color:#f60;
+        }
+        .details::after{top:-18px;border-bottom-color:#ffc;}
+
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h1>新闻提示信息</h1>
+    <ul class="newslist" id="newslist">
+        <li><a href="#" title="小明由于调戏女老师再次被滚粗教室">教室文化</a></li>
+        <li><a href="#" title="iPhone10发布,屏幕高度亮瞎了所有小伙伴">iphone10发布会</a></li>
+        <li><a href="#" title="为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号">关于老王</a></li>
+    </ul>
+    <div class="details" id="details"></div>
+   <script>
+                var ul = document.querySelector('ul');
+                var a = ul.getElementsByTagName('a');
+                var gs = document.querySelector('.details');
+
+                console.log(gs);
+                for(var i=0;i<a.length;i++){
+                    a[i].onmousemove = function(e){
+                        
+                        gs.style.display = 'block';
+                        gs.style.left = e.pageX-25 + 'px';
+                        gs.style.top = e.pageY+25 + 'px';
+
+                        
+                    }
+
+                    a[i].onmouseout = function(){
+                            gs.style.display = 'none';
+                            this.title = this.getAttribute('data-tt')
+                    }
+                
+                    a[i].onmouseover = function(){
+                        gs.innerHTML = this.getAttribute('title');
+                        this.setAttribute('data-tt',this.title);
+                        this.removeAttribute('title');
+
+                    }
+
+
+                }
+
+
+
+
+
+   </script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤不文明用语</title>
+    <style>
+        ul{padding:0;margin:0;list-style:none;}
+        .container{width:600px;margin:20px auto;}
+        .container li{border-bottom:1px dotted #ddd;padding:10px;margin:10px 0;}
+        textarea{display:block;width:100%;height:60px;}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>过滤敏感字符</h1>
+        <ul id="msglist"></ul>
+        <textarea id="msg"></textarea>
+        <button id="btn">提交</button>
+    </div>
+    <script>
+       
+        var msglist = document.getElementById('msglist');
+        var msg = document.getElementById('msg');
+        var btn = document.getElementById('btn'); 
+
+        var mg = ['妈蛋','法轮功','mad']
+
+        var kon = [];
+
+        
+
+        btn.onclick = function(){
+            var _msg = msg.value;
+
+            mg.forEach(function (item){
+                //标准式
+                //_msg =  _msg.replace(item,'**');
+                //正则式
+                var reg = new RegExp(item,'gi');
+                _msg  = _msg.replace(reg,'**');
+            });
+
+
+            kon.push(_msg);
+            xl();
+            msg.value = '';
+            msg.focus();
+        }
+
+
+        function xl(){
+            msglist.innerHTML = kon.map(function (item){
+                return '<li>'+item+'</li>'
+            }).join('');
+        }
+        
+        
+
+
+
+        
+    </script>
+</body>
+</html>

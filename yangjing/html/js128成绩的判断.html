@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">div{color:red;font-weight:bold;}</style>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded',()=>{
+                    var in1 = document.querySelector('.in1');
+                    var btn = document.querySelector('button');
+                    var div = document.querySelector('div');
+                    btn.onclick = ()=>{
+                        let _in1 = in1.value;
+                        if(_in1 > 85 && _in1 <= 100){
+                            div.innerHTML = '优秀';
+                        }else if(_in1 >= 75 && _in1 <= 85){
+                            div.innerHTML = '良好';
+                        }else if(_in1 >= 60 && _in1 <= 75){
+                            div.innerHTML = '及格';
+                        }else if(_in1 <= 60 && _in1 >= 0){
+                            div.innerHTML = '不及格';
+                        }else{
+                            div.innerHTML = '输入不正确';
+                        }
+                    }
+            })
+
+
+        </script>
+    </head>
+    <body>
+        <h3>成绩的判断</h3>
+        <input type="text" class="in1" /> <button>判断</button>
+        <div></div>
+    </body>
+</html>

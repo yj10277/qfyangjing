@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>用户注册验证</h3>
+        <label for="yhm">用户名：</label><input type="text" id="yhm"/>
+        <span></span>
+        <button>注册</button>
+        <script type="text/javascript">
+                var input = document.querySelector('input');
+                var btn = document.querySelector('button');
+                var span = document.querySelector('span');
+                btn.onclick = ()=>{
+                    var _in = input.value;
+                    var sl = new XMLHttpRequest();
+                    sl.onload = ()=>{
+                        if(sl.status==200||sl.status==304){
+                            var jg = sl.responseText;
+                              console.log(sl.responseText);  
+                            if(jg == 'no'){
+                                span.innerHTML = '此用户名太受欢迎，请换一个';
+                            }else{
+                                span.innerHTML = '恭喜，新年快乐!';
+
+                            }
+                        }
+                    }
+                    console.log(_in);
+                    sl.open('get','../api/zcyz.php?name='+_in);
+                    sl.send();
+                }
+
+
+        </script>    
+    </body>
+</html>

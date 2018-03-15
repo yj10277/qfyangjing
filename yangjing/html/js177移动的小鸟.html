@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            img{width: 100px;position: absolute;}
+            .right{transform:rotateY(180deg);}
+            
+            .bottom{transform:rotateZ(-30deg);}
+            .top{transform:rotateZ(30deg);}
+            html{overflow: hidden;}
+        </style>
+    </head>
+    <body>
+        <img src="../images/bird.jpg" alt="" />
+        <script type="text/javascript">
+            var xn = document.querySelector('img');
+                document.onkeydown = function(e){
+                    
+                    e = e || window.event;
+                    
+                    if(e.keyCode == 37){
+                        xn.style.left = xn.offsetLeft - 5 + 'px';
+                        xn.className = '';console.log(window.innerWidth);
+                        if(xn.offsetLeft <= -xn.offsetWidth){
+                                xn.style.left = window.innerWidth + 'px';
+                        }
+
+                    }
+                    if(e.keyCode == 38){
+                        xn.style.top = xn.offsetTop -5 + 'px';
+                        xn.className = 'top';
+                    }
+                    if(e.keyCode == 39){
+                        xn.style.left = xn.offsetLeft + 5 + 'px';
+                        xn.className = 'right';
+                        if(xn.offsetLeft >= window.innerWidth+xn.offsetWidth){
+                            xn.style.left = -xn.offsetWidth + 'px';
+                            
+                        }
+                    }
+                    if(e.keyCode == 40){
+                        xn.style.top = xn.offsetTop + 5 +'px';
+                        xn.className = 'bottom';
+                    }
+
+
+
+
+
+
+
+
+                }
+
+
+
+
+        </script>
+
+    </body>
+</html>

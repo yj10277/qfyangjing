@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">ul,li{list-style:none;padding: 5px;}</style>
+    </head>
+    <body>
+        <h3>天气跨越cors请求</h3>
+        <input type="text" /><button>查询</button>
+        <ul>
+            
+        </ul>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                var ul = document.querySelector('ul');
+                var input = document.querySelector('input');
+                var button = document.querySelector('button');
+                button.onclick = function(){
+                    var _in = input.value;
+                    var sl = new XMLHttpRequest();
+                    sl.onload = ()=>{
+                        if(sl.status == 200 || sl.status == 304){
+                                var js = JSON.parse(sl.responseText);
+                                var tq = js.data.forecast;
+                                ul.innerHTML = tq.map(function(a){
+                                    return `<li>
+                                                <h1>${a.date}</h1>
+                                                <h2>最${a.low} --- 最${a.high}</h2>
+                                                <h3>${a.fengxiang}  ${a.fengli.slice(10,-3)}</h3>
+                                                
+                                                
+                                                <h6>${a.type}</h6>
+
+                                            </li>`
+                                }).join('');
+                                console.log(tq[0].fengli.slice(10,-3));
+                                console.log(tq[0]);
+                        }
+                    }
+                    sl.open('get','http://wthrcdn.etouch.cn/weather_mini?city='+_in);
+                    sl.send();
+                }
+
+
+
+        </script>
+    </body>
+</html>

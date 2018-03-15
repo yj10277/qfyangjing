@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script>
+            function sum(){
+                var _in1=document.getElementById("in1");
+                var i1=_in1.value;
+                var _in2=document.getElementById("in2");
+                var i2=_in2.value;
+                var _suan=document.getElementById("suanfa");
+                var su=_suan.value;
+                if (su=='+'){
+                    var he=Number(i1)+Number(i2);
+                    jieguo.innerHTML=he;
+                }
+                if (su=="-"){
+                    var he=Number(i1)-Number(i2);
+                    jieguo.innerHTML=he;
+                }
+                if (su=="*"){
+                    var he=Number(i1)*Number(i2);
+                    jieguo.innerHTML=he;
+                }
+                if (su=="/"){
+                    var he=Number(i1)/Number(i2);
+                    jieguo.innerHTML=he;
+                }
+                
+                
+
+
+            }
+
+
+        </script>
+       
+    </head>
+    <body>
+        <h3>算数运算</h3>
+        <input id="in1" type="text" />
+        <select id="suanfa">
+            <option>+</option>
+            <option selected>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input id="in2" type="text" />
+        <button onclick="sum()">计算</button>
+        <div id="jieguo"></div>
+        
+
+    </body>
+</html>

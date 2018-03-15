@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{width: 100%; background:black;}
+            *{margin:0;padding:0;}
+            ul li{list-style:none;}
+            ul{width: 600px;height: 600px; background: pink; margin:50px auto;position: relative;}
+            li{position:absolute;left: 50%;top: 50%; transform:translate(-50%,-50%);box-sizing:border-box; border-radius:50%;animation:yangjing 4s linear infinite;transform-origin:center;}
+            span{display:block;width: 14px;height: 14px;background: blue; border-radius:50%;position: absolute;left:50%; transform:translate(-50%,-50%) rotate(0deg);animation:yangjing 4s linear infinite;}
+            i{display: block;width: 10px;height: 10px; border-radius:50%;background: purple; position: absolute; left:50%; transform:translate(-50%,-13px);}
+            ul li:nth-child(1){width: 60px;height: 60px;background:red; }
+            ul li:nth-child(2){width: 120px;height: 120px;border:2px solid white;animation-duration:2s;}
+            ul li:nth-child(3){width: 180px;height: 180px;border:2px solid white;animation-duration:3s;}
+            ul li:nth-child(4){width: 240px;height: 240px;border:2px solid white;animation-duration:4s;}
+            ul li:nth-child(5){width: 300px;height: 300px;border:2px solid white;animation-duration:5s;}
+            ul li:nth-child(6){width: 360px;height: 360px;border:2px solid white;animation-duration:6s;}
+            ul li:nth-child(7){width: 420px;height: 420px;border:2px solid white;animation-duration:7s;}
+            ul li:nth-child(8){width: 480px;height: 480px;border:2px solid white;animation-duration:8s;}
+            ul li:nth-child(9){width: 540px;height: 540px;border:2px solid white;animation-duration:9s;}
+            ul li:nth-child(10){width: 600px;height: 600px;border:2px solid white;animation-duration:10s;}
+            @keyframes yangjing{
+                0%{transform:translate(-50%,-50%) rotate(0deg);}
+                100%{transform:translate(-50%,-50%) rotate(360deg);}
+            }
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span><i></i></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+
+        </ul>
+    </body>
+</html>

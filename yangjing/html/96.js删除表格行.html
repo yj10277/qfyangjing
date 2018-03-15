@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            table{border:1px solid black;border-collapse:collapse;}
+            td{border:1px solid black;padding:5px 10px;}
+        </style>
+        <script>
+                window.onload = function(){
+                        var bg = document.getElementsByClassName('bg')[0];
+                        var btns = bg.getElementsByTagName('button');
+                        
+                        for(var i=0;i<btns.length;i++){
+                            //第一种方法不让i往上面找
+                            // btns[i].idx = i
+                            // btns[i].onclick = function(){
+                            //     console.log(this.idx);
+                            // }
+                            
+                            //第二种方法不让i往上面找
+                            (function(i){
+                                btns[i].onclick = function(){
+                                 console.log(i);
+                                 if(confirm('你真的要删除吗')){
+                                    var h = this.parentNode.parentNode;
+                                    h.parentNode.removeChild(h);
+
+                                 }
+                                 
+                                }
+                            })(i);
+                            
+                        }
+
+                }
+
+        </script>
+    </head>
+    <body>
+        <table class="bg">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>单元格01</td>
+                    <td>单元格02</td>
+                    <td>单元格03</td>
+                    <td>单元格04</td>
+                    <td>单元格05</td>
+                    <td>单元格06</td>
+                    <td>单元格07</td>
+                    <td>单元格08</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>单元格01</td>
+                    <td>单元格02</td>
+                    <td>单元格03</td>
+                    <td>单元格04</td>
+                    <td>单元格05</td>
+                    <td>单元格06</td>
+                    <td>单元格07</td>
+                    <td>单元格08</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>单元格01</td>
+                    <td>单元格02</td>
+                    <td>单元格03</td>
+                    <td>单元格04</td>
+                    <td>单元格05</td>
+                    <td>单元格06</td>
+                    <td>单元格07</td>
+                    <td>单元格08</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>单元格01</td>
+                    <td>单元格02</td>
+                    <td>单元格03</td>
+                    <td>单元格04</td>
+                    <td>单元格05</td>
+                    <td>单元格06</td>
+                    <td>单元格07</td>
+                    <td>单元格08</td>
+                    <td><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>单元格01</td>
+                    <td>单元格02</td>
+                    <td>单元格03</td>
+                    <td>单元格04</td>
+                    <td>单元格05</td>
+                    <td>单元格06</td>
+                    <td>单元格07</td>
+                    <td>单元格08</td>
+                    <td><button>删除</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

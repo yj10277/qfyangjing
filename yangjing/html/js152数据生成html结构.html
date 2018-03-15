@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <h3>数据生成html结构</h3>
+        <ul></ul>
+        <script type="text/javascript">
+                var arr = [{
+                                name:'iphone7 plugs',
+                                price:5899.00,
+                                color:'土豪金',
+                                imgurl:'../images/001.jpg'
+                            },{
+                                name:'Note7',
+                                price:3899.00,
+                                color:'黑色',
+                                imgurl:'../images/002.jpg'
+                            },{
+                                name:'荣耀7',
+                                price:1999.00,
+                                color:'白色',
+                                imgurl:'../images/003.jpg'
+                            }]
+                var ul = document.querySelector('ul')
+                var kong = '';
+                for(var i=0;i<arr.length;i++){
+                    kong += `<li>
+                            <img src="${arr[i].imgurl}"> 
+                            <h3 class="jkj">名称:${arr[i].name}</h3> 
+                            <h3>颜色:${arr[i].color}</h3>  
+                            <h3>价格:${arr[i].price}</h3> 
+                            </li>`;
+                }
+                ul.innerHTML = kong;
+
+        </script>
+    </body>
+</html>

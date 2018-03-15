@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            td{border:1px solid black;}
+            table{border-collapse:collapse;}
+            .gh{background: red;}
+        </style>
+    </head>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',function(){
+                var btn = document.querySelector('button');
+                var sl1 = document.querySelector('.s1');
+                var sl2 = document.querySelector('.s2');
+                var div = document.querySelector('div');
+                
+        btn.onclick = function(){
+            var _sl1 = sl1.value;console.log(_sl1);
+            var _sl2 = sl2.value;
+            var bg = document.createElement('table');
+                for(var i=0;i<_sl1;i++){
+                    var tr = document.createElement('tr');            
+                    
+                    if(i%2==0){
+                            tr.className = 'gh';
+                    }    
+                            
+                        for(var j=0;j<_sl2;j++){
+                            var txt = document.createTextNode('单元格');
+                            var td = document.createElement('td');
+                            td.appendChild(txt);
+                            tr.appendChild(td);
+                            
+
+                        }
+                    bg.appendChild(tr);
+                }
+                
+                div.appendChild(bg);
+
+        }
+
+
+
+
+
+
+
+
+
+        })
+
+    </script>
+    <body>
+      <h3>动态生成表格并实现隔行变色</h3>
+      <input type="text" placeholder="行" class="s1"/> <input type="text" placeholder="列" class="s2"/> <button>生成</button>
+      <div></div>
+    </body>
+</html>

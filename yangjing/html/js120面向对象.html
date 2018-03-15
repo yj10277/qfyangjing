@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+                *{padding: 0; list-style: none; margin: auto;}
+                #slide{width: 820px; height: 320px; overflow: hidden; position: relative;}
+                #slide ul{position: absolute; height: 100%; width: 100%;}
+                #slide li{float: left; width: 820px; height: 320px;}
+                img{width: 820px; height: 320px;}
+                li:nth-child(1){background-color: red;}
+                li:nth-child(2){background-color: green;}
+                li:nth-child(3){background-color: yellow;}
+                      
+        </style>
+        
+    </head>
+    <body>
+                <div id="slide">
+                <ul>
+                    <li><img src="../images/3.jpg" alt="" /></li>
+                    <li><img src="../images/004.jpg" alt="" /></li>
+                    <li><img src="../images/002.jpg" alt="" /></li>
+                </ul>
+                <p></p>
+                </div>
+
+                <input type="button" value="next" id="btnNext">
+                <input type="button" value="prev" id="btnPrev">  
+                <input type="button" value="play" id="btnPlay">
+                <input type="button" value="stop" id="btnStop">
+
+
+            <script>
+
+                    var x = new Gzhs();//实例化
+                    x.init(document.querySelector('div'));//调用init
+                    //构造函数
+                    function Gzhs(){
+                        this.init = function(_ele){
+                            
+                            this.ele = _ele;
+                            this.ul = _ele.querySelector('ul');
+                           
+                            this.lis = this.ul.querySelectorAll('li');
+                            this.baseWidth = this.lis[0].offsetWidth;
+                            this.ul.style.width = this.baseWidth*this.lis.length + 'px';
+                            this.play();
+                        };
+                        this.play = function(){
+                            var index = 0;
+                            this.ultimer = window.setInterval(function(){
+                                index++;
+                                if(index > this.lis.length-1){
+                                    index = 0;
+                                }
+                                limove();
+                            }.bind(this),1000)
+                            
+                            
+                            var limove = function(){
+                                var speedx = 10;
+                                var move = index * this.baseWidth;
+                               
+                                this.litime = window.setInterval(function(){
+                                    var left = this.ul.offsetLeft;
+                                    left -= speedx;
+                                    if(left*-1 >= move){
+                                        window.clearInterval(this.litime);
+                                        left = move * -1;
+                                    } 
+                                    this.ul.style.left = left + 'px';
+                                }.bind(this),10)
+                            }.bind(this);
+                            
+                        };
+                        this.stop = function(){
+
+                        };
+                        this.next = function(){
+
+                        };
+                        this.prev = function(){
+
+                        };
+
+                    }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .x1{height: 40px;width: 160px;}
+            .x1 div{float:left;width:40px;height: 40px;text-align:center;line-height: 40px;}
+            .ys{background:pink;}
+        </style>
+        <script src="../js/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+                jQuery(function($){
+                        var $tabs = $('.x1 div');
+                        var $imgs = $('.x2 img');
+                        
+                        //初始化
+                        $tabs.eq(0).addClass('ys');
+                        $imgs.slice(1).hide();
+                        $('.dhz').on('click','.x1 div',function(){
+                            var idx = $(this).index();
+                            $(this).addClass('ys').siblings().removeClass('ys');console.log(idx);
+                            $imgs.eq(idx).slideDown(1000).siblings().slideUp(100);
+                        })
+                })
+
+
+        </script>
+    </head>
+    <body>
+        <div class="dhz">
+            <div class="x1">
+                <div>tab1</div>
+                <div>tab2</div>
+                <div>tab3</div>
+                <div>tab4</div>
+            </div>
+            <div class="x2">
+                <img src="../images/001.jpg" alt="" />
+                <img src="../images/002.jpg" alt="" />
+                <img src="../images/003.jpg" alt="" />
+                <img src="../images/004.jpg" alt="" />
+            </div>
+        </div>
+    </body>
+</html>

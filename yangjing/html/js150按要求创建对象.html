@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>创建一个对象，用于存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息</h3>
+        <script type="text/javascript">
+                var obj = {
+                            '姓名':'杨靖',
+                            '学号':2133,
+                            '身份证号码':431026198910163812,
+                            '年龄':23,
+                            '性别':'男',
+                            '专业':'计算机'}
+                            var k = ' ';
+                          for(var attr in obj){
+                            k += obj[attr] + ' ';
+                                
+                          }
+                            obj['自我介绍'] = k;
+                console.log(obj);
+        </script>
+    </body>
+</html>

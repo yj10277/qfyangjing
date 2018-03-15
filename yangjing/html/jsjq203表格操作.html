@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格选取</title>
+    <style>
+        body{padding:50px;}
+        .datalist{
+            border:1px solid #ccc;
+            width:100%;
+            border-collapse: collapse;
+        }
+        .datalist td,.datalist th{padding:5px 10px;border:1px solid #ccc;}
+        .datalist tr.even{background-color:#efefef;}
+        .datalist tr.bs{background-color:#fc0;color:#fff;}
+
+        /*.datalist tr:nth-child(even){background-color:#efefef;}*/
+    </style>
+
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script>
+            
+                jQuery(function($){
+                    //获取第一行
+                    $('.btn1').on('click',function(){
+                        $('tr').eq(1).addClass('bs').find('input').prop('checked',true);
+                       
+                    })
+                    //获取第三行
+                    $('.btn3').on('click',function(){
+                        $('tr').eq(3).addClass('bs').find('input').prop('checked',true);
+                       
+                    })
+                    //获取第2-5行
+                    $('.btn2-5').on('click',function(){
+                        $('tr').slice(2,6).addClass('bs').find('input').prop('checked',true);
+                    })
+                    //全选
+                    $('#all').on('click',function(){
+                        $('.datalist tbody tr').addClass('bs').find(':checkbox').prop('checked',true);
+                    })
+                    //反选
+                    $('#btnFx').on('click',function(){
+                        $('tbody tr').toggleClass('bs').find(':checkbox').prop('checked',function(a,b){return !b })
+                    })
+                
+
+                    //点击任意位置选中当前行
+                    $('.datalist').on('click','tr',function(e){
+                        $(this).toggleClass('bs').find(':checkbox').prop('checked',$(this).hasClass('bs'))
+                    
+                   })
+
+
+
+
+
+
+            
+
+
+
+                })
+            
+
+
+    </script>
+</head>
+<body>
+    <button id="btnFx">反选</button>
+    <button class="btn1">获取第1行</button>
+    <button class="btn3">获取第3行</button>
+    <button class="btn2-5">获取第2-5行</button>
+    <input type="text" id="keyword"><button>选择</button>
+    <table class="datalist">
+        <thead>
+            <tr>
+                <th width="20"><input type="checkbox" id="all" ></th>
+                <th width="10">#</th>
+                <th>姓名</th>
+                <th>昵称</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>是否单身</th>
+                <th>爱好</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>1</td>
+                <td>关羽</td>
+                <td>关二哥</td>
+                <td>49</td>
+                <td>男</td>
+                <td>否</td>
+                <td>装逼</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>张飞</td>
+                <td>张三</td>
+                <td>45</td>
+                <td>男</td>
+                <td>是</td>
+                <td>喝酒</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>3</td>
+                <td>赵云</td>
+                <td>赵四</td>
+                <td>33</td>
+                <td>男</td>
+                <td>是</td>
+                <td>跳舞</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>4</td>
+                <td>奥巴马</td>
+                <td>小黑</td>
+                <td>56</td>
+                <td>男</td>
+                <td>否</td>
+                <td>打篮球，段子</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>5</td>
+                <td>李宇春</td>
+                <td>春哥</td>
+                <td>30</td>
+                <td>女</td>
+                <td>是</td>
+                <td>唱歌</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check"></td>
+                <td>6</td>
+                <td>岳云鹏</td>
+                <td>小月月</td>
+                <td>32</td>
+                <td>男</td>
+                <td>否</td>
+                <td>相声，段子，唱歌</td>
+                <td><button class="btnDelete">&times;</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

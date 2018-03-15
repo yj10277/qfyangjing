@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            div{height: 5px;background: red;position: absolute;}
+            span{position: absolute;left: 50%;}
+        </style>
+    </head>
+    <body>
+        <div><span></span></div>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                var span = document.querySelector('span');
+                var kuan = 0;
+                var time = setInterval(function(){
+                    kuan +=5;
+                    div.style.width = kuan + 'px';
+                    span.innerHTML = (kuan/window.innerWidth*100).toFixed(1) + '%'
+                    if(kuan>=window.innerWidth){
+                            clearInterval(time);
+                            div.style.width = window.innerWidth + 'px';
+                            span.innerHTML = 100 + '%';
+                    }
+                },30)
+
+
+        </script>
+    </body>
+</html>

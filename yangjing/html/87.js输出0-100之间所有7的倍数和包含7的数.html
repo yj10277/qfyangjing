@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>求出0-100之间所有7的倍数和包含7的数</title>
+    </head>
+    <body>
+        <script>
+
+                var kong = '';
+                for(var i=1;i<=100;i++){
+                    if(i%7===0 || String(i).indexOf('7') != -1){
+                        kong = kong + i +',';
+                    }
+                }
+                document.write('求出0-100之间所有7的倍数和包含7的数');
+                document.write('<br />');
+                document.write(kong);
+
+
+        </script>
+    </body>
+</html>

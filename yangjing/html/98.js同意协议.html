@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>用户注册</h1>
+        <label for="yhm">用户名</label>
+        <input type="text" id="yhm" />
+        <label for="mm">密码</label>
+        <input type="password" id="mm"/>
+        <p><input type="checkbox" name="agree"/>保密协议</p>
+        <button disabled>注册</button>
+        <script type="text/javascript">
+            var agree = document.getElementsByName('agree')[0];
+            var btn = agree.parentNode.nextElementSibling;
+
+            agree.onclick = function(){
+                if(agree.checked){
+                    btn.disabled = false;
+                }else{
+                    btn.disabled = true;
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

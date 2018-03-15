@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .x1{height: 40px;width: 160px;}
+            .x1 div{float:left;width:40px;height: 40px;text-align:center;line-height: 40px;}
+            .ys{background:pink;}
+        </style>
+        <script type="text/javascript">
+        window.onload = function(){
+                var dhz = document.querySelector('.dhz');
+                var tab = dhz.firstElementChild.children;
+                var img = dhz.firstElementChild.nextElementSibling.children;
+                console.log(img);
+                //初始化
+                for(var i=0;i<tab.length;i++){
+                        if(i==0){
+                            tab[i].className = 'ys'; 
+                        }else{
+                            img[i].style.display = 'none'
+                        }
+                        //点击切换高亮
+                        tab[i].onclick = function(){
+                            for(var j=0;j<tab.length;j++){
+                                if(tab[j]==this){
+                                    tab[j].className = 'ys'
+                                    img[j].style.display = 'block';
+                                }else{
+                                    tab[j].className = ''
+                                    img[j].style.display = 'none';
+                                }
+                                
+                            }
+                        }
+
+                }
+
+
+
+
+
+        }
+
+
+        </script>
+    </head>
+    <body>
+        <div class="dhz">
+            <div class="x1">
+                <div>tab1</div>
+                <div>tab2</div>
+                <div>tab3</div>
+                <div>tab4</div>
+            </div>
+            <div class="x2">
+                <img src="../images/001.jpg" alt="" />
+                <img src="../images/002.jpg" alt="" />
+                <img src="../images/003.jpg" alt="" />
+                <img src="../images/004.jpg" alt="" />
+            </div>
+        </div>
+    </body>
+</html>

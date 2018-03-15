@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .xs{display:none;}
+        </style>
+    </head>
+    <body>
+            <img src="../images/1.gif" alt="" />
+            <button>显示隐藏</button>
+            <script type="text/javascript">
+                    var btn = document.querySelector('button');
+                    var tp = document.querySelector('img');
+                    btn.onclick = function(){
+                        tp.classList.toggle('xs');
+                    }
+
+
+            </script>
+    </body>
+</html>

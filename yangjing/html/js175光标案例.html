@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{position: fixed;left: 0;bottom: 0;}
+        </style>
+    </head>
+    <body>
+        <h3>实时显示光标位置</h3>
+        <div></div>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                document.onmousemove = function(e){
+                    console.log(666);
+                    div.innerHTML = '<h4>可视距离:'+e.clientX+','+e.clientY + '</h4>'+'<h4>屏幕距离:'+e.screenX+','+e.screenY + '</h4>'+'<h4>顶部距离:'+e.pageX+','+e.pageY + '</h4>';
+                }
+        </script>
+    </body>
+</html>

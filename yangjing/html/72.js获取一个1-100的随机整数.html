@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //1-100整数的随机数；
+            // function num(){
+            //      var shu=parseInt(Math.random()*100)+1;
+            //      console.log(shu);
+            // }
+            // for(var i=1;i<=100;i++){
+            //     num();
+              
+            // }
+
+            function shu(min,max){
+                //100-200整数的随机数；
+                //var min=100;
+                //var max=200;
+                 var shu=parseInt(Math.random()*(max-min+1))+min;
+                 console.log(shu);
+            }
+            for(var i=1;i<100;i++){
+                shu(100,200);
+            }
+            
+            
+        </script>
+    </body>
+</html>

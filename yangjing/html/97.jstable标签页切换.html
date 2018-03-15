@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab标签页切换</title>
+    <style>
+        .tab{border:2px solid #ddd;padding:2px;width:353px;}
+        .tab header{padding-bottom:2px;border-bottom:2px solid #ddd;overflow:hidden;}
+        .tab header div{float:left;padding:5px 15px;border-right:1px solid #ddd;}
+        .tab .active{background-color: #fc0;color:#fff;}
+        .tab .content{padding:15px;min-height: 100px;}
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                tab标签切换
+                    思路：
+                        1）初始化
+                            * 高亮第一个tab
+                            * 隐藏除第一张以外的图片
+                        2）切换：鼠标点击tab（关键：获取点击的index值）
+                            * 高亮显示当前tab
+                            * 切换相应的图片
+
+                    * 如何实现鼠标移入一定时间后切换？？
+                    * 自动切换
+             */
+                var tab = document.getElementsByClassName('tab')[0];
+                
+                var an = tab.children[0].children;
+                var tp = tab.children[1].children;
+                console.log(tp);
+                var len = an.length;
+                for(var i=0;i<len;i++){
+                    if(i===0){
+                        an[i].className = 'active';
+                    }else{
+                        tp[i].style.display = 'none';
+                     }
+                    //自动切换
+                    (function(i){
+                        an[i].onclick = function(){
+                        for(var j=0;j<len;j++){
+                                if(j===i){
+                                    an[j].className = 'active';
+                                    tp[j].style.display = 'block'
+                                }else{
+                                    an[j].className = '';
+                                    tp[j].style.display = 'none'
+                                }
+                        }
+
+
+                        }
+                    })(i);
+                    
+
+                    
+                } 
+                   
+                
+              
+
+        }
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <header>
+            <div>Tab1</div>
+            <div>Tab2</div>
+            <div>Tab3</div>
+            <div>Tab4</div>
+            <div>Tab5</div>
+        </header>
+        <div class="content">
+            <div><img src="../images/01.jpg"></div>
+            <div><img src="../images/g2.jpg"></div>
+            <div><img src="../images/g3.jpg"></div>
+            <div><img src="../images/g4.jpg"></div>
+            <div><img src="../images/g5.jpg"></div>
+        </div>
+    </div>
+</body>
+</html>

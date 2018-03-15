@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>数组[10,15,2,32,5,4,20,8,48,54,6]从小到大的排序</h3>
+        <script type="text/javascript">
+                    var arr = [10,15,2,32,5,4,20,8,48,54,6];
+                    //冒泡排序法
+                    // for(var j=0;j<arr.length-1;j++){
+
+                    //         for(var i=0;i<arr.length-j-1;i++){
+                    //             if(arr[i]>arr[i+1]){
+                    //                 var kong = arr[i];
+                    //                     arr[i] = arr[i+1];
+                    //                     arr[i+1] = kong;
+                    //             }
+
+                    //         }
+                    // }
+                    // document.write(arr);
+                    
+
+                    //对比排序法
+                        // for(var j=0;j<arr.length;j++){
+
+                        //      for(var i=j+1;i<arr.length;i++){
+                        //          if(arr[j]>arr[i]){
+                        //              var kong = arr[j];
+                        //                  arr[j] = arr[i];
+                        //                  arr[i] = kong;
+                        //          }
+
+                        //      }
+                        // }
+                        // document.write(arr);
+                        
+
+                        //简单排序法 
+                        arr.sort(function(a,b){
+                                return a-b
+                        })
+                        document.write(arr+'倒序：');
+                        arr.reverse();//倒序
+                        document.write(arr);
+
+
+        </script>
+                    
+    </body>
+</html>

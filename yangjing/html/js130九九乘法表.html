@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    let div = document.querySelector('div');
+                        console.log(div);
+                    
+                    for(let i=1;i<=9;i++){
+                            
+                            for(let j=1;j<=i;j++){
+                                div.innerHTML += '<span>' + j + '&times' + i + '=' + j*i + '</span>' + ' ';
+                                
+                                
+                            }
+                                div.innerHTML += '<br>';
+                                
+
+
+
+                    }
+                    
+
+
+
+
+                })
+
+        </script>
+    </head>
+    <body>
+        <h3>九九乘法表</h3>
+        <div></div>
+    </body>
+</html>

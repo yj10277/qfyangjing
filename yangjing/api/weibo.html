@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取微博信息</title>
+    <style>
+        ul{list-style: none;padding:0;margin:0;}
+        .datalist{padding:0 20px;margin:0 auto;line-height:2;}
+        .datalist li{position:relative;border-bottom:1px dotted #ddd;padding-right:100px;}
+        .datalist li span{position:absolute;right:0;top:0;margin:0 5px;padding:2px 5px 2px 20px;background:skyblue url(../images/com.svg) no-repeat 5px center;background-size:20px;border-radius: 5px;width:30px;text-align:center;color:#fff;}
+        .datalist li span.like{right:70px;background-image:url(../images/zan.svg);background-color:orange;}
+
+    </style>
+    <script>
+            document.addEventListener('DOMContentLoaded',function(){
+                var ul = document.querySelector('ul');
+                
+                var sl = new XMLHttpRequest();
+                sl.onreadystatechange = function(){
+                    if(sl.readyState == 4 && (sl.status == 200 || sl.status == 304)){
+                          var arr =  JSON.parse(sl.responseText);console.log();
+                          ul.innerHTML = arr.map(function(a){
+                                return `<li data-id="${a.id}">
+                                            <h3>${a.username}</h3>
+                                            ${a.content}
+                                            <span class="like">${a.likecnt}</span>
+                                            <span>${a.comtcnt}</span>
+
+                                        </li>`
+                          }).join('');
+                    }
+                }
+
+                sl.open('get','../api/date/weibo.json');
+                sl.send();
+                //点赞
+                ul.onclick = function(e){
+                        if(e.target.className == 'like'){
+                            var id = e.target.parentNode.dataset.id;
+                            var sl = new XMLHttpRequest();
+                            sl.onload = function(){
+                                if(sl.status==304||sl.status==200){
+                                    var res = JSON.parse(sl.responseText);
+                                    console.log(res);
+                                    e.target.innerHTML = res.likecnt;
+                                }
+                            }
+                            sl.open('get','../api/weibo.php?id='+id);
+                            sl.send();
+                            console.log(666);
+                        }
+                }
+                
+            })
+    </script>
+</head>
+<body>
+    <h1>
+        微博信息
+    </h1>
+    <ul class="datalist">
+
+    </ul>
+</body>
+</html>

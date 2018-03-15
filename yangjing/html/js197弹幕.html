@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹幕</title>
+    <style>
+        .container{width:800px;margin:0 auto;padding-bottom:10px;background-color:#dfdfdf;}
+        #barrage{position:relative;height:600px;margin-bottom:10px;background:#000 url(../images/3.jpg) no-repeat;background-size:cover;overflow:hidden;}
+        #barrage .bar-item{position:absolute;left:100%;white-space:nowrap;}
+        #msg{margin-left:10px;width:400px;height:30px;border:1px solid #999;border-right:none;box-sizing:border-box;vertical-align:middle;}
+        #msg+button{padding:0 10px;height:30px;vertical-align:middle;}
+    </style>
+    <script src="../js/common.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <h3 id="barrage"></h3>
+        <input type="text" id="msg"><button>发送</button>
+    </div>
+    <script type="text/javascript">
+            var obj = {
+                // 属性（有什么）
+                ele:'div',
+                pm:'h3',
+                sl:'input',
+                fs:'button',
+                
+                // 初始化（复杂操作）
+                // * 创建/获取元素
+                // * 绑定事件
+                init(){
+                    // 这里的this指向谁：obj
+                    // 获取元素
+                    this.ele = document.querySelector(this.ele);
+                    this.pm = this.ele.querySelector(this.pm);
+                    this.sl = this.ele.querySelector(this.sl);
+                    this.fs = this.ele.querySelector(this.fs);
+                    // 发送消息
+                    this.fs.onclick = ()=>{
+                        this.ganhuo();
+                    };
+                    //按下enter键也发送
+                    document.onkeydown = e=>{
+                        if(e.keyCode == 13){
+                            this.ganhuo();
+                        }
+                    }
+
+                },
+
+                // 方法（能做什么）
+                ganhuo(){
+                       // 获取输入信息
+                       var slz = this.sl.value;
+                       new Gzhs(slz); 
+                       //输入清空 从新获得焦点
+                       // this.sl.value = '';
+                       // this.sl.focus();
+                }
+            }
+
+
+            function Gzhs(slz){
+                // 属性：写在构造函数
+                this.color = randomColor();
+                this.fontsize = randomNumber(12,40);
+                this.top = randomNumber(10,obj.pm.offsetHeight-this.fontsize-10);
+                this.speed = randomNumber(-2,-15);
+                this.init(slz);
+            }
+
+
+
+
+            // 方法放到原型对象
+            // 初始化
+            // * 创建元素
+            // * 绑定事件
+            Gzhs.prototype.init = function(slz){ 
+                
+                //创建元素
+                var span = document.createElement('span');
+                span.innerHTML = slz;
+                span.className = 'bar-item';
+                // 设定span的移动样式
+                span.style.color = this.color;
+                span.style.fontSize = this.fontsize + 'px';
+                span.style.top = this.top + 'px';
+                obj.pm.appendChild(span);
+                //把span赋值到构造函数，让move可以调用
+                this.ele = span;
+                this.move();
+            }
+            //移动
+            Gzhs.prototype.move = function(){
+                var span = this.ele;
+                this.timer = setInterval(()=>{
+                    var spkd = span.offsetLeft;
+                    var left = spkd + this.speed;console.log();
+                    if(left<-span.offsetWidth){
+                        this.remove();
+                    };
+                    span.style.left = left + 'px';
+
+                },30);
+            }
+
+            Gzhs.prototype.remove = function(){
+                    clearInterval(this.timer);
+                    this.ele.parentNode.removeChild(this.ele);
+            }
+
+            obj.init();
+
+    </script>
+</body>
+</html>

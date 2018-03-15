@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>封装一个函数afterDate(date,n)，得到日期date的n天后的日期</h3>
+        <input type="date" class="in2"/> <input placeholder="天数" type="text" class="in1"/> <button>计算</button>
+        <div></div>
+        <script type="text/javascript">
+                var sl = document.querySelector('.in2');
+                var sl1 = document.querySelector('.in1');
+                var btn = document.querySelector('button');
+                var div = document.querySelector('div');
+                btn.onclick = function(){
+                    var slz = Date.parse(sl.value);
+                    var slz1 = sl1.value*86400000;
+                    var he = slz + slz1;
+                    var date = new Date(he);
+                    div.innerHTML = date.toLocaleDateString();
+                }
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="tp"><img src="../images/2.jpg" alt="" /></div>
+        <button id="btn">显示隐藏</button>
+        <script>
+                var tp = document.getElementById("tp");
+                var btn = document.getElementById("btn");
+
+                var x = 1;
+                
+                btn.onclick = xian;
+                    
+                function  xian(){
+                    if(x){
+                        tp.style.display = "none";
+                        x = 0;
+                    }else{
+                        tp.style.display = "block";
+                        x = 1;
+                    }
+                }
+                
+
+              
+
+        </script>
+    </body>
+</html>

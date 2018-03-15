@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .r{width: 400px; border:1px solid black; margin:100px auto; position:relative;
+            }
+            .t{width: 200px; height: 100px; background:green; border-radius:100px 100px 0 0/100px 100px 0 0;}
+            .t::before,.t::after{
+                content:"";
+                display:block;
+                width: 20px;
+                height: 20px;
+                background:black;
+                border-radius:10px 10px 10px 10px;
+                position:absolute;
+               
+                top:50px;
+
+            }
+            .t::before{left:40px;}  .t::after{right:240px;}
+            .s{height: 230px; width: 200px; background:green;margin-top:10px;border-radius:0 0 15px 15px/0 0 15px 15px;}
+            .s::before,.s::after{
+                content:"";
+                display:block;
+                width: 30px;
+                height: 180px;
+                background:black;
+                border-radius:15px 15px 15px 15px;
+                position:absolute;
+                top:120px;
+
+            }
+            .s::before{left:-40px;} .s::after{left:210px;}
+            .j{width: 200px; height: 80px; background:red;}
+            .j::before,.j::after{
+                content:"";
+                display:block;
+                width: 30px;
+                height: 80px;
+                background:black;
+                border-radius:0 0 15px 15px/0 0 13px 13px;
+                position:absolute;
+                top:340px;
+            }
+            .j::before{left:40px;} .j::after{right:240px;}
+
+        </style>
+
+    </head>
+    <body>
+        <div class="r">
+               <div class="t"></div>
+               <div class="s"></div>
+               <div class="j"></div>
+       </div>
+    </body>
+</html>

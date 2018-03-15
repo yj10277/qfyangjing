@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                function chaxun(){
+                    var shulu=document.getElementById("shulu");
+                    var _shulu=shulu.value;
+
+                    if (_shulu == 1||_shulu==3 ||_shulu==5||_shulu==7||_shulu==8||_shulu==10||_shulu==12){
+                            output.innerHTML="天数:"+31;
+                        }else if(_shulu==2){
+                            output.innerHTML="天数:"+29;
+                        }else if(_shulu != 1||_shulu != 2||_shulu != 3||_shulu != 4||_shulu != 5||_shulu != 6||_shulu != 7||_shulu != 8||_shulu != 9||_shulu != 10||_shulu != 11||_shulu != 12){
+                            output.innerHTML="输入不正确";
+                        }
+
+                    if(_shulu == 4||_shulu == 6||_shulu == 9||_shulu == 11){
+                            output.innerHTML="天数:"+30;
+                        }
+                    
+                }
+
+        </script>
+    </head>
+    <body>
+        <h3>输入月份显示当月的天数</h3>
+        <input type="text" id="shulu" />
+        <button onclick="chaxun()">查询</button>
+        <div id="output"></div>
+    </body>
+</html>

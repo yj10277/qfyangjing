@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            table{border:1px solid black;border-collapse:collapse; }
+            td{border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <label for="row">行:</label>
+        <input type="text"  name="row" />
+        <label for="col">列:</label>
+        <input type="text"  name="col" />
+        <button>生成</button>
+        <div class="datelist"></div>
+        <script src="../js/common.js"></script>
+        <script>
+                var row = document.getElementsByName('row')[0];
+                var col = document.getElementsByName('col')[0];
+                var btn = col.nextElementSibling;
+                var datelist = document.getElementsByClassName('datelist')[0];
+                
+                btn.onclick = function(){
+                    var _row = row.value;
+                    var _col = col.value;
+                    var table = document.createElement('table');
+                    var tbody = document.createElement('tbody');
+                    
+                    for(var i=0;i<_row;i++){
+                            var tr = document.createElement('tr');
+                            tr.style.backgroundColor = getColor();
+                            for(var j=0;j<_col;j++){
+                                var td = document.createElement('td');
+                                // var txt = document.createTextNode('单元格'+(i+1)+(j+1));
+                                // td.appendChild(txt);
+                                td.innerHTML = '单元格'+(i+1)+(j+1);
+                                tr.appendChild(td);
+                            }
+                            tbody.appendChild(tr);
+                    }
+
+                    table.appendChild(tbody);
+                    datelist.innerHTML = '';
+                    datelist.appendChild(table);
+                }
+
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹幕</title>
+    <style>
+    .container{width:800px;margin:0 auto;padding-bottom:10px;background-color:#dfdfdf;}
+    #barrage{position:relative;height:600px;margin-bottom:10px;background-color:#000;overflow:hidden;}
+    #barrage .bar-item{position:absolute;left:100%;white-space:nowrap;}
+    #msg{margin-left:10px;width:400px;height:30px;border:1px solid #999;border-right:none;box-sizing:border-box;vertical-align:middle;}
+    #msg+button{padding:0 10px;height:30px;vertical-align:middle;}
+    </style>
+    <script src="../js/common.js"></script>
+    <script>
+        /*
+                弹幕
+                    找对象（把谁当对象）
+                        * 页面（1个）
+                        * 文字（多个）
+
+                    效果：
+                        1）随机颜色，速度，字体大小，位置
+                        2）从右往左移动
+                    思路：
+                        1）发送
+                            1>绑定点击事件
+                            2>发送消息，把消息当作一个对象
+                        2）生成消息对象
+                            初始化：确定颜色，速度，字体大小，位置
+                        3）运动
+                            从右往左移动
+             */
+        document.addEventListener('DOMContentLoaded',function(){
+              
+
+                  var tm = {
+                        pm:'#barrage',
+                        input:'#msg',
+                        button:'button',
+                        init(){
+                                this.pm = document.querySelector(this.pm);
+                                this.input = document.querySelector(this.input);
+                                this.button = document.querySelector(this.button);
+                                
+                                this.button.onclick = ()=>{
+                                        var msg = this.input.value;
+                                        this.input.value = '';
+                                        this.input.focus();
+                                        new Gn(msg);
+                                }
+                        }
+
+                  }
+
+                  tm.init();
+
+                  function  Gn(msg){
+
+                        this.color = randomColor();
+                        this.fontSize = randomNumber(12,30);
+                        this.speed = randomNumber(-5,-20);
+                        this.top = randomNumber(10,tm.pm.offsetHeight-this.fontSize-5);
+                        this.init(msg)
+                  }
+                
+                    
+                    // 初始化
+                    // * 创建节点
+                    // * 绑定事件
+                  Gn.prototype.init = function(msg){
+
+                    var span = document.createElement('span');
+                        span.innerHTML = msg;
+                        span.className = 'bar-item';
+                        
+                        span.style.color = this.color;
+                        span.style.top = this.top + 'px';
+                        span.style.fontSize = this.fontSize + 'px';
+
+                        tm.pm.appendChild(span);
+                        
+                        this.ele = span;
+                        this.move();
+
+                  }
+
+
+                  Gn.prototype.move = function(){
+                        var span = this.ele;
+
+                        var time = setInterval(function(){
+                            var left = span.offsetLeft + this.speed;
+                             span.style.left = left + 'px';
+                            console.log(left);
+                            if(left < -span.offsetWidth){
+                                    clearInterval(time);
+                                    this.remove();
+                            }
+                        }.bind(this),20)
+
+                  }
+
+
+                  Gn.prototype.remove = function(){
+                        this.ele.parentNode.removeChild(this.ele);
+                  }
+
+
+
+
+
+
+
+
+        })    
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="barrage"></div>
+        <input type="text" id="msg"><button>发送</button>
+    </div>
+</body>
+</html>

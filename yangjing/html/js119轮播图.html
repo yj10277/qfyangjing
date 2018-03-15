@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+                *{padding: 0;margin: 0;}
+                div{width: 200px;height: 120px;overflow: hidden;position: relative;}
+                ul{width: 1000px;height: 120px;position: absolute;}
+                li{width: 200px;height: 120px;float:left;list-style:none;}
+                li:nth-child(1){background:pink;}
+                li:nth-child(2){background:blue;}
+                li:nth-child(3){background:yellow;}
+                li:nth-child(4){background:orange;}
+                li:nth-child(5){background:red;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        <input type="button" value="next" id="xia">
+        <input type="button" value="prev" id="shang">
+        <script>
+                document.addEventListener('DOMContentLoaded',()=>{
+                    var ul = document.querySelector('ul');
+                    console.log(ul);
+                    //slide(ul);
+
+                    //封装法
+                    // function slide(_ele){
+                    //     //ul 下所有 li
+                    //     var lis = _ele.children;
+                    //     //每个 li 的宽度
+                    //     var baseWidth = lis[0].offsetWidth;
+                    //     //下标
+                    //     var index = 0;
+                    //     //滚动速度
+                    //     var speedx = 10;
+                    //     //定义计时器用于轮播控制
+                    //     var timer1 = setInterval(()=>{
+                    //         move();
+                    //     },1000)
+                        
+                    //     //单个内容(li)的运动
+                    //     function move(){
+                    //         index++;
+                    //         if(index>lis.length-1){
+                    //                 index = 0;
+                    //         }
+                    //         var timer2 = setInterval(function(){
+                    //             //轮播内容的 left
+                    //             var _left = _ele.offsetLeft;
+                    //             if(index == 0){
+                    //                 _left += speedx;
+                    //             }else{
+                    //                 _left -= speedx;
+                    //             }
+
+                    //             //如果当前 li 滚动完成，则停止当前运动
+                    //             if(index>0&&(_left * -1)>=index*baseWidth){
+                    //                  clearInterval(timer2);
+                    //                  _left = index*baseWidth*-1;
+                    //             }
+
+                    //             //滚动到最后一个 li ，则回到第一个 li 重新开始
+                    //             if(index == 0 && _left == 0 ){
+                    //                 clearInterval(timer2);
+                    //                 _left = 0;
+                    //             }
+                    //             _ele.style.left = _left + 'px';
+
+
+
+                                
+                    //         },10)
+                    //     }
+                        
+                    //     //点击显示下一张
+                    //     document.querySelector('#xia').onclick = function(){
+
+                    //         clearInterval(timer1);
+
+                    //         move();
+
+                    //         timer1 = window.setInterval(function(){
+                    //             move();
+                    //         }, 3000)        
+                    //     }
+                    //     //点击显示上一张
+                    //     document.querySelector('#shang').onclick = function(){
+
+                    //         clearInterval(timer1);
+
+                            
+
+                    //         timer1 = window.setInterval(function(){
+                    //             move();
+                    //         }, 3000)        
+                    //     }
+
+
+                    // }
+
+
+                    //普通方法
+                    // var baseWidth = 200;
+                    // var index = 0;
+                    // var speedx = 10;
+                    // setInterval(function(){
+                    //     index++;
+                    //     if(index>4){
+                    //         index = 0;
+                    //     }
+                    //     var timer = setInterval(function(){
+                    //         var left = ul.offsetLeft;
+                                
+                    //         //前进单个li
+                    //         if(index != 0){
+                    //             left -= speedx;
+                    //         }
+                    //         if(index>0 && (left*-1) >= index*baseWidth){
+                    //             clearInterval(timer);
+                    //             left = index*baseWidth*-1;
+                    //         }
+
+                    //         //后退
+                    //         if(index==0){
+                    //             left += speedx;
+                    //         }
+                    //         if(index==0 && left == 0){
+                    //             clearInterval(timer);
+                    //             left = 0;
+                    //         }
+
+                            
+                            
+                    //         console.log(left);
+                    //         ul.style.left = left + 'px';
+                    //     },10)
+                    // },1000)
+                        
+
+                        //自己写的方法
+                        setInterval(function(){
+                            
+                            
+                            var left = ul.offsetLeft;
+                            left = left - 10;
+                            console.log(left);  
+                            
+                            if(left <= -1000){
+                                left = 0;
+                            }
+                            ul.style.left =  left + 'px'; 
+                        },50)
+                                   
+                })
+
+                
+        </script>
+    </body>
+</html>

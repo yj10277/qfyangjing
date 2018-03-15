@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded',()=>{
+                    let div = document.querySelector('div');
+                    let ohe = 0;
+                    let jhe = 0;
+                    let he = 0;
+                    for(let i=1;i<=100;i++){
+                            if(i%2 === 0){
+                                ohe += 1/i; 
+                            }else{
+                            
+                                jhe += 1/i;
+                            }
+                    }
+                     he = jhe - ohe;
+                    div.innerHTML = he;
+                })
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>求出1-1/2+1/3-1/4…..1/100的和</h3>
+        <div></div>
+    </body>
+</html>

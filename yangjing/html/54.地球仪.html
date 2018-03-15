@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+                ul li{list-style: none;}
+                *{margin:0;padding:0;}
+                ul{width: 200px;height: 200px; background: pink;margin:100px auto;position: relative;transform-style:preserve-3d;perspective:6000px; box-sizing:border-box;}
+                
+                li{width: 200px;height: 200px; box-sizing:border-box; float: left; position: absolute; left: 0;top: 0; border-radius:50%;opacity:0.5; border:1px solid black;/*animation:yangjing 4s linear infinite;*/ }
+                ul li:nth-child(1){transform:rotateY(72deg);background:purple;}
+                ul li:nth-child(2){transform:rotateY(144deg);background:pink;}
+                ul li:nth-child(3){transform:rotateY(216deg);background:red;}
+                ul li:nth-child(4){transform:rotateY(288deg);background: orange;}
+                ul li:nth-child(5){transform:rotateY(360deg);background: blue;}
+                
+                @keyframes yangjing{
+                    0%{transform:rotateY(0deg);}
+                    100%{transform:rotateY(360deg);}
+
+                }
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+        </ul>
+    </body>
+</html>

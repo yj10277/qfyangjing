@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            ul,li{list-style:none;}
+            ul{width: 400px;height: 200px;}
+            li{width: 100px;height: 50px;float: left;}
+
+
+        </style> 
+    </head>
+    <body>
+        <h2>商品列表</h2>
+        <ul>
+            <li date-sp="sp1"><img src="../images/3.png" /><h6>一个大三</h6><p>100</p><div><button>加入购物车</button></div></li>
+            
+            <li date-sp="sp2"><img src="../images/4.png" /><h6>一个大四</h6><p>200</p><div><button>加入购物车</button></div></li>
+            
+            <li date-sp="sp3"><img src="../images/5.png" /><h6>一个大五</h6><p>300</p><div><button>加入购物车</button></div></li>
+            
+            <li date-sp="sp4"><img src="../images/6.png" /><h6>一个大六</h6><p>400</p><div><button>加入购物车</button></div></li>
+        </ul>
+        <h4><a href="js184购物车.html">去购物车结算</a></h4>
+        <script type="text/javascript">
+                var ul = document.querySelector('ul');
+                var arr = [];
+                
+                ul.onclick = function(e){
+                            e = e || window.event;
+                            var target = e.target||e.srcElement;
+                            if(target.nodeName.toLowerCase() === 'button'){
+                                    var li = target.parentNode.parentNode;
+                                    //防止cookie加相同的商品，同件商品后面数量叠加就可以了
+                                    for(var i=0;i<arr.length;i++){
+                                            if(arr[i].id == li.getAttribute('date-sp')){
+                                                    arr[i].qty++;
+                                                    break;
+                                            }
+                                    }  
+                                    if(i == arr.length){
+
+                                        var obj = {
+                                                   id:li.getAttribute('date-sp'),
+                                                   img:li.children[0].src,
+                                                   name:li.children[1].innerHTML,
+                                                   jg:li.children[2].innerHTML,
+                                                   qty:1 
+
+                                                  }
+                                        arr.push(obj);
+                                    }
+
+                                    
+                                document.cookie = 'name=' + JSON.stringify(arr);
+                            }
+                    
+                }
+
+                 //刷新后cookie不被覆盖清空
+                var a = document.cookie;
+                var c = a.split('; ')
+                    c.forEach(function(item){
+                        var b = item.split('=');
+                        if(b[0] == 'name'){
+                            arr = JSON.parse(b[1]);
+                        }
+                    });
+                
+                
+
+
+
+
+                
+
+
+
+
+
+
+
+                
+
+
+        </script>
+    </body>
+</html>

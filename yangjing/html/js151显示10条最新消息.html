@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+                ul,li{list-style:none;}
+                *{margin: 0;padding: 0;}
+                div{margin:100px auto;border:1px solid black;width: 400px;height: 400px;padding-left: 60px;}
+                ul{width: 300px;height: 300px;border:1px solid black;}
+        </style>
+    </head>
+    <body>
+            <div>
+                
+                    <h3>显示10条最新消息</h3>
+                    <ul></ul>
+                    <input type="text" /><button>添加</button>
+            </div>
+                
+            <script type="text/javascript">
+                    //第一种方法
+                    // var ul = document.querySelector('ul');
+                    // var in1 = document.querySelector('input');
+                    // var btn = document.querySelector('button');
+                    // var sz = [];
+                    // btn.onclick = function(){
+                    //         var k = '';
+                    //         var _in = in1.value;
+                    //         k += '<li><a href="#">'+_in+'</a></li>';
+                    //         sz.unshift(k);
+                    //         ul.innerHTML = sz.join(''); 
+                    //         in1.value = '';
+                    //         in1.focus();
+                    // }        
+                    //第二种方法
+                        var ul = document.querySelector('ul');
+                        var sl = document.querySelector('input');
+                        var btn = document.querySelector('button');
+                        var arr = ['小明由于调戏女老师再次被滚粗教室','iPhone10发布,屏幕高度亮瞎了所有小伙伴','为了弘扬乐于“中国好邻居”称号'];
+                        var kong = '';
+                        for(var i=0;i<arr.length;i++){
+                            kong += '<li><a href="#">'+arr[i]+'</a></li>'
+                            
+                        }
+                        ul.innerHTML = kong;
+                        
+                        btn.onclick = function(){
+                                var kong = '';
+                                slz = sl.value;
+                                arr.unshift(slz);
+                                for(var i=0;i<arr.length;i++){
+                                    kong += '<li><a href="#">'+arr[i]+'</a></li>'
+                                }
+                                ul.innerHTML = kong;
+                                sl.value = '';
+                                sl.focus();
+                        }
+                                    
+
+            </script>
+    </body>
+</html>

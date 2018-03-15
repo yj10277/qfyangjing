@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            img{position: absolute;}
+            .xz{transform:rotateY(180deg);}
+        </style>
+    </head>
+    <body>
+        <img src="../images/bird.gif" alt="" />
+        <script type="text/javascript">
+                var img = document.querySelector('img');
+                var speed = 10;
+                var time = setInterval(function(){
+
+                    var left = img.offsetLeft + speed;
+                        img.style.left = left + 'px';
+                        if(left >= window.innerWidth - img.offsetWidth){
+                                speed *= -1;
+                                img.className = "xz";
+                        }
+                        if(left <= 0){
+                                speed *= -1;
+                                img.className = "";
+                        }
+                },30);
+
+
+        </script>
+    </body>
+</html>

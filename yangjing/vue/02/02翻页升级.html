@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='../../js/vue.js'></script>
+        <script src='../../js/jquery-3.2.1.js'></script>
+        <style type="text/css">
+            .actived{background: #428bca;color:#fff;}
+        </style>
+    </head>
+    <body>
+        <template id="datagrid">
+            <div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" v-if='trs.length==dataset.length' checked @click='all' key="'a'"/>
+                                <input type="checkbox" v-else @click='all' key="'b'"/>
+                            </th>
+                            <th>title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='(obj,index) in dataset' @click='click(index)' :class="{actived: trs.indexOf(index)>-1}" :key='obj.id'>
+                            <td>
+                                <input type="checkbox" v-if='trs.indexOf(index)>-1' checked :key="'b'+index"/>
+                                <input type="checkbox" v-else :key="'a'+index"/>
+
+                            </td>
+                            <td>{{obj.title}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+        <div id="app">
+            <datagrid :dataset='dataset' :name="name"></datagrid>
+            <h1 :name='name'>{{dataset.length}}</h1>
+        </div>
+        <script type="text/javascript">
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    dataset:[],
+                    name:'tom'
+                },
+                components:{
+                    'datagrid':{
+                        template:'#datagrid',
+                        props:['dataset','name'],
+                        data:function(){
+                            return{
+                               trs:[] 
+                            }
+                        },
+                        methods:{
+                            click:function(idx){
+                                if(this.trs.indexOf(idx)>-1){
+                                    this.trs.splice(this.trs.indexOf(idx),1);
+                                }else{
+                                    this.trs.push(idx);
+                                }
+                            },
+                            all:function(){
+                                if(this.trs.length == this.dataset.length){
+                                    this.trs=[];
+                                }else{
+                                    this.trs=[];
+                                    for(var i=0;i<this.dataset.length;i++){
+                                            this.trs.push(i);
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    
+                }
+            });
+
+            $.get('https://cnodejs.org/api/v1/topics',{page:1,limit:10},function(res){
+                    vm.dataset = res.data;
+            });
+
+
+        </script>
+    </body>
+</html>

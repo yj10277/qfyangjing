@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>全选和反选效果</h3>
+        <span><input type="checkbox" class="in1"/>全选</span>
+        <span><input type="checkbox" class="in2"/>反选</span>
+        <h6>爱好</h6>
+        <div>
+            
+            <input type="checkbox" />篮球
+            <input type="checkbox" />兵乓球
+            <input type="checkbox" />羽毛球
+            <input type="checkbox" />足球
+            <input type="checkbox" />高尔夫
+            <input type="checkbox" />桌球
+            <input type="checkbox" />保龄球
+        </div>
+    </body>
+    <script type="text/javascript">
+        var div = document.querySelector('div');
+        var in1 = document.querySelector('.in1');
+        var in2 = document.querySelector('.in2');
+        var input = div.children;
+        console.log(input);
+        
+                in1.onclick = function(){
+                    if(in1.checked){
+                        for(var i=0;i<input.length;i++){
+                            input[i].checked = true;
+                        }
+                        
+                    }else{
+                        for(var i=0;i<input.length;i++){
+                            input[i].checked = false;
+                        }
+                    }
+                
+                }
+
+
+
+
+    </script>
+</html>

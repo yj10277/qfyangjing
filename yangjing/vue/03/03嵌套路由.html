@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../../../libs/vue/vue.js"></script>
+    <script src="../../../../libs/vue/vue-router.js"></script>    
+</head>
+<body>
+    <div id="app">
+        <router-link to="/floor1">floor1</router-link>
+        <router-view></router-view>
+    </div>
+
+    <script>
+
+        const Floor1 = { template: '<div><h1>一楼</h1><router-link to="/floor1/floor2">floor2</router-link><router-view></router-view></div>' };
+        const Floor2 = { template: '<div><h1>二楼</h1></div>' };
+
+        const router = new VueRouter({
+            routes: [
+                {path: '/floor1', name: "tom", component: Floor1, children: [
+                    {path: 'floor2', name: "sam", component: Floor2}
+                ]}
+            ]
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            router: router,
+            methods: {
+                goto: function(){
+                    router.push({name: "sam"})
+                    router.push({path: "floor2"})
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>将当前日期格式化输出为 “2015年08月24 星期五”格式</h3>
+        <div></div>
+        <button class='btn1'>开始</button> <button class="btn2">停止</button>
+         <script>
+                    var div = document.querySelector('div');
+                    var btn1 = document.querySelector('.btn1');
+                    var btn2 = document.querySelector('.btn2');
+                    var t = setInterval(sj,1000);
+                    sj();
+                    btn2.onclick = ()=>{
+                        clearInterval(t);
+                        console.log(666);
+                    }
+                    btn1.onclick = ()=>{
+                        clearInterval(t);
+                        t = setInterval(sj,1000);
+                    }
+                    function sj(){
+
+                        var time = new Date();
+                        var nian = time.getFullYear();
+                        var yue = time.getMonth()+1;
+                        var r = time.getDate();
+                        var xq = time.getDay();
+                        var h = time.getHours();
+                        var f = time.getMinutes();
+                        var m = time.getSeconds();
+                        h = h<10 ? '0'+h:h;
+                        f = f<10 ? '0'+f:f;
+                        m = m<10 ? '0'+m:m;
+                        var str = '日一二三四五六'
+                        div.innerHTML = nian+'年'+yue+'月'+r+'日'+' '+'星期'+str[xq]+' '+h+':'+f+':'+m;
+                    }
+                    
+                  
+            </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>商品列表</h1>
+        <div></div>
+        <script type="text/javascript">
+                var div = document.querySelector('div');
+                // var a = new XMLHttpRequest();
+                
+                // a.onreadystatechange = function(){
+                //     if(a.readyState == 4){
+                //          var  b =  JSON.parse(a.responseText);
+                //          var arr = [];
+                //          arr.push(b);
+                //          div.innerHTML = arr.map(function(item){
+                //                 return `<li ${item.id}>
+                //                             <h3>${item.price}</h3>
+                //                         </li>`
+                                        
+                //          });console.log(arr);
+                //     }
+                // }
+                // a.open('get','http://localhost:1708/api/goods.php',true);
+                // // a.open('get','../api/goods.php',true);
+                // a.send();
+
+                //建立与服务器连接
+                var sz = new XMLHttpRequest();
+
+                //接受数据 最好放在第二步
+                sz.onreadystatechange = function(){
+                    if(sz.readyState === 4){
+                          var a = sz.responseText;  
+                          a = JSON.parse(a);console.log(a);
+                          div.innerHTML = `<h3>${a.biaoti}</h3>`
+                    }
+                }
+
+                //数据请求地址
+                sz.open('get','../api/goods.php');
+                
+                //发送请求
+                sz.send();
+
+        </script>
+    </body>
+</html>

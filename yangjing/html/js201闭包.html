@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>用闭包实现输出点击按钮值</h3>
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <script type="text/javascript">
+                var btns = document.querySelectorAll('button');
+                for(var i=0;i<btns.length;i++){
+                    // (function(i){
+                    //     btns[i].onclick = function(){
+                    //         console.log(i);
+                    //     }
+                        
+                    // })(i);
+                    btns[i].onclick = (function(i){
+                        return function(){
+                            console.log(i+1);
+                        }
+                    })(i);
+                }
+
+
+        </script>
+    </body>
+</html>

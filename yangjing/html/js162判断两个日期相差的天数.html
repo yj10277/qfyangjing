@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>判断两个日期相差的天数</h3>
+        <input type="date" class="sl1"/> <input type="date" class="sl2"/> <button>计算</button>
+        <div></div>
+        <script type="text/javascript">
+                var sl1 = document.querySelector('.sl1');
+                var sl2 = document.querySelector('.sl2');
+                var btn = document.querySelector('button');
+                var div = document.querySelector('div');
+                btn.onclick = ()=>{
+                    var sl1z = Date.parse(sl1.value);
+                    var sl2z = Date.parse(sl2.value);
+                    div.innerHTML =  '相差'+Math.ceil((sl2z-sl1z)/1000/60/60/24)+'天';
+                }
+
+
+        </script>
+
+    </body>
+</html>
