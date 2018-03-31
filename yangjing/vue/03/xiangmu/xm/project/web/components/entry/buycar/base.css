@@ -1,0 +1,32 @@
+/* 
+* @Author: Marte
+* @Date:   2017-07-19 15:12:53
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-08-01 21:13:33
+*/
+body,h1,h2,h3,h4,p,ul,ol,dl,dt,dd,li,tr,td,img,a{margin: 0;padding: 0;}
+
+a{text-decoration: none;}
+header,nav, main,footer{
+    display: block;
+}
+ul,li{list-style: none;}
+.clearfix::after{
+    content:"";
+    display: block;
+    height: 0;
+    clear:both;
+    overflow:hidden;
+    visibility: hidden;
+    zoom:1;
+}
+img{
+    border: 0 none;
+    display: inline-block;
+}
+input{
+    outline: none;
+}
+*{
+    box-sizing: border-box;
+}

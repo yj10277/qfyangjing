@@ -1,0 +1,137 @@
+
+.order-address p{
+    box-sizing: border-box;
+    display: block;
+    height:2.186667rem;
+    padding: 0.4rem;
+    /*padding-top:0.533333rem;*/
+    font-size: 0.373333rem;
+    position: relative;
+    margin:0;
+    border-bottom: 0.013333rem solid;
+}
+.order-address p span{
+    display:inline-block;
+    width:2.666667rem;
+     height:0.8rem;
+     margin-left: 0.8rem;
+}
+.order-address p span:nth-child(4){
+    display:block;
+    width:100%;
+     margin-left: 1.2rem;
+
+
+}
+.order-address p i{
+    font-size: 0.666667rem;
+}
+.order-address p .nextTo{
+    position:absolute;
+    font-size: 0.4rem;
+    left:9.186667rem;
+    top:1.066667rem;
+
+}
+.order-father{
+    display:flex;
+    flex-flow: column;
+    height:100%;
+}
+.order-main{
+    flex:1;
+    overflow:auto;
+    overflow-x:hidden;
+}
+.order-hd{
+    height:1.28rem;
+    border-bottom: 0.013333rem solid #ccc;
+}
+.order-foot{
+    border-top:0.013333rem solid #666;
+    /*overflow:hidden;*/
+    height:1.28rem;
+}
+.order-foot p{
+    margin:0;
+    display:block;
+    height:1.2rem;
+    line-height: 1.2rem;
+    padding-left:0.533333rem;
+    float: left;
+    font-size: 0.373333rem;
+}
+.order-foot button{
+    float:right;
+    width: 2.666667rem;
+    height:1.266667rem;
+    background: #000;
+    border:none;
+    outline: none;
+    color:#fff;
+    font-size: 0.453333rem;
+    /*margin-top: ;*/
+}
+.order-check{
+    box-sizing: border-box;
+    height:1.066667rem;
+    border-bottom: 0.013333rem solid;
+    padding:0.4rem;
+
+}
+.order-check input{
+    width: 0.4rem;
+    height:0.4rem;
+    border-radius: 0.133333rem;
+    outline:none;
+    float:left;
+    margin-right:0.4rem;
+
+}
+.order-check label{
+    font-size: 0.373333rem;
+    float:left;
+
+}
+.order-list ul li{
+    overflow:hidden;
+    padding:0.4rem;
+    border-bottom: 0.013333rem dashed;
+}
+.order-list ul li img{
+    width:2.0rem;
+    height:2.0rem;
+}
+.order-list ul li input{
+    width:0.4rem;
+    height:0.4rem;
+}
+.order-list ul li div{
+    
+    float:left;
+}
+.order-list ul li .picture input{
+    margin-right: 0.4rem;
+    
+
+}
+.order-list ul li .brand {
+    margin-left: 0.4rem;
+}
+.order-list ul li .brand p{
+    margin:0;
+}
+.order-list ul li .brand span{
+    font-size: 0.373333rem;
+
+}.order-list ul li .brand p:nth-child(2) span{
+    display:block;
+    width:5.866667rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.order-list ul li h4{
+    height:0.533333rem;
+    font-size: 0.4rem;
+}

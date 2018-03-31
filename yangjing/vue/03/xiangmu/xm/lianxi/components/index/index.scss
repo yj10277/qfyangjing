@@ -1,0 +1,7 @@
+html,body{height: 100%;}
+.sy{
+    height: 100%;display:flex;flex-direction:column;
+    .tou{height: 100px;background:pink;}
+    .jiao{height: 100px;background:green;}
+    .st{flex:1;}
+}

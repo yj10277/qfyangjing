@@ -1,0 +1,9 @@
+
+.nogoods>ul>li:nth-child(1){margin-top: 110px;}
+.nogoods>ul>li{margin-bottom: 10px;border-bottom:1px solid #ccc;padding:20px;}
+.nogoods>ul>li>.nogoods_mes{height: 40px;line-height: 40px;font-size: 28px;margin-bottom:10px;/*border-bottom:1px solid #ccc;*/}
+.nogoods>ul>li>.nogoods_mes .already_pay{color:#75AA44;}
+.nogoods>ul>li>.nogoods_mes .not_pay{color:red;}
+.nogoods>ul>li>img{margin-right: 20px;}
+.nogoods>ul>li>.nogoods_mes2{margin-top:10px;height: 40px;line-height: 40px;font-size: 28px;text-align: right;padding-right: 30px;}
+.nogoods>ul>li>.nogoods_mes2 button{background-color: #54BB62;padding:10px 20px;color:#fff;margin-left: 10px;}

@@ -1,0 +1,7 @@
+.order{height: 100px;background-color: #54BB62;width: 100%;position: relative;text-align: center;line-height: 100px;color:#fff;font-size: 30px;}
+.order>a>i{position: absolute;left: 10px;color:#fff;font-size: 32px;}
+.order>a:nth-child(2){position: absolute;right: 40px;color:#fff;font-size: 32px;top: 0px;width: 32px;height: 32px;}
+.order>a:nth-child(2)>i{font-size: 40px;}
+.obody>ul li{float: left;width: 25%;list-style: none;font-size: 24px;text-align: center;height: 100px;line-height: 100px;}
+.obody>ul a{color:#000;}
+.choose:hover,.choose:active {color: #75AA44;border-bottom:1px solid #54BB62;}

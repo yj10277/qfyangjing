@@ -1,0 +1,6 @@
+.head{height: 80%;position: relative;}
+.head>.pic1>a{height: 200px;width: 200px;background:url(https://ww2.sinaimg.cn/bmiddle/607b06f7gy1fcxcan16yvj205k0580sr.jpg);border-radius: 50%;margin:0 auto;position: absolute;bottom:25px;left: 50%;margin-left: -100px;background-size:200px;}
+.head>.pic>a{height: 200px;width: 200px;background:url(https://ww2.sinaimg.cn/bmiddle/006xMHI2gy1fpccqw6ehqj30j60y2gn3.jpg);border-radius: 50%;margin:0 auto;position: absolute;bottom:25px;left: 50%;margin-left: -100px;background-size:100px;}
+.head>a>.set{position: absolute;width: 50px;height: 50px;top: 20px;right: 30px;font-size: 50px;color:#fff;}
+.zlogin{font-size: 26px;color:#fff;width: 100%;text-align: center;margin-top: -10px;}
+.zlogin>a{text-decoration: none;color:#fff;}

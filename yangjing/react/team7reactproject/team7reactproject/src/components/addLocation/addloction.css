@@ -1,0 +1,37 @@
+.add-father{
+    display:flex;
+    flex-flow: column;
+    height:100%;
+}
+.add-main{
+    flex:1;
+}
+.add-main ul{
+    padding:0.266667rem;
+}
+.add-main ul li{
+    box-sizing: border-box;
+    display:block;
+    height:1.12rem;
+    font-size: 0.346667rem;
+    border-bottom:0.013333rem solid #ccc;
+    padding-top:0.266667rem;
+}
+.add-main ul li label{
+    width:2.0rem;
+}
+.add-main ul li:nth-child(3){
+    height:2.0rem;
+}
+.add-main ul li input{
+    border:none;
+    height:0.8rem;
+    border-style:none;
+    outline: none;
+}
+.add-main ul li input:focus{
+    border:none;
+}
+.add-main ul li:nth-child(4) input{
+    width:5.333333rem;
+}

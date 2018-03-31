@@ -1,0 +1,99 @@
+html,body{
+    width: 100%;
+    padding: 0;
+    height: 100%;
+}
+.listContainer{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    .header{
+        padding: 0.266667rem 0;
+        height: 1.28rem;
+        display:flex;
+        box-sizing:border-box;
+        span{
+            text-align: center;
+            flex:1;
+            font-size: 0.6rem;
+        }
+        input{
+            padding-left: 0.7rem;
+            font-size: 0.5rem;
+            flex:4;
+            border:none;
+            background: #eee;
+            background-image: url("../../images/zoom.png");
+            background-size: 0.533333rem 0.533333rem;
+            background-repeat: no-repeat;
+            background-position: 0.05rem 0.14rem;
+        }
+    }
+    .Listnav{
+        height: 0.966667rem;
+        display:flex;
+        span{
+            text-align: center;
+            flex:1;
+            font-size: 0.32rem;
+            color:#999;
+        }
+        .specialSpan{
+            text-align: right;
+        }
+        .active{
+            color:red;
+        }
+    }
+    .main{
+        flex:1;
+        width: 100%;
+        overflow-y:auto;
+        h3{
+            text-align: center;
+        }
+        ul{
+            display:flex;
+            flex-flow:wrap;
+            justify-content:space-around;
+            width: 100%;
+            li{
+                width:45%;
+                img{
+                    width: 100%;
+                    height: 3.333333rem;
+                }
+                h5{
+                    font-size: 0.32rem;
+                    width: 100%;
+                    font-weight: normal;
+                    white-space:nowrap;          
+                    overflow:hidden;    
+                    text-overflow:ellipsis;
+                }
+                p{
+                    font-size: 0.42rem;
+                    color:#000;
+                    width: 100%;
+                    font-weight: bold;
+                    margin: 0.266667rem 0;
+                    white-space:nowrap;          
+                    overflow:hidden;    
+                    text-overflow:ellipsis;
+                }
+                h6{
+                    margin: 0.126667rem 0;
+                    width: 100%;
+                    white-space:nowrap;          
+                    overflow:hidden;  
+                    color:#666;
+                    font-weight: normal;
+                    text-overflow:ellipsis;
+                    font-size: 0.28rem;
+                }
+            }
+        }
+    }
+}

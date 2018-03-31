@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './ddg/app.js',
+  entry: './01.html',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -83,7 +83,22 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  // jquery
+  resolve: {
+        
+        alias: {
+          
+          'jquery': 'jquery' 
+        }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "windows.jQuery": "jquery"
+        })
+    ]
 }
 
 if (process.env.NODE_ENV === 'production') {

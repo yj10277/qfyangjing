@@ -93,7 +93,9 @@
             <span class='glyphicon glyphicon-calendar'></span><span>客官点这里，带你去逛超市喔</span>
         </div>
         <i class='glyphicon glyphicon-shopping-cart'><span class='glyphiconspan'></span></i>
+        <loading v-if='show'></loading> 
     </div>
+    
 </template>
 
 <script>
@@ -101,6 +103,7 @@
     import http from 'axios'
     import './nav.css'
     import lbt from '../lbt/lbt.vue'
+    import loading from '../loading/loading.vue'
     export default {
         data(){
             return {
@@ -110,11 +113,12 @@
                 dataset4:'',
                 dataset5:'',
                 dataset6:'',
-                
+                show:false
             }
         },
         components:{
-            lbt:lbt
+            lbt:lbt,
+            loading:loading
         },
         
         mounted(){
@@ -122,7 +126,8 @@
                 var gwc = document.querySelector('.glyphicon-shopping-cart');
                 var gwcspan = document.querySelector('.glyphiconspan');
                 var k = 0;gwcspan.innerText = k;
-
+                this.show = true;
+                console.log(this.show);
                 http.post('http://10.3.136.63:7070/products').then((res)=>{
                     
                     var yuan = this.$refs.ul1;
@@ -133,6 +138,7 @@
                     this.dataset4 = shuju.slice(25,28);
                     this.dataset5 = shuju.slice(12,15);
                     this.dataset6 = shuju.slice(33,36);
+                    this.show = false;console.log(this.show);
                 })
                 let arr3 = [];
                 dj.onclick = (e)=>{

@@ -1,0 +1,97 @@
+.shoppingcar{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .head{
+        height: 1.333333rem;
+        display:flex;
+        font-size: 0.466667rem;
+        justify-content:space-between;
+        align-items:center;
+        color:#333333;
+         .icon-fanhui{font-size: 0.533333rem;margin-left: 0.64rem;}
+         .icon-fuwuerji{font-size: 0.533333rem;margin-right: 0.64rem;}
+    }
+    .order-check{
+            box-sizing: border-box;
+            height:1.066667rem;
+            border-bottom: 0.013333rem solid;
+            margin-bottom: 0.4rem;
+
+            .order-check input{
+                width: 0.4rem;
+                height:0.4rem;
+                border-radius: 0.133333rem;
+                outline:none;
+                float:left;
+                margin-right:0.4rem;
+
+            }
+            .order-check label{
+                font-size: 0.373333rem;
+                float:left;
+
+            }
+        }
+    .shopcarnav{
+        flex:1;
+        width: 100%;
+        padding: 0 0.266667rem;
+        box-sizing:border-box;
+        overflow:auto;
+        li{
+            border:0.013333rem solid #ccc;
+            margin-bottom: 0.366667rem;
+            display:flex;
+            height: 2.5rem;
+            font-size: 0.4rem;
+            padding: 0.4rem 0.4rem;
+            div{
+                input{
+                    height: 34px;
+                    width: 30px;
+                }
+                button{
+                    width: 0.4rem;
+                    height: 0.4rem;
+                    line-height: 0.4rem;
+                    color:white;
+                }
+            }
+            img{
+                width: 2.133333rem;
+                height: 2.133333rem}
+            span{
+                padding-left: 0.566667rem;
+                 flex:5;
+                h1,h2,h3{
+                    width: 400px;
+                    white-space:nowrap;          
+                    overflow:hidden;    
+                    text-overflow:ellipsis;
+                }
+                 h1{margin-top: 44px;}
+                 h2{margin-top: 10px;}
+                 h3{margin-top: 10px;}
+            }
+        }
+    }
+    .bigbox{
+        height: 1.333333rem;
+        display:flex;
+            border-top:1px solid #ccc; 
+         .zj{
+            width: 100%;
+            font-size: 0.62rem;
+            color: red;
+            margin-left: 78px;
+         }
+         input{
+            width: 5.666667rem;
+            font-size: 27px;
+         }
+    }
+
+
+
+}

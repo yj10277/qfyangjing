@@ -1,0 +1,8 @@
+
+.allGoods>ul>li:nth-child(1){margin-top: 110px;}
+.allGoods>ul>li{margin-bottom: 10px;border-bottom:1px solid #ccc;padding:20px;}
+.allGoods>ul>li>.allgoods_mes{height: 40px;line-height: 40px;font-size: 28px;margin-bottom:10px;/*border-bottom:1px solid #ccc;*/}
+.allGoods>ul>li>.allgoods_mes .already_pay{color:#75AA44;}
+.allGoods>ul>li>.allgoods_mes .not_pay{color:red;}
+.allGoods>ul>li>img{margin-right: 20px;}
+.allGoods>ul>li>.allgoods_mes2{margin-top:10px;height: 40px;line-height: 40px;font-size: 28px;text-align: right;padding-right: 30px;}

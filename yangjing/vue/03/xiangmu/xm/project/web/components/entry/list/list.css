@@ -1,0 +1,19 @@
+body,html{height: 100%;}
+.list{height: 100%;display: flex;flex-direction: column;font-family: "细明体";}
+
+
+#list_header{height: 90px;background-color: #54BB62;padding:15px 20px;display:flex;}
+#list_header>.icon-fangdajing{height: 60px;width: 50px;font-size: 32px;line-height: 60px;background-color: #fff;color:#ccc;text-align: center;border-radius:10px 0 0 10px;}
+#list_header>a{flex:1;display:flex;}
+#list_header>a>input{height: 60px;line-height: 60px;flex:1;padding-left:10px;font-size: 28px;line-height: 60px;color:#666;border-radius:0 10px 10px 0;margin-left: -2px;}
+
+
+#list_main{flex:1;overflow:hidden;display:flex;}
+#list_main>.main_left{width: 20%;background-color: #F6F6F6;}
+#list_main>.main_left>li{height: 90px;font-size: 26px;text-align: center;color:#5D5D5D;line-height: 90px;border-bottom: 1px solid #F3F3F3;font-family: "细明体";}
+#list_main>.main_left .list_main_active{background-color: #fff;color:#84B456;}
+.fmenu>a>li{float: left;width: 33.3333%;list-style: none;text-align: center;font-size: 45px;color:#A5A5A5;margin-top: 2px;height: 100px;padding-top: 5px;}
+.fmenu>a>li p{margin-top: -5px;color:#A5A5A5;font-size: 26px;}
+.fmenu>a{text-decoration: none;}
+
+

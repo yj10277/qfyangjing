@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>蜂潮</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="src/libs/font-awesome/css/font-awesome.min.css" />
+        <script type="text/javascript" src="src/libs/common/common.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" id="vp"/>
+
+
+        <link rel="stylesheet" type="text/css" href="src/libs/common/base.css" />
+        <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_591632_qntjjccgyw9rizfr.css" />
+        <link rel="stylesheet" type="text/css" href="node_modules/antd/dist/antd.css" />
+        
+        <script src='src/libs/common/jquery-3.2.1.js'></script>
+        <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
+        <link rel="stylesheet" href="src/libs/bootstrap/css/bootstrap.css" />
+
+        <link rel="icon" href="src/images/npdou.ico" type="iamge/x-icon"/>
+
+        <script type="text/javascript">
+            // 把尺寸放大N倍（N是window.devicePixelRatio）
+            var wd = document.documentElement.clientWidth*window.devicePixelRatio/10;
+            //物理像素*设备像素比=真实像素
+            document.getElementsByTagName("html")[0].style.fontSize = wd + "px";
+            // 把屏幕的倍率缩小到N分之一（N是window.devicePixelRatio）
+            var scale = 1/window.devicePixelRatio;
+            var mstr = 'initial-scale='+ scale +', maximum-scale='+ scale +', minimum-scale='+ scale +', user-scalable=no';
+            document.getElementById("vp").content = mstr;
+        </script>
+    </head>
+    <style>
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    #app{
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+    <body>
+        <div id="app" ></div>
+        <script type="text/javascript" src='./dist/bundle.js'></script>
+    </body>
+</html>

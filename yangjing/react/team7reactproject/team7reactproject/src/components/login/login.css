@@ -1,0 +1,66 @@
+html,body{
+     width:100%;
+    height:100%;
+}
+.back{
+    width:100%;
+    height:100%;
+    background:url("../../img/login.jpg") no-repeat;
+    background-size:cover;
+
+}
+.login-hd{
+    height:1.5rem;
+    color:#fff;
+    padding-left:0.78125rem;
+}
+.login-hd span{
+    display:block;
+    height:1.5rem;
+    font-size:1.03125rem;
+    line-height:1.5rem;
+}
+.login-main{
+    margin-top:1.333333rem;
+    color:#fff;
+    padding:0.78125rem;
+}
+.login-main p{
+    font-size:0.5625rem;
+
+}
+.login-main label{
+    height:0.75rem;
+    font-size:0.40625rem;
+    line-height:0.75rem;
+}
+.login-main input {
+    height:1.09375rem;
+    font-size:0.46875rem;
+    background:none;
+    color:#fff;
+    margin:0.3125rem 0 0.3125rem 0;
+}
+.login-main span{
+    display:line-block;
+    font-size:0.625rem;
+    color:yellow;
+    background:#ccc;
+    letter-spacing:0.15625rem;
+}
+.login-main .btn-warning{
+    width:4.0625rem;
+    height:0.9375rem;
+    font-size:0.46875rem;
+}
+.login-main .btn-light{
+    width:3.125rem;
+    height:0.9375rem;
+    font-size:0.46875rem;
+    margin-left:0.3125rem;
+}
+#errormeg{
+    color:pink;
+}
+
+

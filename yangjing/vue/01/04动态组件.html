@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src='../../../../js/vue.js'></script>
+</head>
+<body>
+    <div id="app" >
+        <input type="button" value="changeLight" @click="changeLight" />
+        <br/>
+        <p :is="show"></p>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: 'red',
+            },
+            methods:{
+                changeLight: function(){
+                    this.show = this.show == 'red' ? 'green' : 'red';
+                }
+            },
+            components: {
+                red: {
+                    template: '<h1>Red</h1>'
+                },
+                green: {
+                    template: '<h1>Green</h1>'
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

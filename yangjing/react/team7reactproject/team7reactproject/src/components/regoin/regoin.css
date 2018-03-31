@@ -1,0 +1,27 @@
+#sheng,#city,#xian{
+    width:2.666667rem;
+    height: 0.666667rem;
+    font-size: 0.4rem;
+    border: 0.013333rem solid #555;
+   padding: 0.5em;
+   line-height: 1.2em;
+   background: #fff;
+   -webkit-appearance: none;
+      -webkit-border-radius: 0.5em;
+      overflow: auto;
+      outline: none;
+
+
+}
+#sheng option,#city option,#xian option{
+    font-size: 0.16rem;
+    
+}
+ #sheng::-webkit-scrollbar-track{
+        background:#FF66D5;
+}
+/*.sel-father{
+    height:4.0rem;
+    overflow:hidden;
+
+}*/

@@ -1,0 +1,166 @@
+/* 
+* @Author: Marte
+* @Date:   2017-08-01 19:06:43
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-03-16 13:26:27
+*/
+
+html,body{
+    height: 100%;
+    /*font-size: 12px;*/
+}
+.container{
+    /*background: #3F454F;*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.container header{
+    height:100px;
+    display:flex;
+    background: #54BB62;width: 100%;
+}
+.container header>span{
+    flex:1;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+    color:white;
+    height:100px;
+    width: 33%;display: block;
+}
+.container header span:first-child{
+    text-align: left;font-size: 40px;margin-left: 10px;
+}
+.container header span:last-child{
+    text-align: right;
+}
+
+
+
+.container nav{
+    display:flex;
+    height: 80px;
+    line-height: 70px;
+    font-size: 24px;
+    border-bottom: 1px solid #ccc;
+}
+.container nav span{
+    padding: 10px;
+    flex:1;
+    font-size:24px;
+}
+.container nav span:first-child{
+    text-align: left;
+    color:#666;
+}
+.container nav span:last-child{
+    text-align: right;
+    color:red;
+}
+
+.container main{
+    flex: 1;
+    /*background: #F5F5F9;*/
+    overflow-y: auto;
+}
+
+
+.container main ul{
+    width: 100%;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    border-top: 0.013333rem solid #ccc;
+}
+.container main ul li{
+    height: 200px;
+    font-size: 24px;
+    /*line-height: 100px;*/
+    display: flex;
+    border-bottom: 0.013333rem solid #ccc;
+}
+.container main ul li div:nth-child(1){
+    flex:1;text-align: center;line-height: 200px;
+}
+.container main ul li div:nth-child(2){
+    flex:2;
+    flex-direction:column;
+    display: flex;
+}
+.container main ul li div:nth-child(2) p:nth-child(1){
+    flex:1;
+    font-size: 30px;margin-top: 40px;
+}
+.container main ul li div:nth-child(2) p:nth-child(2){
+    font-size: 27px;color:red;
+    margin-bottom: 20px;
+}
+.container main ul li div:nth-child(3){
+    flex:1;
+    font-size: 34px;
+    text-align: center;
+    line-height: 200px;
+}
+.container main ul li div:nth-child(3) input{
+    font-size: 40px;
+    margin: 5px;
+    width: 40px;
+    border:0;
+    color:white;
+    border-radius:50%;
+    height: 40px;
+    color:#54BB62;
+    line-height: 40px;
+    text-align: center;
+}
+
+
+
+.container footer {
+    display:flex;
+    background: #fff;
+    line-height: 60px;
+    height: 100px;
+    color:white;
+    display: flex;
+    font-size: 34px;
+    border-top: 2px solid #ccc;
+    color:red;
+}
+.container footer span{
+    padding: 20px;
+}
+
+
+.container footer>span:first-child{
+    text-align: left;
+    flex:5;
+}
+.container footer>span:last-child{
+    text-align: right;
+    flex:2;
+    background: #54BB62;
+    color:#fff;
+    text-align: center;
+}
+.cover{
+    background: #ccc;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 40%;
+    left: 50%;
+    transform:translate(-50% ,-50%);
+}
+.buyerror{position: absolute;top: 0;left: 0;right: 0;bottom:0;background-color:rgba(0,0,0,.3);}
+.buyerror>div{width: 400px;height: 240px;background-color:#54BB62;position: absolute;top: 35%;left: 50%;margin-left: -200px;border-radius: 20px;}
+.buyerror>div>h1{font-size: 36px;color:#ffff;text-align: center;margin-top: 70px;}
+.buyerror>div button{text-align: center;color:#fff;font-size: 30px;width: 250px;height: 60px;margin-top: 30px;margin-left: 50%;transform:translateX(-50%);border-radius: 10px;color:#54BB62}
+.buyerror>div>i{display: block;position: absolute;right: 5px;top: 5px;font-style: normal;width: 50px;height: 50px;border-radius: 25px;background-color: #fff;text-align: center;line-height: 50px;color:red;font-size: 26px;}
+

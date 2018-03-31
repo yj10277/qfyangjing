@@ -1,0 +1,43 @@
+.location-father{
+    display:flex;
+    height:100%;
+    flex-flow: column;
+}
+.location-main{
+    flex:1;
+    padding: 0.266667rem;
+}
+.location-main div ul li{
+    display:block;
+    height:2.0rem;
+    border:0.013333rem solid #ccc;
+    margin-top: 0.266667rem;
+    padding:0.4rem;
+    box-sizing: border-box;
+    padding-left: 0.933333rem;
+    position:relative;
+
+
+}
+.location-main div ul li span{
+    font-size: 0.346667rem;
+    display:inline-block;
+    width:2.666667rem;
+}
+.location-main div ul li span:nth-child(4){
+    display:block;
+     width:100%;
+}
+.location-main div ul li i{
+    display:block;
+    margin-left:7.733333rem;
+    font-size: 0.4rem;
+}
+.location-main div ul li input{
+    width:0.533333rem;
+    height:0.533333rem;
+    position: absolute;
+    left:0.133333rem;
+    top:0.8rem;
+   
+}

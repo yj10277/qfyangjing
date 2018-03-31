@@ -1,0 +1,235 @@
+html,body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+p,h1,h2,h3,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+.homecontainer{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    overflow:hidden;
+    flex-direction: column;
+    .search{
+        font-size: 0.533333rem;
+        width: 1.066667rem;
+        height: 1.066667rem;
+        line-height: 1.066667rem;
+        text-align: center;
+        position:fixed;
+        top: 0.266667rem;
+        left: 0.266667rem;
+        color:#fff;
+        background: rgba(0,0,0,.2);
+        border-radius:50%;
+        z-index: 99;
+    }
+    .home{
+        width: 100%;
+        overflow: auto;
+        flex:1;
+        .banner{
+                overflow-x: auto;
+            ul{
+                width:50.666667rem;
+                height: 7.68rem;
+                z-index: 88;
+                li{
+                    font-size: 0.0rem;
+                    float: left;
+                    width: 10.133333rem;
+                    height: 7.68rem;
+                    img{
+                        width: 100%;
+                        height: 7.68rem;
+                    }
+                }
+            }
+        }
+        .hotbrands{
+            margin: 0.8rem 0 0.4rem 3%;
+            width: 97%;
+            height: 0.8rem;
+            box-sizing:border-box;
+            border-left:0.053335rem solid #333;
+            .rightside{
+                color: #666;
+                font-size: 0.32rem;
+                letter-spacing: 0;
+                float: right;
+                line-height: 0.8rem;
+                .next{
+                    margin:0 0.16rem;
+                    font-size: 0.32rem;
+                }
+            }
+            .leftside{
+                margin: 0;
+                float: left;
+                font-size: 0.32rem;
+                padding-left: 0.066667rem;
+                h1{
+                    line-height: 0.4rem;
+                    font-size: 0.32rem;
+                    color: #515151;
+                    letter-spacing: 0.026666rem;
+                    font-weight: 700;
+                }
+                h2{
+                    line-height: 0.4rem;
+                    font-size: 0.32rem;
+                    color: #515151;
+                    letter-spacing: 0;
+                    font-weight: 700;
+                }
+            }
+        }
+        .picul{
+            position: relative;
+            height: 12.133333rem;
+            width: 100%;
+            overflow: hidden;
+            ul{
+                position:absolute;
+                top:0;
+                left: 0;
+                width: 200%;
+                li{
+                    float: left;
+                    margin: 0 0.91% 0.4rem 0.91%;
+                    width: 14.6%;
+                    font-size: 0;
+                    img{
+                        border-radius:0.266667rem;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .active{
+            width: 100%;
+            ul{
+                width: 100%;
+                li{
+                    width: 100%;
+                    a{
+                        width: 100%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .categories{
+            width:100%;
+            ul{
+                width: 100%;
+                display: flex;
+                flex-flow:wrap;
+                justify-content:space-around;
+                li{
+                    width: 31.333333%;
+                    a{
+                        width: 33.333333%;
+                        img{
+                            width: 100%;
+                            border-radius:0.533333rem; 
+                        }
+                    }
+                }
+            }
+        }
+        .recommendation{
+            width: 100%;
+            height: 5.333333rem;
+            position:relative;
+            overflow: hidden;
+            ul{
+                height: 5.6rem;
+                position:absolute;
+                display:flex;
+                li{
+                    margin: 0 10px;
+                    float: left;
+                    width: 3.466667rem;
+                    img{
+                        width: 100%;
+                        border-radius:0.266667rem;
+                        height: 3.466667rem;
+                    }
+                    h2{
+                        font-size: 0.32rem;
+                        color:#333;
+                    }
+                    h3{
+                        font-size: 0.32rem;
+                        color:#999;
+                    }
+                    h4{
+                        span{
+                            background: orange;
+                            font-size: 0.20rem;
+                            color:#fff;
+                            padding: 0.026667rem;
+                            border-radius:4px;
+                            padding-right: 0.066667rem;
+                        }
+                        color:#999;
+                        font-size: 0.22rem;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+        .limit{
+            width: 100%;
+            height: 7.266667rem;
+            overflow: hidden;
+            position:relative;
+            ul{
+                position:absolute;
+                left: 0;
+                top: 0;
+                height: 7.266667rem;
+                li{
+                    float: left;
+                    width: 7.453333rem;
+                    margin: 0 0.266667rem;
+                        box-shadow: 10px 5px 5px #888888;
+                        img{
+                            width: 7.453333rem;
+                            height: 5.16rem;
+                        }
+                        p{
+                            margin-top: 0.266667rem;
+                            padding:0 0.533333rem;
+                            font-size: 0.32rem;
+                            display: flex;
+                            color:#999;
+                            justify-content:space-between;
+                        }
+                        h4{
+                            color:#666;
+                            padding:0 0.533333rem;
+                            font-size: 0.32rem;
+                            display: flex;
+                            justify-content:space-between;
+                        }
+                }
+            }
+        }
+    }
+    .footer{
+        height: 1.333333rem;
+    }
+}

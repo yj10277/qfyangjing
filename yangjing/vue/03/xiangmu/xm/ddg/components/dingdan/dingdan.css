@@ -1,4 +1,6 @@
-.dddhz{background: #FDF7FF;}
+
+.dddhz{background: #FDF7FF;display: flex;flex-direction:column;height:100%;}
+.zj{flex:1;overflow: auto;}
 .dingdan{height: 100px;background: #63AB2D;display:flex;justify-content:space-around;align-items:center;margin-bottom: 15px;}
 .dingdan span:nth-of-type(1){font-size:40px;color:white;}
 .dingdan div{font-size: 30px;color:white;}
@@ -36,6 +38,6 @@
 .ddbz span:nth-child(1){margin-left: 30px;}
 .ddbz span:nth-child(2){margin-right: 30px;}
 
-.fk{height: 80px;background:white;line-height: 80px;font-size:25px;margin-top:300px;display:flex;justify-content:space-between;}
+.fk{height: 100px;background:white;line-height: 100px;font-size:25px;display:flex;justify-content:space-between;}
 .fk span:nth-child(1){margin-left: 30px;color:red;}
 .fk span:nth-child(2){margin-right: 30px;}

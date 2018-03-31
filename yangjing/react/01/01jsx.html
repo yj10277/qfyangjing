@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+        <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+        <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    </head>
+    <body>
+        <h3>react基础</h3>
+        <div id="hz1"></div>
+        <div class="hz2"></div>
+        <script type="text/babel">
+            var html = <h3>我们都有一个价</h3>;
+            ReactDOM.render(
+                html,
+                document.querySelector('#hz1')
+            );
+
+            var name = 'yangjing';
+            var style = {color:'red',opacity:0.2,background:'pink'}
+            ReactDOM.render(
+                    <h1 style={style}>{name}</h1>,
+                    document.querySelector('.hz2')
+                )
+
+        </script>
+    </body>
+    
+</html>

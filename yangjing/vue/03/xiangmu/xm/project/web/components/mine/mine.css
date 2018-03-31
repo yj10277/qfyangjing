@@ -1,0 +1,9 @@
+*{margin: 0; padding: 0;}
+body,html{height: 100%;}
+.person{height: 100%;display: flex;flex-direction: column;background-color:#F6F6F6;position: relative;}
+.person>.header{width: 100%; height: 30%; background:url(https://ww1.sinaimg.cn/bmiddle/006QlJL7gy1fnknlid317j30u01hcgmr.jpg);position: relative;background-size:240px;
+background-size: ;}
+.person>.header>div{height: 100%;}
+.person>.nav{height: 200px;margin-top: 3%;background-color: #FFF;}
+.person>.nav>div{height: 100%;}
+.person>.foot{height:52px;position: absolute;bottom:0;background-color: #FFF;width: 100%;height: 100px;}

@@ -1,0 +1,28 @@
+.footerNav{
+    height: 0.666667rem;
+    padding:0.066667rem 0 0 0;
+    margin: 0;
+    display:flex;
+    li{
+        flex:1;
+        text-align: center;
+        font-size: 0.40rem;
+        display:flex;
+        flex-direction: column;
+        text-decoration: none;
+        span{
+            height: 0.6rem;
+            flex:1;
+            line-height: 0.666667rem;
+            color:#666;
+            i{
+                line-height: 0.666667rem;
+                font-size: 0.6rem;
+            }
+        }
+        span.active{
+            color:orange;
+        }
+    }
+   
+}

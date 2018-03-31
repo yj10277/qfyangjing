@@ -1,0 +1,13 @@
+*{margin: 0;padding: 0;box-sizing:content-box;}
+.Marco-modal .Marco-modalShade{position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: #000; opacity: .3; z-index: 99;}
+.Marco-modal .Marco-modalBody{position: fixed;background: #fff;border:0.03125rem solid #666;border-radius:0.15625rem;left: 50%;top: 50%;transform:translate(-50%,-50%);z-index:100;min-width:6.25rem;}
+.Marco-modal .Marco-modalBody .Marco-modalHeader{height:0.78125rem;padding: 0.3125rem;border-bottom:0.03125rem solid #ccc;}
+.Marco-modal .Marco-modalBody .Marco-modalHeader .Marco-modalClose{position: absolute;top: 0.15625rem;right: 0.3125rem;display: block;width: 0.9375rem;height: 0.9375rem;text-align: center;line-height: 0.6875rem;font-size:0.9375rem;cursor:pointer;}
+.Marco-modal .Marco-modalBody .Marco-modalHeader .Marco-modalClose:hover{background: #f00;color:#fff;}
+.Marco-modal .Marco-modalBody .Marco-modalMain{min-height: 1.09375rem;padding: 0.3125rem;overflow: auto;}
+.Marco-modal .Marco-modalBody .Marco-modalBtn{height: 0.78125rem;padding: 0.3125rem;border-top:0.03125rem solid #ccc;}
+.Marco-modal .Marco-modalBody .Marco-modalBtn .btn{float: right;margin-right: 0.3125rem;color:#fff;padding: 0.1875rem 0.375rem;border:0 none;font-size:0.40625rem;border-radius:0.15625rem;cursor:pointer;}
+.Marco-modal .Marco-modalBody .Marco-modalBtn .btn:hover{opacity:.7;}
+.Marco-modal .Marco-modalBody .Marco-modalBtn .btn.btnSecondary{background: #aab;}
+.Marco-modal .Marco-modalBody .Marco-modalBtn .btn.btnPrimary{background: #0bf;}
+.condition,.content{font-size: 0.40625rem;color:#58bc58;}

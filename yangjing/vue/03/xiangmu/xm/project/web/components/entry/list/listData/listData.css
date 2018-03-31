@@ -1,0 +1,13 @@
+.main_right{flex:1;overflow:auto;padding:40px 20px 0;}
+.main_right>li{height: 158px;border-bottom: 1px solid #F3F3F3;display:flex;}
+.main_right>li>div{padding:0 35px;width: 170px;}
+.main_right>li>div>img{float:left;width: 100px;height: 98%;}
+.main_right>li>.main_goodsdata{width: 60%;float:left;display:flex;height: 98%;flex-direction: column;justify-content: space-between;padding-bottom:20px;padding-top: 10px;font-size: 28px;}
+.main_right>li>.main_goodsdata p:nth-child(1){color:#454545;}
+.main_right>li>.main_goodsdata p:nth-child(2){color:#E0605A;}
+.main_right>li>.icon-jiahao01{flex:1;height: 98%;font-size: 50px;color:#58bc58;padding-top: 80px;font-weight: bold;}
+
+.main_right .Ball{width: 25px;height: 25px;background-color: red;border-radius: 50%;}
+
+.main_right .icon-gouwuche{display:block;width: 88px;height: 88px;border-radius: 50%;position:fixed;right:25px;bottom:200px;opacity: 0.8;font-size: 54px;text-align:center;line-height: 88px;color:#58bc58;background-color: #fff;box-shadow: 0 0 3px #333;}
+.main_right .icon-gouwuche a{position: absolute;top: 0;right: 0;left: 0;bottom:0;}

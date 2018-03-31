@@ -1,0 +1,59 @@
+body,html,#app{height: 100%;}
+.xiangqing{
+    height: 100%;display:flex;flex-direction:column;
+    .head{height:1.333333rem;display:flex;font-size: 0.466667rem;justify-content:space-between;align-items:center;color:#333333;
+
+         .icon-fanhui{font-size: 0.533333rem;margin-left: 0.64rem;}
+         .icon-gouwuche-01{font-size: 0.746667rem;margin-right: 0.64rem;}
+    }
+    .nav{flex:1;overflow-x: hidden;background: #F2F2F2;
+        .lbt{height: 8.4rem;margin-bottom: 0.133333rem;margin-top: 0.133333rem;background:white;
+            img{height: 8.4rem;width: 100%;}
+        }
+        .biaoti{height:2.106667rem;background:white;padding-left: 0.4rem;margin-bottom: 0.133333rem;
+            h3{height: 0.56rem;font-size: 40px;color:red;margin: 0;line-height: 0.56rem;}
+            p{height: 0.8rem;font-size: 34px;color:black;margin: 0;line-height: 0.8rem;overflow-y: hidden}
+            h4{height: 0.48rem;font-size:0.266667rem;color:#666666;line-height: 0.48rem;}
+
+        }
+        .lmtj{height: 4.28rem;background:white;margin-bottom: 0.133333rem;
+            h3{height: 0.773333rem;font-size:20px;color:#333333;line-height:0.773333rem;padding-left: 0.4rem; }
+            .hd{height: 3.066667rem;width: 100%;overflow-y: hidden;
+                ul{height: 3.066667rem;width:18.4rem;
+                   li{float: left;height: 3.066667rem;width: 3.066667rem;
+                       img{height: 3.066667rem;width: 3.066667rem;}
+                   }
+                }
+            }
+        }
+        .spxq{height: 1.066667rem;line-height: 1.066667rem;text-align: center;background:white;
+            .special{font-size: 0.24rem;flex:50%;margin: 0 1.066667rem 0 1.066667rem;}
+            span:nth-child(1){border-bottom: 0.026667rem solid black;}
+            
+        }
+        .tpxq{height: 100%;background:white;
+
+        }
+        .gwxz{width: 100%;display:none;margin-bottom: 0.133333rem;}
+
+    }
+    .foot{height:1.333333rem;font-size: 0.4rem;line-height: 1.333333rem;
+        .icon-cloud{font-size: 0.533333rem;margin-left:0.533333rem;} 
+        .icon-fuwuerji{font-size: 0.533333rem;margin-left:0.533333rem;}
+        .icon-xin{font-size: 0.533333rem;margin-left: 0.533333rem}
+        span{float: right;width: 2.666667rem;text-align: center;color:#333333;}
+        span:nth-of-type(1){background:#333333;color:white;}
+    }
+    .fd{width: 0.386667rem;height: 0.36rem;background:url(../../img/ht.png);position: fixed;right: 0.266667rem;bottom: 2.0rem;}
+
+}
+.gouwu .ant-spin-spinning{position:fixed;left:50%;top:50%;}
+
+
+
+.nav {
+    padding: 0.066667rem 0 0 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}

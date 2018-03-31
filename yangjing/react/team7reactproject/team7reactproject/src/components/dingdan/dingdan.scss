@@ -1,0 +1,15 @@
+.dingdan{
+    .head{height: 1.333333rem;display:flex;font-size: 0.466667rem;justify-content:space-between;align-items:center;color:#333333;
+
+         .icon-fanhui{font-size: 0.533333rem;margin-left: 0.64rem;}
+         .icon-fuwuerji{font-size: 0.533333rem;margin-right: 0.64rem;opacity:0;}
+    }
+    .ddnav{height: 1.333333rem;display:flex;
+        li{flex:33.3%;height: 1.333333rem;line-height:1.333333rem;text-align: center; font-size: 0.346667rem;margin: 0 60px 0 60px;
+            a{color:#483d3d;}
+        }
+        .ys{border-bottom:2px solid black;}
+        // li:nth-of-type(1){border-bottom:2px solid black;}
+        // li:hover{border-bottom:2px solid black;}
+    }
+}
