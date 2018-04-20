@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script src="https://cdn.bootcss.com/angular-sanitize/1.6.9/angular-sanitize.min.js"></script>
+
+
+    </head>
+    <body ng-app='myapp'>
+            <div ng-controller='yang'>
+                <h1>{{name}}</h1>
+            </div>
+            
+            <div ng-controller='jing'>
+                <h2>{{name}}</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th ng-repeat='(key,value) in dataset[0]'>
+                                {{key}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat='obj in dataset'>
+                            <td ng-repeat='(key,value) in obj'>{{value}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </body>
+    <script type="text/javascript">
+                //定义根模块
+                var yj = angular.module('myapp',[]);
+                
+                //依赖注册
+                //定义控制器
+                yj.controller('yang',['$scope',function(a){
+                    a.name = 'yj10277';
+                }])
+
+                yj.controller('jing',['$scope','$http',function(b,http){
+                    b.name = '我是一只小鸟';
+                    http.get('https://cnodejs.org/api/v1/topics?page=1&limit=10').success((res)=>{
+                            console.log(res);
+                            b.dataset = res.data;
+                    });
+                }])
+    </script>
+</html>

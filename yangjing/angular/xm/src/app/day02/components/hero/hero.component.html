@@ -1,0 +1,5 @@
+<h2>hero-component</h2>
+<div *ngIf='hero'>
+      <h3>{{hero.id}}--{{hero.name}}--{{hero.age}}</h3>
+</div>
+<input type="button" value='emit' (click)='Child(100)' />

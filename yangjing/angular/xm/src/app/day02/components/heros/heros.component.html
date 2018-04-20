@@ -1,0 +1,11 @@
+<h1>heros-comonent</h1>
+<div>
+      <ul>
+            <li *ngFor='let obj of Heros' (click)='select(obj)'>
+                  {{obj.id}}--{{obj.name}}--{{obj.age}}
+            </li>
+      </ul>
+</div>
+<input type="button" value='button' (click)='get(cc)' />
+<!-- 动态属性 和自定义事件的传递-->
+<app-hero [hero]='currentHero' (aa)='pe($event)' #cc></app-hero>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css" />
+        <style type="text/css">
+                  .login-box{
+                        width: 428px;
+                        height: 298px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -80%);
+                        background: #FFFFFF;
+                      border-radius: 5px;
+                      box-shadow: -30px 30px 50px rgba(0, 0, 0, 0.32);
+                      padding: 15px;
+                        border-top: solid 1px #efefef;
+                        border-right: solid 1px #efefef;
+                      .copyright{
+                        font-size: 11px;
+                            margin: 0 auto;
+                            padding: 10px 10px 0;
+                            text-align: center;
+                            position: absolute;
+                            bottom: -32px;
+                            left: 50%;
+                            transform: translate(-50%, 0);
+                            color: #7F7F7F;
+                      }
+                  }
+        </style>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    </head>
+    
+    <body>
+            <div class="login-box">
+                        <div class="col-sm-12 b-r">
+                              <h3 class="m-t-none m-b">熊猫后台管理系统</h3>
+                              <form role="form">
+                                  <div class="form-group text-left">
+                                      <label>用户名：</label>
+                                      <input type="text" v-model="username" name="username" placeholder="请输入用户名" class="form-control required">
+                                  </div>
+                                  <div class="form-group  text-left">
+                                      <label>密码：</label>
+                                      <input type="password" v-model="pwd" name="password" placeholder="请输入密码" class="form-control required">
+                                  </div>
+                                  <div>
+                                    <input type="button" class="btn btn-primary pull-right m-t-n-xs" value="登录">
+                                  </div>
+                              </form>
+                        </div>
+                        <div class="copyright">2017 © dk by www.dk-lan.com</div>
+            </div>
+            <script type="text/javascript">
+                  $.post('http://localhost:9090/product').then((res)=>{
+                      console.log(res)
+                  })
+            </script>
+                             
+    </body>
+</html>

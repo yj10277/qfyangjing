@@ -1,0 +1,29 @@
+<!-- 管道 -->
+<h1>{{lan.qh}}</h1>
+<h1>{{'daxie' | uppercase}}</h1>
+<h2>{{3.1415926 | number:'1.4-5'}}</h2>
+<h3>{{fixedTimezone | date:'yyyy年MM月dd日'}}</h3>
+<div> 
+      <table *ngIf='dataset'>
+            <thead>
+                  <tr>
+                        <!-- 过滤显示 -->
+                        <ng-template ngFor let-key [ngForOf]='getkeys(dataset[0])'>
+                              <th  *ngIf="lie.indexOf(key) > -1">{{key}}</th>
+                        </ng-template>
+                        <!-- 正常显示  -->
+                        <!-- <th *ngFor='let key of getkeys(dataset[0])'>{{key}}</th> -->
+                  </tr>
+            </thead>
+            <tbody>
+                  <tr *ngFor='let obj of dataset'>
+                         <!-- 过滤显示和管道运用 -->
+                        <ng-template ngFor let-key [ngForOf]='getkeys(obj)'>
+                              <td *ngIf='lie.indexOf(key) > -1'>{{key=='createtime' ? (obj[key] | date:'yyyy-MM-dd HH:mm:ss'):obj[key]}}</td>
+                        </ng-template>
+                        <!-- 正常显示  -->
+                        <!-- <td *ngFor='let key of getkeys(obj)'>{{obj[key]}}</td> -->
+                  </tr>
+            </tbody>
+      </table>
+</div>

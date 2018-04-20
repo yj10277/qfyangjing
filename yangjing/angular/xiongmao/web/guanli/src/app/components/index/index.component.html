@@ -1,0 +1,23 @@
+<div>
+        <div class='header'>
+               <h1>熊猫后台管理系统</h1>  <h2>用户：<span></span><span>退出</span></h2>
+        </div>
+        <div class='body'>
+                <div class='nav'>
+                    <ul>
+                        <li class='goods' (click)='goods()'>商品管理</li>
+                        <li class='user' (click)='user()'>用户管理</li>
+                        <li>订单管理</li>
+                        <li>收藏管理</li>
+                        <li>购物车管理</li>
+                    </ul>
+                </div>
+                <div class='container'>
+                    <router-outlet></router-outlet>
+                    <span class='iconfont icon-fanhuidingbu'></span>
+                </div>
+        </div>
+</div> 
+
+
+        
